@@ -1,16 +1,28 @@
 ---
 layout:     post
-title:      "Eliminar los atributos extendidos de ficheros guardados con Textmate"
-date:       2010-05-28 20:13:00
+title:      "Implementar una autenticación http digest con Rails"
+date:       2010-05-30 03:27:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
 ---
 
-[Macromates](http://manual.macromates.com/en/saving_files.html)  
+Para exigir que la conexión http se autentique por **HTTP Digest** en Rails, hay que ejecutar el siguiente código:
 
-Para eliminar el uso de atributos extendidos del **TextMate** ejecutar la siguiente linea:
+	# ... ApplicationController class
+	private  
+		DUsers = {"user" => "password"}  
+		def digest_authenticate  
+			realm = "application"  
+			authenticate_or_request_with_http_digest(realm) do |name|  
+			DUsers[name]  
+		end  
+	end  
 
-	defaults write com.macromates.textmate OakDocumentDisableFSMetaData 1  
+... y ejecutar este código antes de la invocación a nuestro método de controlador:
 
-Esto eliminará la **@** de los permisos de los ficheros que veríamos al ejecutar un `ls -al` (-rw-r--r--@).  
-También evitará que al copiar estos ficheros a sistemas que no soporten atributos extendidos(como Samba), se creen ficheros de nombre ***._filename***
+	 class ExampleController < ApplicationController  
+	 before_filter :digest_authenticate, :only => ['index']  
+
+	 	def index  
+	 	end  
+	 end  
