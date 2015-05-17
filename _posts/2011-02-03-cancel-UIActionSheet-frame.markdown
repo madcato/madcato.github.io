@@ -14,4 +14,4 @@ To solve this problem you must add the UIActionSheet to the tabBar view, as:
 
 ...or the current tab bar.  
 
-![](img/tumblr_inline_mjpapsvhMb1qz4rgp.png)
+![]({{ site.url }}/img/tumblr_inline_mjpapsvhMb1qz4rgp.png)
