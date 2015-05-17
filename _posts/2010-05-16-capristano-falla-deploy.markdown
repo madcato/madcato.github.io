@@ -9,20 +9,24 @@ header-img: "img/post-bg-05.jpg"
 Son muchos los fallos que nos podemos encontrar al realizar un deploy con Capristano.  
 Voy a comentar uno de ellos. Este fallo se produce cuando al ejecutar un cap deploy nos devuelve el siguiente error:
 
-	executing "svn checkout -q -r4 svn+ssh://root@[server_name]/root/[...] /var/www/html/[...]/releases/20100515165617 && (echo 4 > /var/www/html/[...]/releases/20100515165617/REVISION)"  
-	servers: ["[server_name]"]  
-	[server_name] executing command  
-	** [[server_name] :: err] Address [ip.ip.ip.ip] maps to [server_name], but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!  
-	** [[server_name] :: err] Permission denied, please try again.  
-	** [[server_name] :: err] Permission denied, please try again.  
-	** [[server_name] :: err] Permission denied (publickey,gssapi-with-mic,password).  
-	** [[server_name] :: err] svn: Connection closed unexpectedly  
-	command finished[/shell]  
+{% highlight bash %}
+executing "svn checkout -q -r4 svn+ssh://root@[server_name]/root/[...] /var/www/html/[...]/releases/20100515165617 && (echo 4 > /var/www/html/[...]/releases/20100515165617/REVISION)"  
+servers: ["[server_name]"]  
+[server_name] executing command  
+** [[server_name] :: err] Address [ip.ip.ip.ip] maps to [server_name], but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!  
+** [[server_name] :: err] Permission denied, please try again.  
+** [[server_name] :: err] Permission denied, please try again.  
+** [[server_name] :: err] Permission denied (publickey,gssapi-with-mic,password).  
+** [[server_name] :: err] svn: Connection closed unexpectedly  
+command finished[/shell]  
+{% endhighlight %}
 
 Sin embargo, si ejecutamos este código directamente en el servidor,...  
 
+{% highlight bash %}
 svn+ssh://root@[server_name]/root/[...] /var/www/html/[...]/releases/20100515165617 && (echo 4 > /var/www/html/[...]/releases/20100515165617/REVISION)[/shell]
 ..., funciona perfectamente.
+{% endhighlight %}
 
 La causa de este error es que **capristano** espera que la autenticación del protocolo ssh funcione automáticamente usando la clave pública. Pero por algún motivo que desconozco, esta autenticación falla.
 
@@ -30,6 +34,8 @@ Para solucionar este problema podemos usar el siguiente método:
 
 En el fichero ***Capfile*** de nuestro proyecto Rails incluir la siguiente linea.
 
-	default_run_options[:pty] = true  
+{% highlight bash %}
+default_run_options[:pty] = true  
+{% endhighlight %}
 
 Al aplicar este cambio y ejecutar el **cap deploy** capristano nos pedirá que introduzcamos el pasword de nuestra conexión ssh con el servidor. No es una solución bonita, pero funciona.
