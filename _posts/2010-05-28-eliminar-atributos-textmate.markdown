@@ -3,7 +3,7 @@ layout:     post
 title:      "Eliminar los atributos extendidos de ficheros guardados con Textmate"
 date:       2010-05-28 20:13:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+header-img: "img/post-bg-04.jpg"
 ---
 
 [Macromates](http://manual.macromates.com/en/saving_files.html)  
