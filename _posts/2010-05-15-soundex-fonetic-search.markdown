@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Bases de datos de códigos de barras."
+title:      "Bases de datos de códigos de barras"
 date:       2010-05-18 20:06:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"

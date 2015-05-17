@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "Usando http digest authentication con Ruby."
+title:      "Usando http digest authentication con Ruby"
 date:       2010-05-26 15:23:00
-author:     "Start Bootstrap"
+author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
 ---
 
