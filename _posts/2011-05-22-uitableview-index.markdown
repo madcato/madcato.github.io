@@ -1,0 +1,23 @@
+---
+layout:     post
+title:      "UITableView index"
+date:       2011-05-22 13:19:00
+author:     "Daniel Vela"
+header-img: "img/post-bg-01.jpg"
+---
+
+You can generate the index of the tables with the class **UIlocalizedIndexedCollation (UIKit)**.
+
+Generates an index from **A** to **Z**, including the **#** symbol.
+
+To add the symbol search, add the predefined constant **UITableViewIndexSearch** to the array.
+
+Finally, to move the table in the position of the browser, use the following code in the function **sectionForSectionIndexTitle**.
+
+{% highlight objective-c %}
+if([title isEqualToString:UITableViewIndexSearch]){  
+    [self.tableView setContentOffset:CGPointZero animated:NO];  
+}  
+{% endhighlight %}
+
+![table index]({{ site.url }}/assets/tumblr_inline_mjum47E6dg1qz4rgp.png)
