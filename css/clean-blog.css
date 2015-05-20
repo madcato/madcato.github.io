@@ -30,6 +30,9 @@ a img:hover,
 a img:focus {
   cursor: zoom-in;
 }
+article a {
+	text-decoration:underline;
+}
 blockquote {
   color: #808080;
   font-style: italic;
@@ -352,6 +355,7 @@ form .row:first-child .floating-label-form-group {
   padding: 10px 5px;
   background-color: white;
   border-radius: 0;
+  text-decoration:none;
 }
 @media only screen and (min-width: 768px) {
   .pager li > a,

@@ -1,0 +1,255 @@
+---
+layout:     post
+title:      "Curso git"
+date:       2013-09-18 06:41:00
+author:     "Daniel Vela"
+header-img: "img/post-bg-06.jpg"
+---
+
+## 1. Introducción
+
+Con **git** el respositorio de trabajo se encuentra en el directorio raiz del proyecto. En concreto se encuantra en el directorio oculto de nombre *.git* .
+
+En este directorio se almacen todos los *commits*, versiones y ramas de todos archivos del proyecto.
+
+La principal caracterítica de **git** es la posibilidad de trabajar con diferentes respositorios remotos. Con **git** es muy sencillo compartir código entre diferentes programadores o enviar el código definitivo a un repositorio de producción o preproducción sin perder el control de versiones en nigún momento.
+
+### Instalación de git en un Mac
+
+Git viene incluido con las utilidades en linea de comandos de Xcode. También se pueden descargar directamente de [git-osx-installer for Mac OS X](http://code.google.com/p/git-osx-installer/)
+
+#### Configurar
+
+	$git config --global user.name "Your name here"   
+	$git config --global user.email "yourmail@here.com"   
+	# optional, but recommended
+	$git config --global merge.tool vimdiff    
+	$git config --global core.editor vim   
+	$git config --global color.ui true   
+
+## 2. Comandos básicos de control
+
+Para inicializar la gestión de versiones de **git** usar el comando *init*.
+
+	$ cd project
+	$ git init
+	
+Esto creará en subdirectorio *.git* . En este directorio se almacenarán los diferentes *commits*. Pero inicialmente se encuantra vacío: el comando *init* no añade los ficheros del proyecto al repositorio. Para ello hay que usar el comando *add*
+
+	$ git add .
+	
+El comando *add* es recursivo. Al indicar un directorio como parámetro, se añadirá ese directorio y todos sus ficheros y subdirectorios recursivamente.
+
+También se puede usar este comando para añadir al repositorio un único fichero.
+
+	$ git add README
+	
+Sin embargo el comando *add* no añade el fichero al repositorio directamente. Lo que hace es añadirlo a una zona virtual del respositorio llamada **stage**. Para añadir al respositorio los cambios o los ficheros, primero se debe añadir al **stage** aquellos ficheros que han sido modificados o creados. Una vez hecho esto, se puede añadir los cambios al respositorio con en comando *commit*.
+
+	$ git commit -m 'first commit'
+	
+El comando *commit* requiere un mensaje. Si no se indica un texto, aparecerá el editor de texto configurado para añadir un texto.
+
+Para conocer el estado de los fichero usar el comando:
+
+	$ git status
+	
+Es recomendable haber configurado git con el flag ***color.ui*** puesto a ***true***
+
+## 3. Ramas
+
+Para crear una rama usar:
+
+	$ git branch new_branch
+	
+Esto creará una nueva rama de desarrollo como copia del último *commit*. Para crear una nueva rama es remomendable haber guardado o deshecho todos los cambios en el directorio actual. En caso contrario, git avisará de que no puede crear una nueva rama en un directorio con cambios. 
+
+Para cambiar de ramas se usa el comando *checkout*
+
+	$ git checkout new_branch
+	
+Para mezclar ramas:
+
+	$ git merge branch1
+	
+Esto mezclará la rama actual con la rama que se indique como parámetro. Además creará un nuevo *commit* en la rama activa. 
+
+En caso de existir conflictos, se deberá resolver dichos conflictos antes de poder crear en nuevo *commit*.
+
+### Fastforward
+
+Hay casos en los que, a la hora de realizar una mezcla, se produce lo que se denomina un **fastforward**. 
+
+Cuando se realiza un cambio de rama, la rama original es posible que se mantenga inalterada desde ese momentos. Si es así, al realizar el merge con la rama, git se da cuenta que no tiene que realizar mezcla alguna, si no simplemente cambiar el puntero HEAD del último *commit* de la rama original al puntero HEAD de la nueva rama. A esto se le denomina **fastforward**. 
+
+El problema de estos **fastforward** es que la rama nueva desaparece sin dejar rastro. Si queremos mantener dicha rama o crear un nuevo commit en la rama original, se puede usar el parámetro *--no-ff* .
+
+	$ git merge --no-ff branch1 
+	
+Esto evitará el **fastforward**.
+
+## 4. Deshaciendo cambios
+
+Hay varias maneras de deshacer los cambios 
+
+### Evitar que un cambio se añada a un *commit*
+
+Si hemos añadido un fichero al *stage* por error, podemos quitarlo con el comando **reset**. De esta manera evitaremos que sea añada al *commit*. 
+
+	$ git reset HEAD file
+
+### Cambiando el último *commit*
+
+Si en el último *commit* olvidaste añadir un fichero, se puede usar el parámetro **--ammend** para añadir un cambio al último *commit* realizado.
+
+	$ git commit -m 'first commit'
+	$ git add file
+	$ git commit --ammend
+	
+### Eliminando los cambios de un fichero local
+
+Si hemos modificado por error un fichero o qqueremos volver a una versión previa, podemos usar el comando **checkout**. Este comando extrae del repositorio la versión que le indiquemos y sobreescribe el fichero que se encuentra en el directorio de trabajo. Por defecto este comando extrae la última versión de la rama actual.
+
+	$ git checkout -- file
+	
+#### Eliminando el último *commit*
+	
+Si hemos realizado un *commit* erroneamente, podemos desahcerlo con el comando **reset**:
+
+	$ git reset --hard HEAD^
+	
+Para eliminar varios *commits* se usar el parámetro *HEAD~3*
+
+
+## 5. Resolviendo conflictos
+
+Un conflicto se puede resolver de dos maneras:
+
+### Editar el fichero con conflicto
+
+Git marca los conflictos en los ficheros de texto usando los siguientes marcadores:
+
+1. <<<<<<< HEAD
+2. =======
+3. \>\>\>\>\>\>\> branch
+
+El texto que se encuentra entre los marcadores 1 y 2, es el texto de la rama activa. El texto que se encuentra entre los marcadores 2 y 3, es el texto de la rama que mezclamos. 
+
+Una vez eliminados estos marcadores, debemos añadir el fichero al *stage* con el comando **add**. Una vez resueltos todos los conflictos, deberemos realizar el **commit**.
+
+### Deshacer la mezcla de un fichero conflictivo
+
+Si no queremos resolver los conflictos, podemos extrear una versión anterior del fichero para substituir a la actual conflictiva.
+
+Si queremos matener la versión de la rama activa, usaremos el modificador **--ours**:
+
+	$ git checkout --ours file
+
+Si queremos matener la versión de la rama que es mezclada, usaremos el modificador **--theirs**:
+
+	$ git checkout --theirs file
+
+
+
+## 6. Repositorios remotos
+
+Para inicializar un nuevo proyecto extrayendo los ficheros de un repositorio remoto, se debe usar el comando **clone**:
+
+	$ git clone proyect_url
+	
+Este comando no solo copia los ficheros del proyecto remoto, además configura la rama actual asosiandola con la rama remota(*track*).
+
+Cuando una rama local tiene asociada una o más ramas remotas, podemos compartir código con esas ramas. 
+
+Con el comando **pull** podemos traernos los útimos cambios realizados en la rama remota. Con el comando **push** podemos enviar a la rama remota los últimos cambios realizados.
+
+	$ git pull origin master
+	$ git push origin master
+	
+Recibe dos parámetros. Primero en nombre del repositorio remoto a usar. Segundo, el nombre de la rama remota. 
+
+Para saber que *remotes* tienes configurado una rama local usar el siguiente comando:
+	
+	$ git remote show origin
+	
+Para añadir un nuevo *remote* a un repositorio local se usa el comando **remote add**:
+	
+	$ git remote add remote_name remote_url
+	
+
+Una vez configurado el *remote*, se puede descargar todos sus ficheros y referencias con el comando **fetch**
+	
+	$ git fetch remote_name
+
+El comando **fetch** es similar a realizar un **pull**. La diferencia reside en que el comando **pull** realiza un **merge** con los cambios locales.
+
+
+### Crear repositorios en remoto
+
+Se necesitan dos cosas para crear un repositorio remoto:
+
+1. Un acceso remoto
+2. Un repositorio *bare*
+
+#### Acceso remoto
+
+Se puede usar ssh, o un directorio compartido. 
+Los protocolos que admite son:
+
+- file://
+- ssh://
+- git://
+- http://
+- https://
+
+
+#### Respositorio *bare*
+
+Un repositorio se denomina *bare* cuando no tiene un directorio de trabajo asociado. Esto hace que se pueda usar como repositorio remoto para otros repositorios de trabajo.
+
+Se puede crear un repositorio inicial bacío *bare* con el siguiente comando:
+
+	$ git init --bare
+	
+También se puede crear un repositorio *bare* clonando un repositorio existente:
+
+	$ git clone --bare url_rep new_rep
+
+
+## Información de los *commits*
+
+Para extraer información de los *commits* de la rama actual disponemos del comando **log**.
+
+	$ git log
+	
+Un comando muy útil para ver gráficamente todas las ramas y sus *merges*, además de ver los mensajes asociados es el siguiente:
+
+	$ git log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+
+## Sitios web que permiten el uso de git
+
+Websites that host Git
+
+* [GitHub](https://github.com/)
+* [Assembla](https://www.assembla.com/home)
+* [Beanstalk](http://beanstalkapp.com/)
+* [Bitcucket](https://bitbucket.org/)
+* [codebase](http://www.codebasehq.com/)
+* [Unfuddle](https://unfuddle.com/)
+
+## Como instalar git
+
+[Instalar git en Linux, Mac y Windows](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+
+## Links
+
+* [Git official site](http://git-scm.com)
+* [Git book](http://git-scm.com/book)
+* [Git reference](http://git-scm.com/docs)
+
+## GUI
+
+* [Sourcetree](http://www.sourcetreeapp.com)
+* [Github for Mac](http://mac.github.com)
+
