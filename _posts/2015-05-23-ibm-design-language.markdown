@@ -13,11 +13,14 @@ But all software developers with whom I have spoken, **stopped using this techni
 
 ## The problem
 
-Let's do some maths. If a software developer needs to focus about 15 minutes after a break to continue its work and a full Pomodoro last for 25 minutes. Then, how many minutes has the developer to write code? Just 10 minutes. If we also include the rest time, we left about 20 minutes out of 60 to be productive: too short. We all know that we can work harder. Sometimes we succeeded, even without realizing it and without stress problems. But why sometimes happened this?
+Let's do some maths. If a software developer needs to focus about 15 minutes after a break to continue its work and a full Pomodoro last for 25 minutes. Then, how many minutes has the developer to write code? Just 10 minutes. If we also include the rest time, we left about **20 minutes out of 60** to be productive: too short. We all know that we can work harder. Sometimes we succeeded, even without realizing it and without stress problems. But why sometimes happened this?
 
 ## The solution 
 
 The solution is to **increase the duration of each Pomodoro** and their breaks. This does not undermine the principles of the Pomodoro technique. The technique can be used and remains effective. Only the duration of the different phases is changed. It is very important that the Long-Pomodoros last a maximum of **90 minutes**: you can not be exceeded. If you do so, breaks must be a minimum of 20 minutes.
+
+* 90 min. Pomodoro
+* 20 min. rest
 
 This period gives us a lot of time for developing our source code. It also **avoids falling into states of stress and fatigue**.
 
@@ -36,4 +39,4 @@ Scientists have proven that the maximum period of concentration on a task is 90 
 - [Vivir es un asunto urgente](http://www.amazon.es/Vivir-es-un-asunto-urgente-ebook/dp/B008U4XE2E/ref=sr_1_1?ie=UTF8&qid=1432105788&sr=8-1&keywords=vivir+es+un+asunto+urgente)
 - [Reinventarse](http://www.amazon.es/Reinventarse-Actual-Mario-Alonso-Puig-ebook/dp/B00HRY023M/ref=sr_1_1?ie=UTF8&qid=1432105798&sr=8-1&keywords=reinventarse)
 
-[Circadian rythms]({{ site.url}}/assets/IMG_0011.jpg)
+![Circadian rythms]({{ site.url}}/assets/IMG_0011.jpg)
