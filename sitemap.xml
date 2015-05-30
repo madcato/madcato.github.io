@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://blog.veladan.org/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/about/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/contact/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/myapps/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/05/23/long-pomodoro-technique/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/03/27/ibm-design-language/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/03/26/google-agile-nosense/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/03/25/semantic-versioning/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/03/24/invoke-code-from-main-queue/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page2/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2015/03/22/marshal-ruby-object/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2014/09/24/circular-progress-control/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2014/09/23/test-joel/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2014/09/22/nuevo-testflight/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2014/02/07/grabacion-audio-ios7/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page3/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/09/18/curso-git/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/07/15/cambio-orientacion-ios6/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/07/09/commits-git-decorados/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/05/01/colored-terminal-simplificated/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/04/13/xcode-keyboard-shortcuts/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page4/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/04/12/control-grafico-ios/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/03/25/xcode-snippets/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/03/22/version-buid-xcode/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/02/13/escribir-espanol-con-teclado-americano/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2013/02/11/xcode-atajos-teclado/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page5/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/09/28/rails-tricks/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/08/09/coredata-multithread/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/08/01/bug-coredata-celdas-desaparecen/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/06/17/html5/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/06/13/css-framwork-960/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page6/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/04/08/debug-objectivec/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/04/01/ios-dimensions/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/03/11/ios-dimensions/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/01/29/static-libraries-xcode4/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/01/15/memorize/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page7/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2012/01/01/appearance-uikit/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/12/18/colored-terminal-osx/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/12/13/business-models/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/12/04/objectivec-helpers/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/11/19/background-ios-location/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page8/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/11/13/core-location-iphone-ipad/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/10/08/git-for-mac/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/08/07/ios-multiple-version-programming/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/08/05/headerdoc-for-xcode/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/08/04/grand-central-dispatch-samples/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page9/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/30/nsoperation-class/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/28/nsdate-formatter-snippets/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/25/multidevice-programming/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/20/ios-multitasking/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/18/property-declaration/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page10/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/07/04/sace-custom-nsuserdefaults/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/05/23/change-ios-executable-app-name/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/05/22/uitableview-index/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/05/11/sandbox-enviroment-iphone-development/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/05/01/subclassing-uiview/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page11/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/03/21/resource-file-data-initialization/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/03/14/xcode4-release-build-directory/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/03/09/invalid-content-size-ADBannerContentSizeLandscape/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/03/02/ignoring-build-directory-svn/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/28/sending-email-MFMailComposeViewController/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page12/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/22/floating-view/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/20/file-name-subversion/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/15/launching-app-store/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/15/objectivec-singleton/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/11/colored-terminal-osx/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page13/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/09/splash-screen/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/04/recursively-remove-directories/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/03/cancel-UIActionSheet-frame/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/02/02/xcode-breakpoints/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/01/12/internationalization-ios/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page14/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2011/01/12/youtube-screenshot/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/12/19/ios-issue-connection-operations/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/12/19/vpn-client-mac/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/06/01/rdoc-notation/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/30/atutenticaion-digest-rails/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page15/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/28/eliminar-atributos-textmate/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/26/http-digest-ruby/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/18/basededatos-de-codigos/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/16/capristano-falla-deploy/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/16/rails-sin-basededatos/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/page16/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/15/datos-zaragoza/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/15/soundex-fonetic-search/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/15/javascript-ajax-example/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+<url>
+  <loc>http://blog.veladan.org/2010/05/15/jpegcam/</loc>
+  <lastmod>2015-05-28T08:09:58+00:00</lastmod>
+</url>
+</urlset>
