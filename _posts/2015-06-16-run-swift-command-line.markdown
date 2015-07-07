@@ -16,5 +16,5 @@ $ swift fileName.swift
 Alternatively you can put the following line of text at the top of the script file and run that file
 
 {% highlight swift %}
-#!/usr/bin/env xcrun swift
+#!/usr/bin/env xcrun --sdk swift
 {% endhighlight %}
