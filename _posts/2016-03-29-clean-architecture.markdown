@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "La Arquitectura Limpia"
-date:       2016-03-29 16:02:00
+date:       2016-03-29 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
 ---
