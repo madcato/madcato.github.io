@@ -82,7 +82,7 @@ La misma técnica es usada a través de todas las fronteras en la arquitectura. 
 
 Típicamente los datos que cruzan las fronteras son estructuras de datos simples. Puedes usar estructuras básicas o simples objetos de Transferencia de Datos que prefieras. O los datos puedan ser simplemente argumentos de funciones. O puedes empaquetarlos en mapas o contruirlos como objeto. Lo importante es que solo pase a travé de las fronteras datos independientes y simples. No queremos hacer trampa y pasar *Entidades* o filas de base de datos. No queremos que las estructuras de datos de ningún tipo violen *La Regla de Dependencia*.
 
-Por ejemplo, muchos frameworks de bases de datos devuelven datos formateados como respuesta a una petición. Podríamos llamar a esto EstructuraDeFila. No queremos pasar esa estructura de fila dentro a traves de una frontera. Eso violaría *La Regla de Dependencia* porque forcaría al círculo interno a conocer algo acerca de un círculo externo.
+Por ejemplo, muchos frameworks de bases de datos devuelven datos formateados como respuesta a una petición. Podríamos llamar a esto EstructuraDeFila. No queremos pasar esa estructura de fila dentro a traves de una frontera. Eso violaría *La Regla de Dependencia* porque forzaría al círculo interno a conocer algo acerca de un círculo externo.
 
 Por lo que cuando pasamos datos através de fronteras, siempre debe ser en la forma más conveniente para el círculo interno.
 
