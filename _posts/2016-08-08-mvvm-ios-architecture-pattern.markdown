@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "MVVM architecture pattern in iOS"
+title:      "MVVM architecture pattern in iOS (improved)"
 date:       2016-08-8 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
@@ -56,3 +56,84 @@ The benefits of this design are:
 - Testability. Separating the **Model** from the **View** using a third class is the best way to test any of both without the other.
 
 I tried this achitecture in an app, and I really liked it.
+
+## Improvement
+
+Instead of creating one *didChangeXXXXXX* method for every property in the **ViewModel**, create one method didChange as an map of mehtods and use an *enum* as the index of the map.
+
+{% highlight objective-c %}
+enum GreetingViewField {
+    case greeting
+    case thing
+    case price
+}
+
+protocol GreetingViewModelProtocol: class {
+    var greeting: String? { get }
+    var thing: String? { get }
+    var price: String? { get }
+    var didChange: [GreetingViewField:((GreetingViewModelProtocol) -> ())] { get set }
+    init(person: Person)
+    func show(field: GreetingViewField)
+}
+
+class GreetingViewModel: GreetingViewModelProtocol {
+    let person: Person
+    var greeting: String? {
+        didSet {
+            self.didChange[GreetingViewField.greeting]?(self)
+        }
+    }
+    var thing: String? {
+        didSet {
+            self.didChange[GreetingViewField.thing]?(self)
+        }
+    }
+    var price: String? {
+        didSet {
+            self.didChange[GreetingViewField.price]?(self)
+        }
+    }
+    var didChange: [GreetingViewField:((GreetingViewModelProtocol) -> ())] = [:]
+    required init(person: Person) {
+        self.person = person
+    }
+    func show(field: GreetingViewField) {
+        switch field {
+        case .greeting:
+            self.greeting = "Hello" + " " + self.person.firstName + " " + self.person.lastName
+        case .thing:
+            self.thing = "Bye" + " " + self.person.firstName + " " + self.person.lastName
+        case .price:
+            self.price = "3.8"
+        }
+        
+    }
+}
+
+
+class GreetingViewController: UIViewController {
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var showGreetingButton: UIButton!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.showGreetingButton.addTarget(self, action: #selector(GreetingViewController.showGreeting), forControlEvents: .TouchUpInside)
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    var viewModel: GreetingViewModelProtocol! {
+        didSet {
+            self.viewModel.didChange[.greeting] = { [unowned self] viewModel in
+                self.greetingLabel.text = viewModel.greeting
+            }
+        }
+    }
+    @objc func showGreeting() {
+        viewModel.show(.greeting)
+    }
+}
+
+{% endhighlight %}
