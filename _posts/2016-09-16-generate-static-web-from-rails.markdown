@@ -6,6 +6,8 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
 ---
 
+**IMPORTANT:** *This method only works if the output static web files are served from a web server and the files are served from the root directory of the web server*
+
 Precompile assets with:
 {% highlight bash %} 
   $ bundle exec rake assets:precompile
