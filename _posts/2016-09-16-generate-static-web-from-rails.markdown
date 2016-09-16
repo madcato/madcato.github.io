@@ -30,6 +30,7 @@ then execute **wget** command:
 {% endhighlight %}
 
 Parameters:
+
 * **-P** prefix directory. the base directory to write web
 * **-nH** no-host-directories. Don't create the base direcotry with the site name 
 * **-m** man mirror equivalent to -r -N -l inf --no-remove-listing
