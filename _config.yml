@@ -14,5 +14,7 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","bower_components"]
 gems: [jekyll-paginate]
+sass:
+    sass_dir: bower_components/bootstrap-sass/assets/stylesheets

@@ -1,0 +1,36 @@
+{
+  "name": "veladan.com",
+  "description": "Daniel Vela professional website",
+  "main": "",
+  "authors": [
+    "Daniel Vela"
+  ],
+  "license": {
+    "type": "Apache 2.0",
+    "url": "https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE"
+  },
+  "keywords": [
+    "Daniel",
+    "Vela",
+    "Daniel",
+    "Vela",
+    "Zaragoza",
+    "freelance",
+    "autónomo",
+    "programador",
+    "programmer",
+    "programming",
+    "programador",
+    "mobil",
+    "móvil",
+    "web"
+  ],
+  "homepage": "veladan.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
