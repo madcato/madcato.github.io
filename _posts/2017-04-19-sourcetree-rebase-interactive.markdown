@@ -25,6 +25,12 @@ To use this method, first checkout the branch you want to rebase(the secondary b
 
 ![squash]({{ site.url}}/assets/squash.png)
 
+## Final result
+
+Only one thread, only one commit message. Cheers!!!
+
+![final]({{ site.url}}/assets/final.png)
+
 [Additional info from atlassian web](https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree)
 
 *In git we trust*
