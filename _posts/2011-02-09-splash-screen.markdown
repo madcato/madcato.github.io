@@ -8,13 +8,13 @@ header-img: "img/post-bg-01.jpg"
 
 Declaration(.h):
 
-{% highlight objective-c %}
+{% highlight objc %}
 UIImageView *splashView;  
 {% endhighlight %}
 
 Implementation(.m):
 
-{% highlight objective-c %}
+{% highlight objc %}
 splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];  
 splashView.image = [UIImage imageNamed:@"Default.png"];  
 [window addSubview:splashView];  

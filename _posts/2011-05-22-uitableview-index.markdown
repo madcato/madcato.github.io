@@ -14,7 +14,7 @@ To add the symbol search, add the predefined constant **UITableViewIndexSearch**
 
 Finally, to move the table in the position of the browser, use the following code in the function **sectionForSectionIndexTitle**.
 
-{% highlight objective-c %}
+{% highlight objc %}
 if([title isEqualToString:UITableViewIndexSearch]){  
     [self.tableView setContentOffset:CGPointZero animated:NO];  
 }  

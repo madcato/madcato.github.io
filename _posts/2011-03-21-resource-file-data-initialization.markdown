@@ -12,7 +12,7 @@ To initialize a NSArray with sample data or configuration data, you can store a 
 
 To retrive data use the following code:
 
-{% highlight objective-c %}
+{% highlight objc %}
 // Load the data of file: "Data.plist".  
 NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];  
 self.data = [NSArray arrayWithContentsOfFile:dataPath];

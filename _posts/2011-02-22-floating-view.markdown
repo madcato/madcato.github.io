@@ -10,7 +10,7 @@ header-img: "img/post-bg-06.jpg"
 
 To create a floating UIPickerView like the one that is included in Safari use the following code:
 
-{% highlight objective-c %}
+{% highlight objc %}
 //  
 // FloatingPickerView.h  
 // AppearingPickerView  
@@ -136,7 +136,7 @@ To create a floating UIPickerView like the one that is included in Safari use th
 
 Example of use:
 
-{% highlight objective-c %}
+{% highlight objc %}
 pickerView = [[FloatingPickerView alloc] 
                             initWithController:sharedAppDelegate.myTabBarController 
                                   withDelegate:self 

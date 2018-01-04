@@ -17,12 +17,12 @@ El problema era provocado porque cuando se ordenan objetos por una propiedad, es
 
 Para solucionarlo hay que poner el siguiente parámetro al construir el **NSSortDescriptor** de campos de texto. Para evitar problemas de ordenación de mayúscula / minúscula:
 
-{% highlight objective-c %}
+{% highlight objc %}
 selector:@selector(caseInsensitiveCompare:)
 {% endhighlight %}
 
 Quedaría así:
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
 {% endhighlight %}

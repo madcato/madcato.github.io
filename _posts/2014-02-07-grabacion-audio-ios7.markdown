@@ -14,7 +14,7 @@ Antes de iniciar la grabación con el método **record** hay que invocar el mét
 
 El objeto AVAudioRecorder requiere para su inicialización un objeto **NSDictionary** con los siguientes valores:
 
-{% highlight objective-c %}
+{% highlight objc %}
 @{AVFormatIDKey:@(kAudioFormatMPEG4AAC),
   AVSampleRateKey:@44100.0,
   AVNumberOfChannelsKey:@2,
@@ -29,7 +29,7 @@ A partir de iOS 7 se hace imprescindible crear un objeto **AVAudioSession** ante
 
 ![Sesión de grabación de audio]({{ site.url }}/assets/tumblr_inline_n0mhtxb2Q31qjhbuu.png)
 
-{% highlight objective-c %}
+{% highlight objc %}
 Ejemplo de código
 
 //

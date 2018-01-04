@@ -12,7 +12,7 @@ Cuando el controlador raíz es un objeto de las clases UINavigationController o 
 
 Para solucionar este problema podemos usar el siguiente código:
 
-{% highlight objective-c %}
+{% highlight objc %}
 #pragma mark - UITabBarController
 
 @implementation UITabBarController (Rotation_IOS6)

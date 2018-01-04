@@ -13,7 +13,7 @@ Two practices are recommended when programming with threads and CoreData:
 
 1. Create a new **NSManagedObjectContext** for each thread. The object **NSPersistentStore** can be shared among thread safely. 
 2. When is necessary sharing a **NSManagedObject** between threads, share its objectID property only. Then query that object with method:
-		{% highlight objective-c %}
+		{% highlight objc %}
 		[managedObjectContext objectWithID:objectID];
 		{% endhighlight %}
 

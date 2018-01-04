@@ -10,7 +10,7 @@ You can use GCD for thread substitutions. It needs blocks.
 
 Example of use:
 
-{% highlight objective-c %}
+{% highlight objc %}
  - (void)doTimeConsumingOperation:(id)operation {  
     dispatch_queue_t queue;  
     queue = dispatch_queue_create("com.example.operation",NULL);  
@@ -24,7 +24,7 @@ You can use **dispatch\_sync** instead **dispatch\_async** for locked code execu
 
 Another sample of code is this way to perform a delayed selector on an object:
 
-{% highlight objective-c %}
+{% highlight objc %}
  - (void)doLaterOperation:(id)operation {  
       dispatch_time_t delay;  
       delay = dispatch_time(DISPATCH_TIME_NOW, 50000 /* nanoseconds */);  
@@ -37,7 +37,7 @@ Another sample of code is this way to perform a delayed selector on an object:
 
 Finally other fine use of GCD is for creating safe singleton objects:
 
-{% highlight objective-c %}
+{% highlight objc %}
  +(MyClass *) sharedInstance {  
       static dispatch_once_t predicate;  
       static MyClass *shared = nil;  

@@ -10,7 +10,7 @@ First include **MessageUI.framework** an implement **MFMailComposeViewController
 
 Implement a method like this one an the delegate method for removing the mail controller.
 
-{% highlight objective-c %}
+{% highlight objc %}
 - (IBAction)pressentMailController:(id)sender {
  MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
  picker.mailComposeDelegate = self;

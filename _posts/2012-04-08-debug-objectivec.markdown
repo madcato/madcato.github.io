@@ -9,13 +9,13 @@ header-img: "img/post-bg-04.jpg"
 
 ## Preprocessor macros for filename, line number and function
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSLog(@"\n Function: %s\n Pretty function: %s\n Line: %d\n File: %s\n Object: %@", __func__, __PRETTY_FUNCTION__, __LINE__, __FILE__, button);
 {% endhighlight %}
 
 ## Aditional information
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSLog(@"Current selector: %@", NSStringFromSelector(_cmd));
 NSLog(@"Object class: %@", NSStringFromClass([self class]));
 NSLog(@"Filename: %@", [[NSString stringWithUTF8String:__FILE__] lasPathComponent]);
@@ -23,13 +23,13 @@ NSLog(@"Filename: %@", [[NSString stringWithUTF8String:__FILE__] lasPathComponen
 
 ## Call stack
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSLog(@"Stack trace: %@", [NSThread callStackSymbols]);
 {% endhighlight %}
 
 ## In Xcode console write
 
-{% highlight objective-c %}
+{% highlight objc %}
 po [NSThread callStackSymbols]
 {% endhighlight %}
 

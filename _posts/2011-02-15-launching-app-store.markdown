@@ -13,7 +13,7 @@ header-img: "img/post-bg-05.jpg"
 3. Right-click or control-click on the item’s name in iTunes, then choose “Copy iTunes Store URL” from the pop-up menu.
 4. Open the modified URL using an NSURL object and the -[UIApplication openURL] method.
 
-{% highlight objective-c %}
+{% highlight objc %}
 // Watch Technical Q&amp;A QA1629  
 // Launching the App Store from an iPhone application  
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/es/app/lishop/id415119777?mt=8"]];  

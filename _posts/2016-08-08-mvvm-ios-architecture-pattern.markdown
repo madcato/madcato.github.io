@@ -18,7 +18,7 @@ The view is the responsible of interact with the UI. In iOS is de *UIView* and *
 
 The **ViewModel** must declare a variable for each data that must be showed in the **View**. Then the **View** must declare a *observer* of the variable. This *observer* is invoked everytime the variable change, and then the **View** must present the new value to the user. Like the following code example:
 
-{% highlight objective-c %}
+{% highlight swift %}
 class GreetingViewModel : ViewModel {
     let person: Person
     var greeting: String? {
@@ -61,7 +61,7 @@ I tried this achitecture in an app, and I really liked it.
 
 Instead of creating one *didChangeXXXXXX* method for every property in the **ViewModel**, create one method didChange as an map of mehtods and use an *enum* as the index of the map.
 
-{% highlight objective-c %}
+{% highlight swift %}
 enum GreetingViewField {
     case greeting
     case thing

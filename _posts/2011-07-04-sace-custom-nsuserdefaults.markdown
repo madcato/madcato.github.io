@@ -8,7 +8,7 @@ header-img: "img/post-bg-03.jpg"
 
 To store objects in **NSUserDefaults** must use the class **NSKeyedArchiver**:
 
-{% highlight objective-c %}
+{% highlight objc %}
 +(void)saveCustomObject:(NSMutableArray*)object forKey:(NSString*)key  
 {  
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];  

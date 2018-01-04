@@ -15,7 +15,7 @@ To create a project from another project iPad iPhone, Xcode have a choice in a p
 
 ## UI Idiom
 
-{% highlight objective-c %}
+{% highlight objc %}
 UIDevice.h
 typedef enum {
 UIUserInterfaceIdiomPhone,

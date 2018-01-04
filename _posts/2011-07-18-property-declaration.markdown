@@ -10,7 +10,7 @@ header-img: "img/post-bg-04.jpg"
 
 ## Property declaration:
 
-{% highlight objective-c %}
+{% highlight objc %}
 @property(attributes) type name;
 {% endhighlight %}
 

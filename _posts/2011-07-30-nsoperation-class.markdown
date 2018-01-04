@@ -8,7 +8,7 @@ header-img: "img/post-bg-02.jpg"
 
 NSOperation is useful for asynchronous executions:
 
-{% highlight objective-c %}
+{% highlight objc %}
 @interface MyOp : NSOperation  
 @end  
 @implementation MyOp  
@@ -19,7 +19,7 @@ NSOperation is useful for asynchronous executions:
 {% endhighlight %}
 Sample usage:
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSOperationQueue = [[NSOperationQueue alloc] init];  
 MyOp* op = [[MyOp alloc] init];  
 [queue addOperation:op];  

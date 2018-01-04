@@ -10,12 +10,12 @@ header-img: "img/post-bg-02.jpg"
 
 A block of code is an structure with this format:
 
-{% highlight objective-c %}
+{% highlight objc %}
 ^ <return_type> <parameters> {<code>}   
 {% endhighlight %}
 
 like:
-{% highlight objective-c %}
+{% highlight objc %}
 ^BOOL(id str){return [str length] > num;}  
 ^{[local doSomething];}  
 {% endhighlight %}
@@ -23,7 +23,7 @@ This structures can be assigned or passed as a parameter or stacked.
 
 ## Iterations
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSArray* array;  
 for(id e in array) {...e...}  
 NSDictionary* dictionary;  

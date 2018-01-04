@@ -9,6 +9,6 @@ header-img: "img/post-bg-04.jpg"
 
 To invoke some code from the main queue thread in iOS use the following code:
 
-{% highlight objective-c %}
+{% highlight objc %}
 dispatch_async(dispatch_get_main_queue(), ^{ /* some code like show an alert view */ });
 {% endhighlight %}

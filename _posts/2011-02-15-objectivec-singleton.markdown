@@ -8,7 +8,7 @@ header-img: "img/post-bg-03.jpg"
 
 Include the following declarations in an existing class:
 
-{% highlight objective-c %}
+{% highlight objc %}
 // Declaration "YourClass.h"  
 @interface YourClass {  
 }  

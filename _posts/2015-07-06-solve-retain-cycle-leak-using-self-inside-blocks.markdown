@@ -6,7 +6,7 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 ---
 
-{% highlight objective-c %}
+{% highlight objc %}
 __weak id weakSelf = self;
 [someObject someMethodWithBlock:^{    
 [weakSelf someOtherMethod];

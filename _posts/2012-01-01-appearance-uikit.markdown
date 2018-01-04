@@ -15,7 +15,7 @@ With appearance kit we can set the default attributes of any UIKit control. This
 
 NavBar
 
-{% highlight objective-c %}
+{% highlight objc %}
 setBackgroundImage: forBarMetrics:  
     typedef enum{  
          UIBarMetricsDefault,  
@@ -25,13 +25,13 @@ setBackgroundImage: forBarMetrics:
 
 UIBarButtons(back button)
 
-{% highlight objective-c %}
+{% highlight objc %}
 setBackButtonBackgroundImage: forState: barMetrics:  
 {% endhighlight %}
 
 TabBar
 
-{% highlight objective-c %}
+{% highlight objc %}
 UIImage* tabBarBackground = [UIImage imageNamed:"tabbar"];  
 [[UITabBar appearance] setBackgroundImage:tabBarBackground];  
 [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:"selection"]];  

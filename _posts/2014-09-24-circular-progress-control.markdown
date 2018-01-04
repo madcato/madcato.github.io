@@ -8,7 +8,7 @@ header-img: "img/post-bg-03.jpg"
 
 ![ciruclar control]({{ site.url }}/assets/tumblr_nldejg9DJx1rjbh19o1_1280.png)
 
-{% highlight objective-c %}
+{% highlight objc %}
 override func drawRect(rect: CGRect) {        
     let π = M_PI
     let context = UIGraphicsGetCurrentContext()

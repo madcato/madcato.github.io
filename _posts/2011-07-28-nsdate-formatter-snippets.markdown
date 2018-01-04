@@ -8,7 +8,7 @@ header-img: "img/post-bg-01.jpg"
 
 ## Get a string from date object
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSDateFormatter* fmt = [[NSDateFormatter alloc] init];
 [fmt setTimeStyle:NSDateFormatterNoStyle];
 [fmt setDateStyle:NSDateFormatterLongStyle];
@@ -18,7 +18,7 @@ NSLog(@“Thanksgiving is: %@”, [fmt stringFromDate:thanksgiving]);
 
 ## Get a date object from a string
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSDateFormatter* fmt = [[NSDateFormatter alloc]init];
 [fmt setDateFormat:@“dd/MM/yyyy HH:mm”];
 [fmt setTimeZone: [NSTimeZone timeZoneWithName:@“Europe/Madrid”]]; // Use [NSTimeZone knownTimeZoneNames]; for other timezones [fmt setCalendar:cal];
@@ -28,7 +28,7 @@ NSDate* date = [fmt dateFromString:@“10/06/2010 9:30”];
 
 ## For localization use dateFormatFromTemplate
 
-{% highlight objective-c %}
+{% highlight objc %}
 NSLocale *locale = [NSLocale currentLocale];
 
 NSString *dateFormat;

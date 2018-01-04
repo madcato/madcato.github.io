@@ -27,7 +27,7 @@ For scanning the input directory for doc html and it creates and index for that 
 
 ## Function doc sample
 
-{% highlight objective-c %}
+{% highlight objc %}
 /*!  
     @function FunctionName  
     @param k param doc.  

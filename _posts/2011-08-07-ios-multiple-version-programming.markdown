@@ -8,7 +8,7 @@ header-img: "img/post-bg-05.jpg"
 
 To use classes in a later version of our SDK “Target version” use this code:
 
-{% highlight objective-c %}
+{% highlight objc %}
 Class myClass = NSClassFromString(@"UILocalNotification");  
 if(myClass) {  
     UILocalNotification* alarm = [[myClass alloc] init];  
@@ -16,7 +16,7 @@ if(myClass) {
 {% endhighlight %}
 For methods use:
 
-{% highlight objective-c %}
+{% highlight objc %}
 UIDevice* device = [UIDevice currentDevice];  
 BOOL multitaskingSupported = NO;  
 if([device respondsToSelector:@selector(isMultitaskingSupported)]) {  
@@ -26,7 +26,7 @@ if([device respondsToSelector:@selector(isMultitaskingSupported)]) {
 
 For functions use:
 
-{% highlight objective-c %}
+{% highlight objc %}
  if(&UIGraphicsBeginPDFContextToFile != NULL) {  
       UIGraphicsBeginPDFContextToFile(...);  
  }  
