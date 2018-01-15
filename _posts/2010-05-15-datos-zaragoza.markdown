@@ -9,6 +9,6 @@ header-img: "img/post-bg-03.jpg"
 
 [http://datos.zaragoza.es](http://datos.zaragoza.es)  
 
-Web del ayuntamiento de Zaragoza donde hay publicados algunos datos referentes a la capital aragonesa. Algunos actualizados diariamente como las cantidades de polen en aire.  
+Zaragoza Townhall web where it can be found some data about the capital city of Aragon. Some of then daily updated like the pollen quantity in the air.
 
-También hay información turística, enlaces de reservas y otros temas.
+Also there is turistical information, links to reservations and other issues.

@@ -6,8 +6,8 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 ---
 
-Son muchos los fallos que nos podemos encontrar al realizar un deploy con Capristano.  
-Voy a comentar uno de ellos. Este fallo se produce cuando al ejecutar un cap deploy nos devuelve el siguiente error:
+There is a lot of failures we can expect deploying with Capistrano.
+I'm going to comment one of them. This failure appears executing a 'cap deploy' command, and it returns the following error:
 
 {% highlight bash %}
 executing "svn checkout -q -r4 svn+ssh://root@[server_name]/root/[...] /var/www/html/[...]/releases/20100515165617 && (echo 4 > /var/www/html/[...]/releases/20100515165617/REVISION)"  
@@ -21,21 +21,22 @@ servers: ["[server_name]"]
 command finished[/shell]  
 {% endhighlight %}
 
-Sin embargo, si ejecutamos este código directamente en el servidor,...  
+Although, if we execute this command in the server,...
 
 {% highlight bash %}
 svn+ssh://root@[server_name]/root/[...] /var/www/html/[...]/releases/20100515165617 && (echo 4 > /var/www/html/[...]/releases/20100515165617/REVISION)[/shell]
 ..., funciona perfectamente.
 {% endhighlight %}
 
-La causa de este error es que **capristano** espera que la autenticación del protocolo ssh funcione automáticamente usando la clave pública. Pero por algún motivo que desconozco, esta autenticación falla.
+The couse of this error is that **capristano** expects that the ssh protoocol authentications works unmanned using the public key of the user. But for some reason I don't know, the authentication fails.
 
-Para solucionar este problema podemos usar el siguiente método:
+To solve this problem we can use the following method:
 
-En el fichero ***Capfile*** de nuestro proyecto Rails incluir la siguiente linea.
+In the file ***Capfile*** of our Rails project include the following line:
 
 {% highlight bash %}
 default_run_options[:pty] = true  
 {% endhighlight %}
 
+Setting this change and executing **cap deploy** capristano command ask us to type the password of the ssh connection with the server. It's not a pretty solution, but it works.
 Al aplicar este cambio y ejecutar el **cap deploy** capristano nos pedirá que introduzcamos el pasword de nuestra conexión ssh con el servidor. No es una solución bonita, pero funciona.
