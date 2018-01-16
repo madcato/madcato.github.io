@@ -6,7 +6,7 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
 ---
 
-Este código ejemplo muestra como usar la autenticación de tipo Digest con ruby. En la versión 1.8.6 no está soportado nativamente este método.
+This sample code shows how to use authentication of type *Digest* with ruby. From version 1.8.6 is supported natively.
 
 {% highlight ruby %}
 #! /usr/bin/ruby  
