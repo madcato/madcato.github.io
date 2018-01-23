@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Eliminar los atributos extendidos de ficheros guardados con Textmate"
+title:      "Eliminate extended attributes of files saved with Textmate"
 date:       2010-05-28 20:13:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
@@ -8,9 +8,9 @@ header-img: "img/post-bg-04.jpg"
 
 [Macromates](http://manual.macromates.com/en/saving_files.html)  
 
-Para eliminar el uso de atributos extendidos del **TextMate** ejecutar la siguiente linea:
+To eliminate the extended attributes of **Textmate** execute the following command on Terminal: 
 
 	defaults write com.macromates.textmate OakDocumentDisableFSMetaData 1  
 
-Esto eliminará la **@** de los permisos de los ficheros que veríamos al ejecutar un `ls -al` (-rw-r--r--@).  
-También evitará que al copiar estos ficheros a sistemas que no soporten atributos extendidos(como Samba), se creen ficheros de nombre ***._filename***
+This will eliminate the **@** of the permissions of the files, those which we can see executing `ls -al` (-rw-r--r--@)
+Also this will allow to copy this files to systems that doesn't suppport extended attributes (like Samba), and not see files ***._filename*** created at all.

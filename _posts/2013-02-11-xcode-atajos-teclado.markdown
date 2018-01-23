@@ -1,43 +1,43 @@
 ---
 layout:     post
-title:      "Xcode - atajos de teclado"
+title:      "Xcode - keyboard shortcuts"
 date:       2013-02-11 16:04:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
 ---
 
 
-Estos son los atajos de teclado que mas suelo usar:
+This keyboard shortcuts are the more useful:
 
-**Cmd+Alt+º**	Poner breakpoint    
-**Cmd+Ctrl+Up/Down**	Cambiar de .h a .m y viceversa    
-**Cmd+Ctrl+Left**	Volver al fichero abierto anteriormente    
-**Cmd+Ctrl+Right**	Retornar al siguiente fichero abierto    
-**Cmd+Enter**	Vista normal    
-**Cmd+Alt+Enter**	Vista de asistente    
-**Cmd+1**	Mostrar Project Navigator    
-**Cmd+0**	Esconder Project Navigator    
-**Cmd+Alt+0**	Esconder/Mostrar las utilidades    
-**Cmd+Shift+y**	Esconder/Mostrar output    
-**Cmd+Alt+y**	Continuar debug    
-**F6**	Paso a paso debug    
-**Cmd+f**	Buscar    
-**Cmd+Shift+f**	Buscar en todo el proyecto    
-**Cmd+e**	Usar selección para buscar    
-**Cmd+g**	Buscar siguiente    
+**Cmd+Alt+º**	Set a breakpoint    
+**Cmd+Ctrl+Up/Down**	Change from .h to .m files and viceversa    
+**Cmd+Ctrl+Left**	Return to previous document    
+**Cmd+Ctrl+Right**	Return tho the next open document    
+**Cmd+Enter**	Normal view    
+**Cmd+Alt+Enter**	Assistant view    
+**Cmd+1**	Show Project Navigator    
+**Cmd+0**	Hide Project Navigator    
+**Cmd+Alt+0**	Hide/Show utilities    
+**Cmd+Shift+y**	Hide/Show output    
+**Cmd+Alt+y**	Continue debug    
+**F6**	Step to step debug    
+**Cmd+f**	Find    
+**Cmd+Shift+f**	Find text in all project    
+**Cmd+e**	Use selection to find    
+**Cmd+g**	Find next    
 **Cmd+b**	Build    
 **Cmd+r**	Run    
 **Cmd+u**	Unit test    
-**Cmd+’**	Ir al siguiente Error o Warning    
-**Cmd+.**	Parar el debug o ver autocompletar    
-**Esc**	Ver autocompletar    
+**Cmd+’**	Go to the next Error or Warning    
+**Cmd+.**	Stop debug o see autocomplete    
+**Esc**	See autocomplete    
 **Cmd+Shift+o**	Open Quickly (Amazing!!!!!!!!)    
-**Ctrl+6**	Buscar método en el fichero actual    
-**fn+Alt+Up/Down**	Paginar moviendo el cursor    
-**Cmd+Shift+7**	Comentar lineas seleccionadas    
-**Cmd+Ctrl+j**	Saltar a la definición del símbolo seleccionado    
-**Cmd+Ctrl+e**	Editar a la vez todas las ocurrencias del simbolo debajo el cursor    
-**Cmd+Shift+2**	Abrir Organizer    
-**Cmd+Alt+j**	Filtrar en navegador    
-**Cmd+Alt+l**	Filtrar en libraría    
+**Ctrl+6**	Find method in the open file    
+**fn+Alt+Up/Down**	Paginate moving the cursor    
+**Cmd+Shift+7**	Commant out selected lines    
+**Cmd+Ctrl+j**	Jump to the definition of the selected symbol    
+**Cmd+Ctrl+e**	Edit all occurrences below cursor all at once    
+**Cmd+Shift+2**	Open Organizer    
+**Cmd+Alt+j**	Filter in navegador    
+**Cmd+Alt+l**	Filter in library    
     

@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Implementar una autenticación http digest con Rails"
+title:      "Implement http digest authentication with Rails"
 date:       2010-05-30 03:27:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 ---
 
-Para exigir que la conexión http se autentique por **HTTP Digest** en Rails, hay que ejecutar el siguiente código:
+In order to require an http connection to authenticate using **HTTP Digest** in Rails, execute the following code:
 
 	# ... ApplicationController class
 	private  
@@ -18,7 +18,7 @@ Para exigir que la conexión http se autentique por **HTTP Digest** en Rails, ha
 		end  
 	end  
 
-... y ejecutar este código antes de la invocación a nuestro método de controlador:
+... and execute this code before the invocation to our controller endpoint:
 
 	 class ExampleController < ApplicationController  
 	 before_filter :digest_authenticate, :only => ['index']  

@@ -1,38 +1,37 @@
 ---
 layout:     post
-title:      "Escribir en español con el teclado americano"
+title:      "Write in spanish with an american keyboard"
 date:       2013-02-13 13:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 ---
 
 
+Writing code is comfortable to use a keyboard configured in english(**US Extended**). But If you get used to use this mode, is hard to use the spanish keyboard at the same time to write in spanish. Thus, the best is to get use to this english keyboard uniquely and use it always even when writing spanish texts.
 
-Cuando programas es muy cómodo usar el teclado configurado en idioma inglés(**US Extended**). Pero si te acostumbras a usar este modo, es una pesadez usar a la vez un teclado en español para escribir en español. Así pues, lo mejor es acostumbrarse a un único teclado y usarlo siempre tanto para programar como para escribir textos.
+If you want to user **american keyboard**, you should to learn the key combinations needed to write the specific spanish writing symbols not used by english writers. Symbols like ñ, accent, open exclamation or interrogation.
 
-Si queréis usar el **teclado americano**, tendréis que aprender las combinaciones de teclado necesarias para escribir los símbolos que se usan en español pero no en inglés. Símbolos como la eñe, los acentos, abrir exclamación o interrogación.
+The keyboard shorcuts for **“U.S Extended”** configuration in a **Mac OS X** are:
 
-Los atajos de teclado para la configuración **“U.S Extended”** en un **Mac OS X** son:
+* Acents: **áéíóú**    
+**Alt + e** following **a, e, i, o, u**
 
-* Acentos: **áéíóú**    
-**Alt + e** y seguidamente **a, e, i, o, u**
-
-* Abrir interrogante: **¿**    
+* Open interrogant: **¿**    
 **Alt + Shift + /**
 
-* Abrir admiración: **¡**    
+* Open exclamation: **¡**    
 **Alt + 1**
 
-* Símbolo del euro: **€**    
+* Euro: **€**    
 **Alt + Shift + 2**
 
-* La eñe: **ñ**    
-**Alt + n** y seguidamente pulsa **n** otra vez
+* The eñe: **ñ**    
+**Alt + n** following another **n** otra vez
 
-* Simbolo de ordinal masculino: **º**    
+* Ordnial symbol masculine: **º**    
 **Alt + 0**
 
-* Simbolo de ordinal femenino: **ª**    
+* Ordinal symbol femenine: **ª**    
 **Alt + 9**
 
 * Diéresis: **¨**    
