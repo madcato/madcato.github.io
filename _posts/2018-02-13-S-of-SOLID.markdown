@@ -1,0 +1,82 @@
+---
+layout:     post
+title:      "S of SOLID (1/5)"
+date:       2018-02-12 23:00:00
+author:     "Dan[iel Vela"
+header-img: "img/post-bg-05].jpg"
+---
+
+This is the first of 5 post talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:
+
+* [**S** Single responsability principle]({% post_url 2018-02-13-S-of-SOLID %})
+* **O** Open/Closed principle
+* **L** Liskov substitution principle
+* **I** Interface segregation principle
+* **D** Dependency inversion principle
+
+## Single responsability principle
+
+One class must have only one responsability. Meaning with responsability any type of task, duty or obligation. The reasons for doing this is to make classes more robust, because if it has only one thing to do, the probability to change this class is lower than if it has multiple responsabilities. If multiple duties are solved with one class, the danger of introducing a bug to a duty when changing another is high.
+
+This principle also helps a lot in order to make testable code, because is easier to test small classes with a few functionalities than hudge classes with tons of functions.
+
+### Ways to separate functionality among classes
+
+There is only two ways to distribute the methods of one class to others:
+
+1. Using inheritance
+2. Using segregation
+
+With inheritance one class takes some methods from childs or parents classes.     
+With segregation one class delegates part of the methods to an instance that is part of the class itself.     
+
+### Sample
+
+This shape class has two responsabilities, to be a circle and sometimes a square
+
+{% highlight ruby %}
+class Shape
+	def makeCircle(radious)
+		@type = :circle
+		@radious = radious
+	end
+	def makeSquare(side)
+		@type = :square
+		@side = side
+	end
+	def area
+		if @type == :circle
+			2 * M_PI * @radious
+		elseif @type == :square
+			side * side
+		end
+	end
+end
+{% endhighlight %}
+
+It's better to define two classes, one for each responsability
+
+{% highlight ruby %}
+class Shape
+end
+
+class Circle < Shape
+	def make(radious)
+		@radious = radious
+	end
+	def area
+		2 * M_PI * @radious
+	end
+end
+
+class Square < Shape
+	def make(side)
+		@side = side
+	end
+	def area
+		side * side
+	end
+end
+{% endhighlight %}
+
+It's easier to mantain and to expand.
