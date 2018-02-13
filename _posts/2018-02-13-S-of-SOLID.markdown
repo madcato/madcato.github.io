@@ -2,11 +2,11 @@
 layout:     post
 title:      "S of SOLID (1/5)"
 date:       2018-02-12 23:00:00
-author:     "Dan[iel Vela"
-header-img: "img/post-bg-05].jpg"
+author:     "Daniel Vela"
+header-img: "img/post-bg-05.jpg"
 ---
 
-This is the first of 5 post talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:
+This is the first of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:
 
 * [**S** Single responsability principle]({% post_url 2018-02-13-S-of-SOLID %})
 * **O** Open/Closed principle
@@ -36,21 +36,21 @@ This shape class has two responsabilities, to be a circle and sometimes a square
 
 {% highlight ruby %}
 class Shape
-	def makeCircle(radious)
-		@type = :circle
-		@radious = radious
-	end
-	def makeSquare(side)
-		@type = :square
-		@side = side
-	end
-	def area
-		if @type == :circle
-			2 * M_PI * @radious
-		elseif @type == :square
-			side * side
-		end
-	end
+  def makeCircle(radious)
+    @type = :circle
+    @radious = radious
+  end
+  def makeSquare(side)
+    @type = :square
+    @side = side
+  end
+  def area
+    if @type == :circle
+      2 * M_PI * @radious
+    elseif @type == :square
+      side * side
+    end
+  end
 end
 {% endhighlight %}
 
@@ -61,21 +61,21 @@ class Shape
 end
 
 class Circle < Shape
-	def make(radious)
-		@radious = radious
-	end
-	def area
-		2 * M_PI * @radious
-	end
+  def make(radious)
+    @radious = radious
+  end
+  def area
+    2 * M_PI * @radious
+  end
 end
 
 class Square < Shape
-	def make(side)
-		@side = side
-	end
-	def area
-		side * side
-	end
+  def make(side)
+    @side = side
+  end
+  def area
+    side * side
+  end
 end
 {% endhighlight %}
 
