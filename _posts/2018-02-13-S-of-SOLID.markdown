@@ -47,7 +47,7 @@ class Shape
   def area
     if @type == :circle
       2 * M_PI * @radious
-    elseif @type == :square
+    elsif @type == :square
       side * side
     end
   end
