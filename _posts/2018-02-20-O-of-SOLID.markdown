@@ -55,8 +55,8 @@ It's better to define two classes, one for each responsability
 
 {% highlight ruby %}
 class Shape
-	def area
-	end
+  def area
+  end
 end
 
 class Circle < Shape
