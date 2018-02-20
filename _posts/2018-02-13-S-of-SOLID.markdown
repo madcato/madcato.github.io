@@ -20,63 +20,69 @@ One class must have only one responsability. Meaning with responsability any typ
 
 This principle also helps a lot in order to make testable code, because is easier to test small classes with a few functionalities than hudge classes with tons of functions.
 
-### Ways to separate functionality among classes
-
-There is only two ways to distribute the methods of one class to others:
-
-1. Using inheritance
-2. Using segregation
-
-With inheritance one class takes some methods from childs or parents classes.     
-With segregation one class delegates part of the methods to an instance that is part of the class itself.     
-
 ### Sample
 
-This shape class has two responsabilities, to be a circle and sometimes a square
+This **User** class has too many responsabilities:
 
 {% highlight ruby %}
-class Shape
-  def makeCircle(radious)
-    @type = :circle
-    @radious = radious
+class User
+  attr :name
+  attr :login
+  attr :website
+  attr :phone
+  def initialize(name, login, website, phone)
+    @name = name
+	@login = login
+	@website = website
+	@phone = phone
   end
-  def makeSquare(side)
-    @type = :square
-    @side = side
+  
+  def printUser(printContext)
+   # print code
   end
-  def area
-    if @type == :circle
-      2 * M_PI * @radious
-    elsif @type == :square
-      side * side
-    end
+  
+  def showUser(screen)
+  	# UI Code
+  end
+  
+  def saveUser(fileSystem)
+   # file save
   end
 end
 {% endhighlight %}
 
-It's better to define two classes, one for each responsability
+Programming this way **User** class has too many dependencies. It depends on the file system, on the print system, and the UI. It's better to distribute this beheiviour throw different classes.
 
 {% highlight ruby %}
-class Shape
+class User
+  attr :name
+  attr :login
+  attr :website
+  attr :phone
+  def initialize(name, login, website, phone)
+    @name = name
+	@login = login
+	@website = website
+	@phone = phone
+  end
+  
+class UserPrinter1
+  def print(user)
+   # print code
+  end
 end
 
-class Circle < Shape
-  def make(radious)
-    @radious = radious
-  end
-  def area
-    2 * M_PI * @radious
+class UserUI
+  def show(user)
+  	# UI Code
   end
 end
 
-class Square < Shape
-  def make(side)
-    @side = side
-  end
-  def area
-    side * side
+class UserFS
+  def save(user)
+   # file save
   end
 end
 {% endhighlight %}
 
-It's easier to mantain and to expand.
+This way the new classes are the ones how are dependant on the rest of the system and no the **User** class.
