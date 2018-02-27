@@ -1,62 +1,60 @@
 ---
 layout:     post
-title:      "Números ‘Version’ y ‘Build’ de los proyectos Xcode"
+title:      "‘Version’ and ‘Build’ numbers in the Xcode projects"
 date:       2013-03-22 12:01:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
 ---
 
 
-
-Ambos códigos se encuentran en los Settings de Xcode:
+Both codes are in the Xcode Settings:
 
 ![Xcode: Version and Build]({{ site.url}}/assets/tumblr_inline_mk26jyIqZ41qz4rgp.png)
 
 
-Ambas se pueden modificar en el fichero de configuración *.plist* de cualquier proyecto en Xcode:
+Both can be modified in the configuration file *.plist* of any Xcode project:
 
 * Version: **CFBundleShortVersionString**
 * Build: **CFBundleVersion**
 
-## Diferencias
+## Differences
 
-Ambos números se pueden usar de igual manera. Se puede usar el mismo identificador, pero ese no es el propósito original de Apple.
+Both numbers can be used the same way. Both can hold the same number, but that is not the original propouse of Apple.
 
-* El número de **Version** suele ser un identificador que usamos para indicar a los usuarios finales cual es la funcionalidad de una determinada versión de software: *Version 1.2.1*
-* El número de **Build** suele indicar un número o código incremental para indicar que el paquete de instalación es superior a los anteriores.
+* The **Version** number usually is an identificator we use to tell final users what is the funcitonality set of a software version: *Version 1.2.1*
+* The  **Build** number usually indicates an incremental code to indicate the installation package is subsequent to others.
 
-## ¿Para qué se suelen usar estos dos números?
+## For what these two numbers are used?
 
-Según la documentación de Apple, estas son las características que deben cumplir los números de version y build.
+Regarding Apple documentation, these are the characteristics that must fulfill the version and buld numebrs:
 
-**Version** suele estar compuesto por uno, dos o tres números enteros separados por punto:
+**Version** usually are compund of one, two or three integer numbers separated by a coma:
 
-1. El primero número indica la **versión mayor** de software.
-2. El segundo indica una **versión menor**, o sea, algún añadido a la versión mayor.
-3. El tercer número indica una **corrección**.
+1. The fist number indicates the **mayor version** of the software.
+2. The second indicates a **minor version**, that is, some additional functionality of a mayor version.
+3. The third number indicates a **fix**
 
-Por poner un ejemplo: la versión **1.1** es igual a la versión **1.0** con algúna nueva funcionalidad. La versión **2** podría ser un cambio grande de la funcionalidad de la aplicación: un cambio mayor.
+As an example: version **1.1** is equal to the **1.0** version with some new functionality. Version **2** could be a big change in the functionality of the app: a bigger change, like a whole redesign.
 
-Si por ejemplo, se encontraran varios fallos en la versión **1.2**, podríamos corregir dichos fallos y lanzar la versión **1.2.1** con los bugs solucionados.
+If, as an example, some bugs are found in the version **1.2**, we could fix those bugs and launch version **1.2.1**.
 
-**Build** suele usarse como un valor incremental que nos sirve para distinguir los paquetes de instalación independietemente de su versión.
+**Build** usually is used as an incremental value to distinguish the installation packages independently of its version. It's usefull when **we had distributed different installation packages of the same version**. This happends frequently in testing teams and distributing betas through out users. If we make beta tests of a particular version (like 1.3.1), we'll have to know how to distinguish between a version created this last week and a package created last month of the same version. To avoid confusions is very useful to use a **Build** code.
 
-Es muy útil cuando **hemos destribuido varias instalaciones diferentes de la misma versión**. Esto suele ocurrir frecuentemente en los equipos de testeo y al distribuir betas entre lo usuarios. Si realizamos pruebas beta de una versión determinada(pongamos la 1.3.1), tendremos que saber distinguir entre la versión distribuida esta semana, de la que se distribuyó la semana pasada. Para no confundirlas es termendamente útil usar un código **Build**.
+> In your Mac, click over the Xcode menu the first option "About Xcode" you'll see both numbers: **Version** and **Build**. Example: Version 4.6.1 (4H512). Many other Apple apps use this scheme.
 
-> En tu Mac, pulsa sobre el menú de Xcode la primera opción “About Xcode” verás ambos números: el **Version** y el **Build**. Por ejemplo: Version 4.6.1 (4H512). Muchas otras apps de Apple suelen usar este convenio.
+## When uploading apps to iTunes Connect
 
-## Al subir una app al iTunes Connect
+There are two important points regarding the upload of a new version. In the screens of [iTunes Connect](https://itunesconnect.apple.com/)
 
-Hay dos puntos importantes a tener en cuenta al subir una nueva versión. En las pantallas del [iTunes Connect](https://itunesconnect.apple.com/)
-
-1. Al crear la nueva versión, lo que se nos pide es indicar nuestro número de **Version**. Este debe ser igual al que hemos indicado en el proyecto. Si es diferente, nos dará un error al subir la app. 
+1. When you create a new version, we have to indicate our **Version** number. This number must be equal to the project one. If it's different, an error would happen uploading the app.
 	![iTunes Connenct: new Version]({{ site.url }}/assets/tumblr_inline_mk26le1gVo1qz4rgp.png)
-2. El **Build** del proyecto debe ser superior a los enviados anteriormente. Si es igual o inferior, no se nos permitirá subir ese instalable: **hay que incrementarlo siempre antes de subir la app**. Puedes ver el número de **Build** de tus apps ya subidas en la sección *“Binary Details”* del “*Summary*” 
+2. The **Build** of the project must be superior than the uploaded previously. If is equal of inferior, the package can't be uploaded: **you must increment always before upload it**.  You can see the number of the **Build** of your apps already uploaded in the section *“Binary Details”* in “*Summary*” 
 	![iTunes Connenct: binary details]({{ site.url }}/assets/tumblr_inline_mk26kveFyQ1qz4rgp.png)
 
-La **Version** es un número que es mejor cambiarlo a mano cada vez que se añade funcionalidad. Sin embargo el **Build** se puede automatizar su incremento usando *scripts*.
+**Version** is a number better changed manually each time functionality is added. However the **Build** increment can be automated using *scripts*.
 
 ## Mas información
 
 * [stackoverflow: Version vs Build in XCode 4](http://stackoverflow.com/questions/6851660/version-vs-build-in-xcode-4/6965086#6965086)
 * [wikipedia:Software versioning](http://en.wikipedia.org/wiki/Software_versioning)
+* [semver versioning](https://semver.org)
