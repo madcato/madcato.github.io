@@ -10,7 +10,7 @@ This is the second of five posts talking about the SOLID principles. This princi
 
 * [**S** Single responsability principle]({% post_url 2018-02-13-S-of-SOLID %})
 * [**O** Open/Closed principle]({% post_url 2018-02-20-O-of-SOLID %})
-* **L** Liskov substitution principle
+* [**L** Liskov substitution principle]({% post_url 2018-03-01-L-of-SOLID %})
 * **I** Interface segregation principle
 * **D** Dependency inversion principle
 
