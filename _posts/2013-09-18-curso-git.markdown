@@ -1,24 +1,24 @@
 ---
 layout:     post
-title:      "Curso git"
+title:      "Git course"
 date:       2013-09-18 06:41:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
 ---
 
-## 1. Introducción
+## 1. Introduction
 
-Con **git** el respositorio de trabajo se encuentra en el directorio raiz del proyecto. En concreto se encuantra en el directorio oculto de nombre *.git* .
+Whit **git** the work repository is located in the root directory of the project. Specifically is located in a hide directory named *.git*.
 
-En este directorio se almacen todos los *commits*, versiones y ramas de todos archivos del proyecto.
+In this directory all *commits*, versions and branches are stored.
 
-La principal caracterítica de **git** es la posibilidad de trabajar con diferentes respositorios remotos. Con **git** es muy sencillo compartir código entre diferentes programadores o enviar el código definitivo a un repositorio de producción o preproducción sin perder el control de versiones en nigún momento.
+**Git** principal characteristic is the posibility of working with different remote repositories. With **git** is easy to share code between programmers or send the final code to a production or preproduction repository without loosing track of the version and changes always.
 
-### Instalación de git en un Mac
+### Installing git in macOS
 
-Git viene incluido con las utilidades en linea de comandos de Xcode. También se pueden descargar directamente de [git-osx-installer for Mac OS X](http://code.google.com/p/git-osx-installer/)
+Git is inlcuded with the last Xcode command line tools. Also it can be downloaded from [git-osx-installer for Mac OS X](http://code.google.com/p/git-osx-installer/)
 
-#### Configurar
+#### Configure
 
 	$git config --global user.name "Your name here"   
 	$git config --global user.email "yourmail@here.com"   
@@ -27,87 +27,91 @@ Git viene incluido con las utilidades en linea de comandos de Xcode. También se
 	$git config --global core.editor vim   
 	$git config --global color.ui true   
 
-## 2. Comandos básicos de control
+## 2. Basic commands
 
-Para inicializar la gestión de versiones de **git** usar el comando *init*.
+To initialize the version control of **git** use the command *init*.
 
 	$ cd project
 	$ git init
 	
-Esto creará en subdirectorio *.git* . En este directorio se almacenarán los diferentes *commits*. Pero inicialmente se encuantra vacío: el comando *init* no añade los ficheros del proyecto al repositorio. Para ello hay que usar el comando *add*
+This will creata a subdirectory *.git* . In this directory all *commits* will be stored. But initially is all empty: the command *init* doesn't add the files to the repository. To do that use the command *add*
 
 	$ git add .
 	
-El comando *add* es recursivo. Al indicar un directorio como parámetro, se añadirá ese directorio y todos sus ficheros y subdirectorios recursivamente.
+Command *add* is recursive. Indicating a directory as parameter, it add that directory and all files and subdirectories recursively.
 
-También se puede usar este comando para añadir al repositorio un único fichero.
+Also it can be used to add only one file.
 
 	$ git add README
 	
-Sin embargo el comando *add* no añade el fichero al repositorio directamente. Lo que hace es añadirlo a una zona virtual del respositorio llamada **stage**. Para añadir al respositorio los cambios o los ficheros, primero se debe añadir al **stage** aquellos ficheros que han sido modificados o creados. Una vez hecho esto, se puede añadir los cambios al respositorio con en comando *commit*.
+Although the *add* command doesn't add the file to the repo directly. wht it does is to add the file to a virtual zone of the repository called **stage**.
+To add to the repository avery change or file, first it must be added to the **stage** those modified or created files. Once do it, you can add the changes to the repo with the command *commit*.
 
 	$ git commit -m 'first commit'
 	
-El comando *commit* requiere un mensaje. Si no se indica un texto, aparecerá el editor de texto configurado para añadir un texto.
+Command *commit* requires a message. Without a text, appears a text editor to set a message text.
 
-Para conocer el estado de los fichero usar el comando:
+To know the state of a file use the command:
 
 	$ git status
 	
-Es recomendable haber configurado git con el flag ***color.ui*** puesto a ***true***
+Is recommended to configure git with the flag ***color.ui*** set to ***true***
 
-## 3. Ramas
+## 3. Branches
 
-Para crear una rama usar:
+To create a branch:
 
 	$ git branch new_branch
 	
-Esto creará una nueva rama de desarrollo como copia del último *commit*. Para crear una nueva rama es remomendable haber guardado o deshecho todos los cambios en el directorio actual. En caso contrario, git avisará de que no puede crear una nueva rama en un directorio con cambios. 
+This will create a new developement branch copying the las made *commit*. To create a new brach is recommended to have save or undo every change in the current path. Otherwise, git will alert that the new branch cannot be created.
 
-Para cambiar de ramas se usa el comando *checkout*
+To change from one branch to anohter use the command *checkout*
 
 	$ git checkout new_branch
 	
-Para mezclar ramas:
+To merge branches:
 
 	$ git merge branch1
 	
-Esto mezclará la rama actual con la rama que se indique como parámetro. Además creará un nuevo *commit* en la rama activa. 
+This will mix the current branch with the indicated as paran. Also creates a new *commit* in the current branch.
 
-En caso de existir conflictos, se deberá resolver dichos conflictos antes de poder crear en nuevo *commit*.
+In case of conflicts, they should be resolved before create a new *commit*.
 
 ### Fastforward
 
-Hay casos en los que, a la hora de realizar una mezcla, se produce lo que se denomina un **fastforward**. 
+There are cases in which, making a merge, happends a **fastforward**
 
-Cuando se realiza un cambio de rama, la rama original es posible que se mantenga inalterada desde ese momentos. Si es así, al realizar el merge con la rama, git se da cuenta que no tiene que realizar mezcla alguna, si no simplemente cambiar el puntero HEAD del último *commit* de la rama original al puntero HEAD de la nueva rama. A esto se le denomina **fastforward**. 
+When a change is made in a branch, the original branch -from where the current branch was created- it's possible that remains untouched. If so, when a merge is donem git realizes that doen't have to mix the code, it only has to change the HEAD pointer to the last *commit* of the original branch to the HEAD pointer of the new branch. This is called **fastforward**
 
-El problema de estos **fastforward** es que la rama nueva desaparece sin dejar rastro. Si queremos mantener dicha rama o crear un nuevo commit en la rama original, se puede usar el parámetro *--no-ff* .
+
+The problem of this **fastforwards** is that the new branch dessapears without a trace. If we want to keep that branch or create a new commit in the original branch, you can user the parameter *--no-ff* .
 
 	$ git merge --no-ff branch1 
 	
-Esto evitará el **fastforward**.
+This will avoid the **fastforward**.
 
-## 4. Deshaciendo cambios
+## 4. Undoing changes
 
-Hay varias maneras de deshacer los cambios 
+There are some ways to undo changes.
 
-### Evitar que un cambio se añada a un *commit*
+### Avoid to add a change to a *commit*
 
-Si hemos añadido un fichero al *stage* por error, podemos quitarlo con el comando **reset**. De esta manera evitaremos que sea añada al *commit*. 
+If we had added a file to the *stage* incorrectly, we can remove with the command **reset**. This way we avoid to add the change to the *commit*.
 
 	$ git reset HEAD file
 
-### Cambiando el último *commit*
+### Changing the las *commit*
 
-Si en el último *commit* olvidaste añadir un fichero, se puede usar el parámetro **--ammend** para añadir un cambio al último *commit* realizado.
+If in the las *commit* you forgot to add the file, you can use the parameter **--ammend** to add a change to the las *commit* done.
 
 	$ git commit -m 'first commit'
 	$ git add file
 	$ git commit --ammend
 	
-### Eliminando los cambios de un fichero local
 
+### Deleting changes in a local file
+
+If we had changed incorrectly a file or we want to return to a previous version, we can use the commmand **checkout**. This command extracts from the repository 
 Si hemos modificado por error un fichero o qqueremos volver a una versión previa, podemos usar el comando **checkout**. Este comando extrae del repositorio la versión que le indiquemos y sobreescribe el fichero que se encuentra en el directorio de trabajo. Por defecto este comando extrae la última versión de la rama actual.
 
 	$ git checkout -- file

@@ -1,16 +1,16 @@
 ---
 layout:     post
-title:      "Cambio de orientación en iOS 6"
+title:      "Orientation change on iOS 6"
 date:       2013-07-15 11:56:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 ---
 
-Con iOS 6 cambiaron la manera de controlar la orientación de las vistas. Ahora se pregunta al controlador raiz de UIWindow.
+With iOS 6 Apple modified the way to control the views orientation. Now is managed by the UIWindow root controller.
 
-Cuando el controlador raíz es un objeto de las clases UINavigationController o UITabBarController, tenemos un problema. Estos controladores siempre responden afirmativamente al cambio de orientación.
+When the root controller is an object of classes INavigationController or UITabBarController, we hava a problem. This controllers allow allways the orientation change.
 
-Para solucionar este problema podemos usar el siguiente código:
+To solve this problem use the following code:
 
 {% highlight objc %}
 #pragma mark - UITabBarController
