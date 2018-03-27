@@ -1,15 +1,15 @@
 ---
 layout:     post
-title:      "Nuevo TestFlight"
+title:      "New TestFlight"
 date:       2014-09-22 15:41:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
 ---
 
-Apple compró TestFlightApp. Ahora lo acaba de integrar con su servicio “iTunes Connect”. Han eliminado la funcionalidad del SDK y no consigo ver donde descargar los “Crash Logs”: sería extraño que Apple no haya incluido esta funcionalidad.
+Apple bougth TestFlightApp. Now is integrated with the service "iTunes Connect". The had eliminated the functionality of the SDK and I don't know where to download the "Crash logs": It will be odd if Apple had not included this functionality. (It's included in the Xcode Organizer)
 
-Un punto muy positivo que he encontrado es que en este nuevo TestFlight se puede enviar la versión de tu App firmada con un certificado de tipo App Store. Es decir, el mismo archivo .ipa que envías a Apple para que lo publique, es el que se usa para que los beta testers se instalen la app. No es necesario crear una versión Ad Hoc y otra App Store.
+A very positive point is that in this new TestFlight you can upload the same ipa signed with your App Store certificate. The same .ipa fila can be used to test and to distribute to the App Store. No more you need to crate an Ad Hoc version and another App Store version.
 
-Ahora los provisioning Ad Hoc solo serán necesarios si quieres enviar el .ipa por correo a alguien para que se lo instale con el iTunes.
+Now the Ad Hoc provissioning profiles are only needed if you wnat to send the .ipa file by email to someone to install it using iTunes.
 
-Algo que me queda por probar es si se puede enviar una invitación para que testea tu app a alguien cuyo iPhone no esté en la lista de dispositivos de prueba del “Povissioning Portal”.
+Something I must try is if I can send an invitation to someone whose iPhone is not registered in the provissioning portal. (yes it is)

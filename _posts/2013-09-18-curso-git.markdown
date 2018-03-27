@@ -111,94 +111,89 @@ If in the las *commit* you forgot to add the file, you can use the parameter **-
 
 ### Deleting changes in a local file
 
-If we had changed incorrectly a file or we want to return to a previous version, we can use the commmand **checkout**. This command extracts from the repository 
-Si hemos modificado por error un fichero o qqueremos volver a una versión previa, podemos usar el comando **checkout**. Este comando extrae del repositorio la versión que le indiquemos y sobreescribe el fichero que se encuentra en el directorio de trabajo. Por defecto este comando extrae la última versión de la rama actual.
+If we had changed incorrectly a file or we want to return to a previous version, we can use the commmand **checkout**. This command extracts from the repository the wanted version and overwites the files contained in the working directory. By default this command extracts the las version of the current branch.
 
 	$ git checkout -- file
 	
-#### Eliminando el último *commit*
-	
-Si hemos realizado un *commit* erroneamente, podemos desahcerlo con el comando **reset**:
+
+#### Deleting the las *commit*
+
+If we had made an incorrect *commit*, we can undo it with **reset** command:
 
 	$ git reset --hard HEAD^
 	
-Para eliminar varios *commits* se usar el parámetro *HEAD~3*
+In order to eliminate several *commits* use the parameter *HEAD~3*
 
+## 5. Resolving conflicts
 
-## 5. Resolviendo conflictos
+A conflict can be solved in two diffent ways:
 
-Un conflicto se puede resolver de dos maneras:
+### Edit the file wiht the conflict
 
-### Editar el fichero con conflicto
-
-Git marca los conflictos en los ficheros de texto usando los siguientes marcadores:
+Git marks conflicts en the files with a text using the followings marks:
 
 1. <<<<<<< HEAD
 2. =======
 3. \>\>\>\>\>\>\> branch
 
-El texto que se encuentra entre los marcadores 1 y 2, es el texto de la rama activa. El texto que se encuentra entre los marcadores 2 y 3, es el texto de la rama que mezclamos. 
+The text between the marks 1 and 2 is the text from the active branch. The text between the marks 2 and 3 is the one of the merged branch.
 
-Una vez eliminados estos marcadores, debemos añadir el fichero al *stage* con el comando **add**. Una vez resueltos todos los conflictos, deberemos realizar el **commit**.
+Once eliminated these marks, we must add the file to the *stage* with the command **add**. Once all the conflicts are resolved, we must make the **commit**.
 
-### Deshacer la mezcla de un fichero conflictivo
 
-Si no queremos resolver los conflictos, podemos extrear una versión anterior del fichero para substituir a la actual conflictiva.
+### Undo the merge of a conflicted file
 
-Si queremos matener la versión de la rama activa, usaremos el modificador **--ours**:
+If we don't want to resolve the conflicts, we can extract a new version of the previous file to substitue the conflicted one.
+
+If we want to keep the current branch version, we use the modifier **--ours**:
 
 	$ git checkout --ours file
 
-Si queremos matener la versión de la rama que es mezclada, usaremos el modificador **--theirs**:
+If we want to keep the merged branch version of the file, we use the modifier **--theirs**:
 
 	$ git checkout --theirs file
 
+## 6. Remote repositories
 
-
-## 6. Repositorios remotos
-
-Para inicializar un nuevo proyecto extrayendo los ficheros de un repositorio remoto, se debe usar el comando **clone**:
+To initialize a new project downloading the files from a remote repository, you must use the command **clone**:
 
 	$ git clone proyect_url
 	
-Este comando no solo copia los ficheros del proyecto remoto, además configura la rama actual asosiandola con la rama remota(*track*).
+This command not only copies the files of the remote project, also it configures the current branch linking it with the remote brach (*track*).
 
-Cuando una rama local tiene asociada una o más ramas remotas, podemos compartir código con esas ramas. 
+When a local branch has one or more associated remote branches, we can share code with that branches.
 
-Con el comando **pull** podemos traernos los útimos cambios realizados en la rama remota. Con el comando **push** podemos enviar a la rama remota los últimos cambios realizados.
+With the command **pull** we can download the last changes done in the remote branch. With the command **push** we can send to the remote branch the last changes done.
 
 	$ git pull origin master
 	$ git push origin master
 	
-Recibe dos parámetros. Primero en nombre del repositorio remoto a usar. Segundo, el nombre de la rama remota. 
 
-Para saber que *remotes* tienes configurado una rama local usar el siguiente comando:
+Need two parameters. First the name of the remote repository. Sencond, the name of the remote branch.
+
+To know what *remotes* has configured a local branch use the following command:
 	
 	$ git remote show origin
 	
-Para añadir un nuevo *remote* a un repositorio local se usa el comando **remote add**:
+To add a new *remote* to a local repository use the command **remote add**:
 	
 	$ git remote add remote_name remote_url
 	
-
-Una vez configurado el *remote*, se puede descargar todos sus ficheros y referencias con el comando **fetch**
+Once configured the *remote*, all files and references can be downloaded with the command **fetch**:
 	
 	$ git fetch remote_name
 
-El comando **fetch** es similar a realizar un **pull**. La diferencia reside en que el comando **pull** realiza un **merge** con los cambios locales.
+### Create a remote respository
 
+Two things are needed to create a remote repository:
 
-### Crear repositorios en remoto
+1. A remote access
+2. A *bare* repository
 
-Se necesitan dos cosas para crear un repositorio remoto:
+#### Remote access
 
-1. Un acceso remoto
-2. Un repositorio *bare*
-
-#### Acceso remoto
-
-Se puede usar ssh, o un directorio compartido. 
-Los protocolos que admite son:
+You can use ssh, or a shared directory.
+The allowed protocols are:
 
 - file://
 - ssh://
@@ -206,32 +201,31 @@ Los protocolos que admite son:
 - http://
 - https://
 
+#### *bare* repository
 
-#### Respositorio *bare*
+A repository is named *bare* when has not any associated directory. This allows to use like a remote repository in order to use by others working repositories.
 
-Un repositorio se denomina *bare* cuando no tiene un directorio de trabajo asociado. Esto hace que se pueda usar como repositorio remoto para otros repositorios de trabajo.
-
-Se puede crear un repositorio inicial bacío *bare* con el siguiente comando:
+You can create an empty initial *bare* repository with the following command:
 
 	$ git init --bare
 	
-También se puede crear un repositorio *bare* clonando un repositorio existente:
+Also it can create a *bare* repository cloning an existing repository:
 
 	$ git clone --bare url_rep new_rep
 
 
-## Información de los *commits*
+## *commits* information
 
-Para extraer información de los *commits* de la rama actual disponemos del comando **log**.
+In order to extract information about the *commits* of the current branch we have the command **log**:
 
 	$ git log
 	
-Un comando muy útil para ver gráficamente todas las ramas y sus *merges*, además de ver los mensajes asociados es el siguiente:
+A command very useful to see graphically all the branches and *merges*, also to see the messages associated to the following:
 
 	$ git log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 
-## Sitios web que permiten el uso de git
+## Web sites that allow to use git
 
 Websites that host Git
 
@@ -242,9 +236,9 @@ Websites that host Git
 * [codebase](http://www.codebasehq.com/)
 * [Unfuddle](https://unfuddle.com/)
 
-## Como instalar git
+## How to install git
 
-[Instalar git en Linux, Mac y Windows](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+[Install git on Linux, Mac y Windows](http://git-scm.com/book/en/Getting-Started-Installing-Git)
 
 ## Links
 

@@ -1,18 +1,19 @@
 ---
 layout:     post
-title:      "iOS 7 Grabación de Audio"
+title:      "iOS 7 sound recording"
 date:       2014-02-07 12:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
 ---
 
-Para grabar sonido con iOS 7 hay que usar la clase **AVAudioRecorder**.
+To record sound with iOS 7 use **AVAudioRecorder** class.
 
-Antes de iniciar la grabación con el método **record** hay que invocar el método **prepareToRecord**. Ambos métodos devuelven un booleano como valor de retorno. Es muy importante comprobar que devuelven **YES**. En caso contrario mostrar un error ya que la grabación no se iniciará.
+Before stert the recording with the **record** method call the **prepareToRecord** method. Both methods return a boolean like return value.
+It's important to check that returns **YES**. In order case show an error because the recording won't start.
 
-## Creación y configuración de AVAudioRecorder
+## Creation and configuration ofAVAudioRecorder
 
-El objeto AVAudioRecorder requiere para su inicialización un objeto **NSDictionary** con los siguientes valores:
+The object **AVAudioRecorder** requires for its initialization an object of type **NSDictionary** with the following values:
 
 {% highlight objc %}
 @{AVFormatIDKey:@(kAudioFormatMPEG4AAC),
@@ -23,14 +24,14 @@ El objeto AVAudioRecorder requiere para su inicialización un objeto **NSDiction
 };
 {% endhighlight %}
 
-Además de crear este objeto **NSDictionary** es necesario realizar un paso anterior: crear un objeto **AVAudioSesion**.
+Also create this object **NSDictionary** is needed to make the previous step: create an **AVAudioSesion** object.
 
-A partir de iOS 7 se hace imprescindible crear un objeto **AVAudioSession** antes de crear el objeto **AVAudioRecorder**. En caso contrario la grabación no se iniciará.
+Since iOS 7 is needed to create an *AVAudioSession** object before the creation of **AVAudioRecorder*8. In other case recording won't start.
 
-![Sesión de grabación de audio]({{ site.url }}/assets/tumblr_inline_n0mhtxb2Q31qjhbuu.png)
+![Audio recording session]({{ site.url }}/assets/tumblr_inline_n0mhtxb2Q31qjhbuu.png)
 
 {% highlight objc %}
-Ejemplo de código
+Code sample
 
 //
 //  ViewController.m

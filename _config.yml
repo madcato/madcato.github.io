@@ -5,9 +5,7 @@ email: daniel@veladan.org
 description: "Veladan programming blog for all the programming issues I found."
 baseurl: ""
 url: "http://madcato.github.io"
-twitter_username: veladan
 github_username:  madcato
-facebook_username:  veladan
 
 # Build settings
 markdown: kramdown
