@@ -43,17 +43,17 @@ concurrent = 1
 check_interval = 0
 [[runners]]
   name = "mac-mini.local"
-  url = "https://gitlab.veladan.org/"
+  url = "https://gitlab.your-server.com/"
   token = "d1c0dd187cf73f7e8480cc7ef4a0f4"
-  tls-ca-file = "/Users/danielvela/gitlab.veladan.org.crt"
+  tls-ca-file = "/Users/pepe/gitlab.your-server.com.crt"
   executor = "ssh"
   environment = ["GITLAB_PERSONAL_API_PRIVATE_TOKEN=L8zHc7asdfffp2k18hX9Fu"]
   [runners.ssh]
-    user = "danielvela"
-    password = "saleucami"
+    user = "pepe"
+    password = "pepe"
     host = "localhost"
     port = "22"
-    identity_file = "/Users/danielvela/.ssh/id_rsa"
+    identity_file = "/Users/pepe/.ssh/id_rsa"
   [runners.cache]
 ```
 
@@ -67,8 +67,8 @@ lint:
   script:
     - echo "body=" > swiftlint.log
     - swiftlint >> swiftlint.log
-    - 'CI_MERGE_REQUEST_IID=$(curl --request GET --header "Private-Token: $GITLAB_PERSONAL_API_PRIVATE_TOKEN" "https://gitlab.veladan.org/api/v4/projects/$CI_PROJECT_ID/repository/commits/$CI_COMMIT_SHA/merge_requests" --insecure | jq --raw-output ".[0].iid")'
-    - '[ -z "$CI_MERGE_REQUEST_IID" ] && curl --request POST --header "Private-Token: $GITLAB_PERSONAL_API_PRIVATE_TOKEN" -d @swiftlint.log https://gitlab.veladan.org/api/v4/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes --insecure'
+    - 'CI_MERGE_REQUEST_IID=$(curl --request GET --header "Private-Token: $GITLAB_PERSONAL_API_PRIVATE_TOKEN" "https://gitlab.your-server.com/api/v4/projects/$CI_PROJECT_ID/repository/commits/$CI_COMMIT_SHA/merge_requests" --insecure | jq --raw-output ".[0].iid")'
+    - '[ -z "$CI_MERGE_REQUEST_IID" ] && curl --request POST --header "Private-Token: $GITLAB_PERSONAL_API_PRIVATE_TOKEN" -d @swiftlint.log https://gitlab.your-server.com/api/v4/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes --insecure'
     - unlink swiftlint.log
   tags:
     - xcode
