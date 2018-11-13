@@ -36,8 +36,10 @@ But this _iid_ can be obtained using the Gitlab API. The trick is to query the m
 
         $ brew install swiftlint
 - Set your API gitlab private token     
-  Create a token in https://gitlab.your-server.com/profile/personal_access_tokens
-  Set a new environment variable in the file `config.toml` of your gitlab runners.
+  Create a token in *https://gitlab.your-server.com/profile/personal_access_tokens*.    
+  
+  Set a new environment variable in the file `config.toml` of your gitlab runners.     
+  
 ```toml
 concurrent = 1
 check_interval = 0
