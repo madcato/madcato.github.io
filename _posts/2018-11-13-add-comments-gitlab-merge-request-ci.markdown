@@ -78,3 +78,6 @@ This scripts sets **CI\_MERGE\_REQUEST\_IID** using the API to get the Merge Req
 
 Use `[ -z "$CI_MERGE_REQUEST_IID" ] &&` to avoid send the POST if the commit doesn't have any Merge Request associated.
 
+
+
+
