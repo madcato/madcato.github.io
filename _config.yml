@@ -19,3 +19,11 @@ exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","bower
 plugins: [jekyll-paginate]
 sass:
     sass_dir: bower_components/bootstrap-sass/assets/stylesheets
+plugins:
+  - jekyll-polyglot
+
+# language: https://github.com/untra/polyglot
+languages: ["en", "es"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "css"]
+parallel_localization: true
