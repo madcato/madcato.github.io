@@ -11,7 +11,7 @@ Create in your $HOME directory a file named **.bash_profile** and write the foll
 {% highlight bash %}
 export PATH=$PATH:$HOME/bin   
 export CLICOLOR=1   
-export LSCOLORS=ExFxCxDxBxegedabagacad   
+export LSCOLORS=gxfxcxdxbxegedabagacad   
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\u@\h\[\033[1;31m\]:\[\033[0;36m\]\w$\[\033[0m\] '  
 {% endhighlight %}
 
