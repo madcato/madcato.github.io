@@ -374,7 +374,7 @@ plt.show()
 ```
 
 
-![png](({{ site.url}}/assets/output_19_0.png)
+![png]({{ site.url}}/assets/output_19_0.png)
 
 
 # Pre-processing:  Feature selection/extraction
