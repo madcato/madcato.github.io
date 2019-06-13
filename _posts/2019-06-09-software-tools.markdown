@@ -27,6 +27,10 @@ lang:       en
 - [Mobile website creation with turbolinks](https://github.com/turbolinks/turbolinks)
 - [Postman client to automate rest api testing](https://www.getpostman.com)
 
+### API
+
+- [API development with Swagger](https://swagger.io)
+
 ### Develop Environments
 
 - [Git repos, CI/CD, wiki, environment management with Gitlab. Use Community Version](https://about.gitlab.com)
