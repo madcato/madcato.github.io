@@ -90,18 +90,15 @@ struct Foo {
     enum CodingKeys : CodingKey {
         case type, payload
     }
-    enum PayloadTypes { 
-        case foo(FooPayload), 
-        case bar(BarPayload)
-    }	
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         type = try values.decode(String.self, forKey: .type)
         swith type {
         case "foo":
-            payload = try .foo(values.decode(FooPayload.self, forKey: .payload))
+            payload = values.decode(FooPayload.self, forKey: .payload)
         case "bar":
-            payload = try .bar(values.decode(BarPayload.self, forKey: .payload))
+            payload = values.decode(BarPayload.self, forKey: .payload)
         default:
             payload = nil
         }
