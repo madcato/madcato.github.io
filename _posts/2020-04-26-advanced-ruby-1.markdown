@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Advanced Ruby: Mixins"
-date:       2019-04-26 00:00:00
+date:       2020-04-26 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-15.jpg"
 lang:       en

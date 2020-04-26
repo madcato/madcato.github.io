@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Advanced Ruby"
-date:       2019-04-25 00:00:00
+date:       2020-04-25 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-14.jpg"
 lang:       en
