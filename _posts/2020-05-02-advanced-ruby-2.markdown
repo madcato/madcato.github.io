@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Advanced Ruby: Mixins"
+title:      "Advanced Ruby: Object-Specific Classes"
 date:       2020-05-02 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-16.jpg"
