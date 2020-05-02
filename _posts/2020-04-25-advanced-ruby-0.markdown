@@ -13,7 +13,10 @@ In the following set of posts I'm going ot explore some advance concepts of Ruby
 
 These advance features are:
 
-- Mixins
+- <li><a href="{% link _posts/2020-04-26-advanced-ruby-1.markdown %}">Mixins</a></li>
+- <li><a href="{% link _posts/2020-05-02-advanced-ruby-2.markdown %}">Object-Specific Classes</a></li>
+- module_eval
+- class << self
 - Metaclasses
 - Dynamic typing
 - Duck typing
