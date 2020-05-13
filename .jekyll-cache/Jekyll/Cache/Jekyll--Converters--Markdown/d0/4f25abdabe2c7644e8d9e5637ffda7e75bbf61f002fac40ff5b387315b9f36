@@ -1,0 +1,90 @@
+I"�<p>This doc was made to explain how to send the output of an script (like swiftlint or other lints or quality utils) from the CI process of Gitlab to the Merge Request comment list.</p>
+
+<p>At 13 Nov 2018 Gitlab don’t have a enviroment variable to know the <em>iid</em> of the merge request. Look this <a href="https://stackoverflow.com/questions/52746338/in-gitlab-ci-is-there-a-variable-for-a-merge-requests-target-branch">StackOverflow question</a> to see more info.</p>
+
+<p>But this <em>iid</em> can be obtained using the Gitlab API. The trick is to query the merge request list from a commit and use the first one.</p>
+
+<h2 id="gitlab-api-doc">Gitlab API doc</h2>
+
+<ol>
+  <li><a href="https://docs.gitlab.com/ce/api/notes.html#create-new-merge-request-note">Create new merge request comment</a></li>
+  <li><a href="https://docs.gitlab.com/ce/api/README.html#road-to-graphql">Basic usage</a></li>
+  <li><a href="https://docs.gitlab.com/ce/api/commits.html#list-merge-requests-associated-with-a-commit">List Merge Requests associated with a commit</a></li>
+</ol>
+
+<h3 id="api-usage-sample-">API Usage Sample :</h3>
+
+<p><strong>POST /projects/:id/merge_requests/:merge_request_iid/notes</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl --request POST --header "Private-Token: 9koXpg98heJpvBs5tK" https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes --data "Comment test"
+</code></pre></div></div>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>
+    <p>Install xcpretty</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ brew install xcpretty
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install jq to parse json response</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ brew install jq
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install swiftlint</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ brew install swiftlint
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Set your API gitlab private token   <br />
+Create a token in your Gitlab profile:    <br />
+<em>https://gitlab.your-server.com/profile/personal_access_tokens</em>.</p>
+
+    <p>Set a new environment variable in the file <code class="highlighter-rouge">config.toml</code> of your gitlab runners.</p>
+  </li>
+</ul>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">concurrent</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="py">check_interval</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="nn">[[runners]]</span>
+  <span class="py">name</span> <span class="p">=</span> <span class="s">"mac-mini.local"</span>
+  <span class="py">url</span> <span class="p">=</span> <span class="s">"https://gitlab.your-server.com/"</span>
+  <span class="py">token</span> <span class="p">=</span> <span class="s">"d1c0dd187cf73f7e8480cc7ef4a0f4"</span>
+  <span class="py">tls-ca-file</span> <span class="p">=</span> <span class="s">"/Users/pepe/gitlab.your-server.com.crt"</span>
+  <span class="py">executor</span> <span class="p">=</span> <span class="s">"ssh"</span>
+  <span class="py">environment</span> <span class="p">=</span> <span class="nn">["GITLAB_PERSONAL_API_PRIVATE_TOKEN=L8zHc7asdfffp2k18hX9Fu"]</span>
+  <span class="nn">[runners.ssh]</span>
+    <span class="py">user</span> <span class="p">=</span> <span class="s">"pepe"</span>
+    <span class="py">password</span> <span class="p">=</span> <span class="s">"pepe"</span>
+    <span class="py">host</span> <span class="p">=</span> <span class="s">"localhost"</span>
+    <span class="py">port</span> <span class="p">=</span> <span class="s">"22"</span>
+    <span class="py">identity_file</span> <span class="p">=</span> <span class="s">"/Users/pepe/.ssh/id_rsa"</span>
+  <span class="nn">[runners.cache]</span>
+</code></pre></div></div>
+
+<h2 id="gitlab-ciyml">.gitlab-ci.yml</h2>
+
+<p>This is a sample <em>.gitlab-ci.yml</em> file to send the swiftlint output to the Merge Request comments:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">lint</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">build</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "body=" &gt; swiftlint.log</span>
+    <span class="pi">-</span> <span class="s">swiftlint &gt;&gt; swiftlint.log</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">CI_MERGE_REQUEST_IID=$(curl</span><span class="nv"> </span><span class="s">--request</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">--header</span><span class="nv"> </span><span class="s">"Private-Token:</span><span class="nv"> </span><span class="s">$GITLAB_PERSONAL_API_PRIVATE_TOKEN"</span><span class="nv"> </span><span class="s">"https://gitlab.your-server.com/api/v4/projects/$CI_PROJECT_ID/repository/commits/$CI_COMMIT_SHA/merge_requests"</span><span class="nv"> </span><span class="s">--insecure</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">jq</span><span class="nv"> </span><span class="s">--raw-output</span><span class="nv"> </span><span class="s">".[0].iid")'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">[</span><span class="nv"> </span><span class="s">-z</span><span class="nv"> </span><span class="s">"$CI_MERGE_REQUEST_IID"</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">curl</span><span class="nv"> </span><span class="s">--request</span><span class="nv"> </span><span class="s">POST</span><span class="nv"> </span><span class="s">--header</span><span class="nv"> </span><span class="s">"Private-Token:</span><span class="nv"> </span><span class="s">$GITLAB_PERSONAL_API_PRIVATE_TOKEN"</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">@swiftlint.log</span><span class="nv"> </span><span class="s">https://gitlab.your-server.com/api/v4/projects/$CI_PROJECT_ID/merge_requests/$CI_MERGE_REQUEST_IID/notes</span><span class="nv"> </span><span class="s">--insecure'</span>
+    <span class="pi">-</span> <span class="s">unlink swiftlint.log</span>
+  <span class="na">tags</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">xcode</span>
+</code></pre></div></div>
+
+<p>This scripts sets <strong>CI_MERGE_REQUEST_IID</strong> using the API to get the Merge Request for a commit using its <strong>$CI_COMMIT_SHA</strong>. The response is a json. To obtain the <em>iid</em> use <code class="highlighter-rouge">jq --raw-output ".[0].iid"</code>.</p>
+
+<p>Use <code class="highlighter-rouge">[ -z "$CI_MERGE_REQUEST_IID" ] &amp;&amp;</code> to avoid send the POST if the commit doesn’t have any Merge Request associated.</p>
+
+:ET

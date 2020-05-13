@@ -1,0 +1,25 @@
+I"-
+<h1 id="advance-ruby-module_eval">Advance Ruby: module_eval</h1>
+
+<p>With the expresion <code class="highlighter-rouge">module_eval</code> passing one string like argument, you can define methods dinamically. Yes, you read it right: you can create methods to a class, module or object, to any context dinamically. Write a string with code that generates some method, and with <code class="highlighter-rouge">module_eval</code> you can inject that code into the current context.</p>
+
+<p>This is a sample writen by Tadayoshi Funaba:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nc">ExampleDate</span><span class="o">.</span><span class="nf">once</span><span class="p">(</span><span class="o">*</span><span class="n">ids</span><span class="p">)</span>
+  <span class="k">for</span> <span class="nb">id</span> <span class="k">in</span> <span class="n">ids</span>    
+    <span class="nb">module_eval</span> <span class="o">&lt;&lt;-</span><span class="no">"end_eval"</span><span class="p">.</span>   
+      <span class="nf">alias_method</span> <span class="ss">:__</span><span class="c1">#{id.to_i}__, #{id.inspect}    </span><span class="sh">
+      def </span><span class="si">#{</span><span class="nb">id</span><span class="p">.</span><span class="nf">id2name</span><span class="si">}</span><span class="sh">(*args, &amp;block)    
+        def self.</span><span class="si">#{</span><span class="nb">id</span><span class="p">.</span><span class="nf">id2name</span><span class="si">}</span><span class="sh">(*args, &amp;block)    
+          @__</span><span class="si">#{</span><span class="nb">id</span><span class="p">.</span><span class="nf">to_i</span><span class="si">}</span><span class="sh">__    
+        end    
+        @__</span><span class="si">#{</span><span class="nb">id</span><span class="p">.</span><span class="nf">to_i</span><span class="si">}</span><span class="sh">__ = __</span><span class="si">#{</span><span class="nb">id</span><span class="p">.</span><span class="nf">to_i</span><span class="si">}</span><span class="sh">__(*args, &amp;block)    
+      end    
+</span><span class="no">    end_eval</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This code is going to be executed once, thanks to the <code class="highlighter-rouge">once</code> expression behind the method name. Then for each element in the parameters, the <code class="highlighter-rouge">module_eval</code> is going to create an alias of a method and define a new method.</p>
+
+:ET

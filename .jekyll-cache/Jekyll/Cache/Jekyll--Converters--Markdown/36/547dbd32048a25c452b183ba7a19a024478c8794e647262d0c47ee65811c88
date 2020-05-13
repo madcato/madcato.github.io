@@ -1,0 +1,26 @@
+I"><p><img src="http://localhost:4000/assets/tumblr_inline_mk04xflxbT1qz4rgp.png" alt="gps" /></p>
+
+<p>To operate the location of the iPhone in any way <strong>background</strong> should use the following:</p>
+
+<ol>
+  <li>Activate the file project.plist the next value: <strong>UIBackgroundModes</strong>: Array =&gt; <strong>location</strong></li>
+  <li>Implement an CLLocationManagerDelegate intarface and enable tracing with one of two methods:
+    <ul>
+      <li><strong>startMonitoringSignificantLocationChanges</strong>
+The problem with this method is that you throw few updates: only when there is a change in cell mobile telephony. The good thing is that it consumes little battery power.</li>
+      <li><strong>startUpdatingLocation</strong>
+By using this method is very important correctly configure the following variables:
+        <ul>
+          <li><strong>desiredAccuracy</strong> =&gt; precision</li>
+          <li><strong>distanceFilter</strong> =&gt; Setting <strong>kCLDistanceFilterNone</strong> will be received position updates. Not recommended, unless high accuracy is required.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>To avoid using too much battery life is better <strong>desiredAccuracy</strong> put a larger one. For example 100 m. for displaced receive updates every 100 m.</p>
+
+<p>20110324.42</p>
+
+:ET

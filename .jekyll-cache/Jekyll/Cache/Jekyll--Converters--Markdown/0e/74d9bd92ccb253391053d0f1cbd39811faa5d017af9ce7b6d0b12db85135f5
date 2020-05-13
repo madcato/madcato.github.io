@@ -1,0 +1,28 @@
+I"�<p>If you want to merge two branches- but don’t want to keep separated banches and fix the messages of branch-, you can use an <strong>interactive rebase</strong>.</p>
+
+<p>Using <strong>rebase</strong>, branches aren’t maintained in the repository. Using rebase you can move one branch to the top of another.</p>
+
+<p><img src="http://localhost:4000/assets/original.png" alt="original" /> <img src="http://localhost:4000/assets/rebase.png" alt="rebase" /></p>
+
+<p>But <strong>git-rebase</strong> has another fantastic feature: <strong>interactive rebase</strong>. With this type of <strong>rebase</strong> you can edit commit messages, even mix several commits into one. This is very useful to keep a well documented <strong>git log</strong> without noise.</p>
+
+<p><img src="http://localhost:4000/assets/feature.png" alt="feature" /></p>
+
+<p>To use this method, first checkout the branch you want to rebase(the secondary branch). Then select the last commit of destination branch(the main one).</p>
+
+<p><img src="http://localhost:4000/assets/interactive.png" alt="interactive" /></p>
+
+<p><strong>To avoid merge conflicts is very, very important to apply command “Squash with previous commit…” always on top of the commit list after rebase. After all the <em>Squash</em> the commits must by ordered</strong></p>
+
+<p><img src="http://localhost:4000/assets/squash.png" alt="squash" /></p>
+
+<h2 id="final-result">Final result</h2>
+
+<p>Only one thread, only one commit message. Cheers!!!</p>
+
+<p><img src="http://localhost:4000/assets/final.png" alt="final" /></p>
+
+<p><a href="https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree">Additional info from atlassian web</a></p>
+
+<p><em>In git we trust</em></p>
+:ET

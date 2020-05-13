@@ -1,0 +1,77 @@
+I"�<h1 id="advance-ruby-mixins">Advance Ruby: Mixins</h1>
+
+<p>Have you ever wish to add some methods or properties to an existing class, without changing it? With mixins you can.</p>
+
+<p>A mixin is a module where come methods are declared. This mixin can be ‘included’ into a class. This way, that class would has the mehtods declared in the mixin. This removes the need of multiple inheritance in Ruby.</p>
+
+<p>Sample:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Loggable</span>  <span class="c1"># A mixin must be declared as a module</span>
+  <span class="k">def</span> <span class="nf">toLog</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Object: </span><span class="si">#{</span><span class="nb">self</span><span class="p">.</span><span class="nf">id</span><span class="si">}</span><span class="s2"> of class: </span><span class="si">#{</span><span class="nb">self</span><span class="p">.</span><span class="nf">type</span><span class="p">.</span><span class="nf">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span> <span class="no">Loggable</span>  <span class="c1"># This add the method 'toLog;' to this class</span>
+  
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Can a ‘mixin’ add some instance variable to another class? Yes, the same way Ruby does: the first time a @-variable is declared, the property is created.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">ErrorDescriptable</span>
+  <span class="kp">attr</span> <span class="ss">:errorDescription</span>
+  <span class="k">def</span> <span class="nf">addError</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="vi">@errorDescription</span> <span class="o">=</span> <span class="s2">"Error: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span>  <span class="no">ErrorDescriptable</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">name</span><span class="p">.</span><span class="nf">nil?</span>
+      <span class="n">addError</span><span class="p">(</span><span class="s2">"Invalid name"</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This is a powerful way to extend a class. But also modules can be used to extend existing object. Yes, already instantiated object. Like:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">ErrorDescriptable</span>
+  <span class="kp">attr</span> <span class="ss">:errorDescription</span>
+  <span class="k">def</span> <span class="nf">addError</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="vi">@errorDescription</span> <span class="o">=</span> <span class="s2">"Error: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">"Hello world"</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">extend</span> <span class="no">ErrorDescriptable</span>  <span class="c1"># Add the module to an object</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">addError</span><span class="p">(</span><span class="s2">"Test"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Also this trick can be used to add method to a class, as class methods</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">ErrorDescriptable</span>
+  <span class="kp">attr</span> <span class="ss">:errorDescription</span>
+  <span class="k">def</span> <span class="nf">addError</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="vi">@errorDescription</span> <span class="o">=</span> <span class="s2">"Error: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">include</span>  <span class="no">ErrorDescriptable</span>  <span class="c1"># isntance method</span>
+  <span class="kp">extend</span> <span class="no">ErrorDescriptable</span>  <span class="c1"># class method</span>
+<span class="k">end</span>
+
+<span class="no">Person</span><span class="p">.</span><span class="nf">addError</span><span class="p">(</span><span class="s2">"Test1"</span><span class="p">)</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span><span class="p">.</span><span class="nf">addError</span><span class="p">(</span><span class="s2">"Test2"</span><span class="p">)</span>
+</code></pre></div></div>
+
+:ET

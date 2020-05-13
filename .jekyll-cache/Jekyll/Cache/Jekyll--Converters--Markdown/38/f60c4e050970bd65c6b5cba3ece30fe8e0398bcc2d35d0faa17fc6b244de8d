@@ -1,0 +1,28 @@
+I"¼<p><img src="http://localhost:4000/assets/tumblr_inline_mjwwlnUiXL1qz4rgp.jpg" alt="xcode icon" /></p>
+
+<p>To create a project from another project iPad iPhone, Xcode have a choice in a popover that lets you:</p>
+
+<ul>
+  <li>Create a universal project for iPhone and iPhone.</li>
+  <li>Create two different targets, one for iPhone and another iPhone</li>
+</ul>
+
+<h2 id="ui-idiom">UI Idiom</h2>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">UIDevice</span><span class="p">.</span><span class="n">h</span>
+<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+<span class="n">UIUserInterfaceIdiomPhone</span><span class="p">,</span>
+<span class="n">UIUserInterfaceIdiomPad</span>
+<span class="p">}</span> <span class="n">UIUserInterfaceIdiom</span><span class="p">;</span>
+
+<span class="cp">#define UI_USER_INTERFACE_IDIOM()...
+</span>
+<span class="c1">// Sample code</span>
+<span class="k">if</span><span class="p">(</span><span class="n">UI_USER_INTERFACE_IDIOM</span><span class="p">()</span> <span class="o">==</span> <span class="n">UIUserInterfaceIdiomPad</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">...</span> <span class="c1">// iPad code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="p">...</span> <span class="c1">// iPhone code</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>20110324.14</p>
+:ET

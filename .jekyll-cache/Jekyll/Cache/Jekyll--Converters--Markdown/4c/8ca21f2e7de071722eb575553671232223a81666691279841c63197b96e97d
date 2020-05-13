@@ -1,0 +1,14 @@
+I"ƒ<p>Declaration(.h):</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">UIImageView</span> <span class="o">*</span><span class="n">splashView</span><span class="p">;</span>  </code></pre></figure>
+
+<p>Implementation(.m):</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">splashView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">)];</span>  
+<span class="n">splashView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@"Default.png"</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">window</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">splashView</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">window</span> <span class="nf">bringSubviewToFront</span><span class="p">:</span><span class="n">splashView</span><span class="p">];</span>  
+<span class="c1">// Do your time consuming setup  </span>
+<span class="p">[</span><span class="n">NSThread</span> <span class="nf">sleepForTimeInterval</span><span class="p">:</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">splashView</span> <span class="nf">removeFromSuperview</span><span class="p">];</span></code></pre></figure>
+:ET

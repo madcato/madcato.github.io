@@ -1,0 +1,31 @@
+I"h	<p>* iOS 5 required</p>
+
+<p>With appearance kit we can set the default attributes of any UIKit control. This attributes include tint color or background.</p>
+
+<h2 id="changing-background">Changing background</h2>
+
+<p>NavBar</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="nl">setBackgroundImage:</span> <span class="nl">forBarMetrics:</span>  
+    <span class="k">typedef</span> <span class="k">enum</span><span class="p">{</span>  
+         <span class="n">UIBarMetricsDefault</span><span class="p">,</span>  
+         <span class="n">UIBarMetricsLandscapePhone</span><span class="p">,</span>  
+    <span class="p">}</span> <span class="n">UIBarMetrics</span><span class="p">;</span>  </code></pre></figure>
+
+<p>UIBarButtons(back button)</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="nl">setBackButtonBackgroundImage:</span> <span class="nl">forState:</span> <span class="nl">barMetrics:</span>  </code></pre></figure>
+
+<p>TabBar</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">UIImage</span><span class="o">*</span> <span class="n">tabBarBackground</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">"tabbar"</span><span class="p">];</span>  
+<span class="p">[[</span><span class="n">UITabBar</span> <span class="nf">appearance</span><span class="p">]</span> <span class="nf">setBackgroundImage</span><span class="p">:</span><span class="n">tabBarBackground</span><span class="p">];</span>  
+<span class="p">[[</span><span class="n">UITabBar</span> <span class="nf">appearance</span><span class="p">]</span> <span class="nf">setSelectionIndicatorImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">"selection"</span><span class="p">]];</span>  
+
+
+<span class="p">[</span><span class="o">&lt;</span><span class="n">UIControl</span><span class="o">&gt;</span> <span class="nf">appearance</span><span class="p">]</span> <span class="s">"setAttributte"</span></code></pre></figure>
+
+<p>With this invocation we can set the default attributes of any UIKit controls.</p>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mk0ba3zL1u1qz4rgp.png" alt="ishop" /></p>
+:ET

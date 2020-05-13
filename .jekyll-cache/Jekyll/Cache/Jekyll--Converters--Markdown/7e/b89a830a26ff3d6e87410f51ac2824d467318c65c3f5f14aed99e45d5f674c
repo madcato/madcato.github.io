@@ -1,0 +1,18 @@
+I"]<p>There is no centralized database where we can search for any existing bar code.</p>
+
+<p>But there are some webs where a big number of bar codes are stored.</p>
+
+<p>These webs allows us to query <strong>EAN</strong> bar codes:</p>
+
+<ul>
+  <li><a href="http://www.ean-search.org/">EAN Search</a></li>
+  <li><a href="http://www.upcdatabase.com/">UPC Database</a></li>
+  <li><a href="http://www.ucc-gepir.org/GEPIR_UCCNET/jsp/client.jsp">GEPIR</a></li>
+</ul>
+
+<p>In order to look for book bar codes, we must search for thier ISBN code in:</p>
+
+<ul>
+  <li><a href="http://isbndb.com/">isbndb</a></li>
+</ul>
+:ET

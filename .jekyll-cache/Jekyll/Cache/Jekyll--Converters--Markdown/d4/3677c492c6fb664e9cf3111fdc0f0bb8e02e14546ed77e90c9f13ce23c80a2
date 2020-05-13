@@ -1,0 +1,14 @@
+I"ô<p>You can generate the index of the tables with the class <strong>UIlocalizedIndexedCollation (UIKit)</strong>.</p>
+
+<p>Generates an index from <strong>A</strong> to <strong>Z</strong>, including the <strong>#</strong> symbol.</p>
+
+<p>To add the symbol search, add the predefined constant <strong>UITableViewIndexSearch</strong> to the array.</p>
+
+<p>Finally, to move the table in the position of the browser, use the following code in the function <strong>sectionForSectionIndexTitle</strong>.</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">if</span><span class="p">([</span><span class="n">title</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="n">UITableViewIndexSearch</span><span class="p">]){</span>  
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">tableView</span> <span class="nf">setContentOffset</span><span class="p">:</span><span class="n">CGPointZero</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mjum47E6dg1qz4rgp.png" alt="table index" /></p>
+:ET

@@ -1,0 +1,30 @@
+I"
+<p>To use classes in a later version of our SDK “Target version” use this code:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">Class</span> <span class="n">myClass</span> <span class="o">=</span> <span class="n">NSClassFromString</span><span class="p">(</span><span class="s">@"UILocalNotification"</span><span class="p">);</span>  
+<span class="k">if</span><span class="p">(</span><span class="n">myClass</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">UILocalNotification</span><span class="o">*</span> <span class="n">alarm</span> <span class="o">=</span> <span class="p">[[</span><span class="n">myClass</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<p>For methods use:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">UIDevice</span><span class="o">*</span> <span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="nf">currentDevice</span><span class="p">];</span>  
+<span class="n">BOOL</span> <span class="n">multitaskingSupported</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>  
+<span class="k">if</span><span class="p">([</span><span class="n">device</span> <span class="nf">respondsToSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">isMultitaskingSupported</span><span class="p">)])</span> <span class="p">{</span>  
+    <span class="n">multitaskingSupported</span> <span class="o">=</span> <span class="p">[</span><span class="n">device</span> <span class="nf">isMultitaskingSupported</span><span class="p">];</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<p>For functions use:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"> <span class="k">if</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UIGraphicsBeginPDFContextToFile</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="n">UIGraphicsBeginPDFContextToFile</span><span class="p">(...);</span>  
+ <span class="p">}</span>  
+ </code></pre></figure>
+
+<p>The same can be used for constant symbols.</p>
+
+<p>For using later version frameworks, configure it as “weak-linking” in target build settings.</p>
+
+<p>20110324.27</p>
+
+:ET

@@ -1,0 +1,43 @@
+I"¨<p>First include <strong>MessageUI.framework</strong> an implement <strong>MFMailComposeViewControllerDelegate</strong>.</p>
+
+<p>Implement a method like this one an the delegate method for removing the mail controller.</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="n">IBAction</span><span class="p">)</span><span class="nf">pressentMailController</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
+ <span class="n">MFMailComposeViewController</span> <span class="o">*</span><span class="n">picker</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MFMailComposeViewController</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+ <span class="n">picker</span><span class="p">.</span><span class="n">mailComposeDelegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+ <span class="p">[</span><span class="n">picker</span> <span class="nf">setSubject</span><span class="p">:</span><span class="s">@"Test subject!"</span><span class="p">];</span>
+ <span class="c1">// Set up the recipients.</span>
+ <span class="cm">/*NSArray *toRecipients = [NSArray arrayWithObjects:@"first@example.com", nil];
+ NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
+ NSArray *bccRecipients = [NSArray arrayWithObjects:@"four@example.com", nil];
+ [picker setToRecipients:toRecipients];
+ [picker setCcRecipients:ccRecipients];
+ [picker setBccRecipients:bccRecipients];
+ */</span>
+ <span class="c1">// Attach an image to the email.</span>
+ <span class="cm">/*NSString *path = [[NSBundle mainBundle] pathForResource:@"ipodnano"
+ ofType:@"png"];
+ NSData *myData = [NSData dataWithContentsOfFile:path];
+ [picker addAttachmentData:myData mimeType:@"image/png"
+ fileName:@"ipodnano"];
+ */</span>
+ <span class="c1">// Fill out the email body text.</span>
+ <span class="n">NSString</span> <span class="o">*</span><span class="n">emailBody</span> <span class="o">=</span> <span class="s">@"It is raining in sunny California!"</span><span class="p">;</span>
+ <span class="p">[</span><span class="n">picker</span> <span class="nf">setMessageBody</span><span class="p">:</span><span class="n">emailBody</span> <span class="nf">isHTML</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+ <span class="c1">// Present the mail composition interface.</span>
+ <span class="p">[</span><span class="n">self</span> <span class="nf">presentModalViewController</span><span class="p">:</span><span class="n">picker</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">picker</span> <span class="nf">release</span><span class="p">];</span> <span class="c1">// Can safely release the controller now.</span>
+ <span class="p">}</span>
+ <span class="c1">// The mail compose view controller delegate method</span>
+ <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mailComposeController</span><span class="p">:(</span><span class="n">MFMailComposeViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">controller</span>
+ <span class="nf">didFinishWithResult</span><span class="p">:(</span><span class="n">MFMailComposeResult</span><span class="p">)</span><span class="nv">result</span>
+ <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span>
+ <span class="p">{</span>
+ <span class="p">[</span><span class="n">self</span> <span class="nf">dismissModalViewControllerAnimated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+ <span class="p">}</span>
+ </code></pre></figure>
+
+<p>The code allows to add recipients, body, subject and attachements. Uncomment the lines as needed.</p>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mjpfxhMYM21qz4rgp.png" alt="mail controller" /></p>
+:ET

@@ -1,0 +1,38 @@
+I"D
+<p>If you need to launch a Rails server in order to execute some Unit Tests from Xcode, you can use this method.</p>
+
+<p>You must add this two scripts to the Scheme of the project, <strong>Pre-actions</strong> and <strong>Post-actions</strong> inside the Test section:</p>
+
+<p><img src="http://localhost:4000/assets/xcode-test-acheme-scripts.png" alt="xcode test scheme scripts" /></p>
+
+<h2 id="pre-actions">Pre-actions</h2>
+
+<p>This is the script you must add to the <strong>Pre-actions</strong> section:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osascript -e 'tell application "Terminal"' -e 'delay 0.5' -e "set currentTab to do script (\"cd $SRCROOT/__RAILSDIR__ &amp;&amp; bundle exec rake db:reset RAILS_ENV=test &amp;&amp; rails server -e test\")" -e 'end tell' &amp;
+</code></pre></div></div>
+
+<p><em>IMPORTANT: change <strong>RAILSDIR</strong> string for the path where your rails project is stored. This script expects that this dir is a subdirectory of the xcode project directory. If the rails code is in other path, change cd $SRCROOT/<strong>RAILSDIR</strong> for the complete path of the rails project.</em></p>
+
+<p>Note that the rails server is launched in the test enviroment, you can change this easily.</p>
+
+<p>To allow the script to know the values of the project environment variables, you must provide the build settings, selecting the proper scheme:</p>
+
+<p><img src="http://localhost:4000/assets/script-rails-pre-action.png" alt="xcode test scheme scripts enviroment pre" /></p>
+
+<h2 id="post-actions">Post-actions</h2>
+
+<p>This is the script you must add to the <strong>Post-actions</strong> section:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osascript -e 'tell application "Terminal"' -e 'delay 0.5' -e "set currentTab to do script (\"cd $SRCROOT/__RAILSDIR__ &amp;&amp; kill -INT \$(cat tmp/pids/server.pid)\")" -e 'end tell' &amp;
+</code></pre></div></div>
+
+<p><em>IMPORTANT: change <strong>RAILSDIR</strong> string for the path where your rails project is stored. This script expects that this dir is a subdirectory of the xcode project directory. If the rails code is in other path, change cd $SRCROOT/<strong>RAILSDIR</strong> for the complete path of the rails project.</em></p>
+
+<p>Note that the rails server is killed.</p>
+
+<p>To allow the script to know the values of the project environment variables, you must provide the build settings, selecting the proper scheme:</p>
+
+<p><img src="http://localhost:4000/assets/script-rails-post-action.png" alt="xcode test scheme scripts enviroment post" /></p>
+
+:ET

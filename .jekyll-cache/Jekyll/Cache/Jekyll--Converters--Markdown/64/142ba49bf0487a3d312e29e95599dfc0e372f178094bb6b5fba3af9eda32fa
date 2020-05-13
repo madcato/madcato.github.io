@@ -1,0 +1,27 @@
+I"u<p><a href="http://en.wikipedia.org/wiki/Soundex">http://en.wikipedia.org/wiki/Soundex</a></p>
+
+<p>Soundex is a phonetic algorithm for indexing names by sound, as pronounced in English.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">String</span>  
+    <span class="no">SoundexChars</span> <span class="o">=</span> <span class="s1">'BPFVCSKGJQXZDTLMNR'</span>  
+    <span class="no">SoundexNums</span> <span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="o">=</span> <span class="s1">'111122222222334556'</span>  
+    <span class="no">SoundexCharsEx</span> <span class="o">=</span> <span class="s1">'^'</span> <span class="o">+</span> <span class="no">SoundexChars</span>  
+    <span class="no">SoundexCharsDel</span> <span class="o">=</span> <span class="s1">'^A-Z'</span>  
+    <span class="c1"># desc: http://en.wikipedia.org/wiki/Soundex  </span>
+    <span class="k">def</span> <span class="nf">soundex</span><span class="p">(</span><span class="n">census</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>  
+        <span class="n">str</span> <span class="o">=</span> <span class="n">upcase</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="no">SoundexCharsDel</span><span class="p">).</span><span class="nf">squeeze</span>  
+        <span class="n">str</span><span class="p">[</span><span class="mi">0</span> <span class="o">..</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span> <span class="o">..</span> <span class="o">-</span><span class="mi">1</span><span class="p">].</span>  
+        <span class="nf">delete</span><span class="p">(</span><span class="no">SoundexCharsEx</span><span class="p">).</span>  
+        <span class="nf">tr</span><span class="p">(</span><span class="no">SoundexChars</span><span class="p">,</span> <span class="no">SoundexNums</span><span class="p">)[</span><span class="mi">0</span> <span class="o">..</span> <span class="p">(</span><span class="n">census</span> <span class="p">?</span> <span class="mi">2</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)].</span>  
+        <span class="nf">ljust</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">)</span> <span class="k">rescue</span> <span class="s1">''</span>  
+    <span class="k">end</span>  
+
+    <span class="k">def</span> <span class="nf">sounds_like</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>  
+        <span class="n">soundex</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="nf">soundex</span>  
+    <span class="k">end</span>  
+<span class="k">end</span>  
+<span class="c1"># puts "Quadratically".soundex  </span>
+<span class="c1"># 'Q363'  </span>
+<span class="c1"># puts "Quadratically".soundex(false)  </span>
+<span class="c1"># 'Q36324'</span></code></pre></figure>
+:ET

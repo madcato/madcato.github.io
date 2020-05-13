@@ -1,0 +1,24 @@
+I"<h2 id="html">HTML</h2>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+ <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+ <span class="nt">&lt;header&gt;&lt;h1&gt;</span>Page title<span class="nt">&lt;/h1&gt;&lt;/header&gt;</span>
+ <span class="nt">&lt;nav&gt;</span><span class="c">&lt;!-- Navigation --&gt;</span><span class="nt">&lt;/nav&gt;</span>
+ <span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">"intro"</span><span class="nt">&gt;</span><span class="c">&lt;!-- Introduction --&gt;</span><span class="nt">&lt;/section&gt;</span>
+ <span class="nt">&lt;section&gt;</span><span class="c">&lt;!-- Main content area --&gt;</span><span class="nt">&lt;/section&gt;</span>
+ <span class="nt">&lt;aside&gt;</span><span class="c">&lt;!-- Sidebar --&gt;</span><span class="nt">&lt;/aside&gt;</span>
+ <span class="nt">&lt;footer&gt;</span><span class="c">&lt;!-- Footer --&gt;</span><span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+Each section could have its own <span class="nt">&lt;header&gt;&lt;nav&gt;</span> ...
+
+<span class="nt">&lt;article&gt;</span> for blogs</code></pre></figure>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mk0co3JdV51qz4rgp.png" alt="html layout" /></p>
+
+:ET

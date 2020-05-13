@@ -1,0 +1,139 @@
+I"I<p><img src="http://localhost:4000/assets/tumblr_inline_mjpfqfkirm1qz4rgp.png" alt="floating view" /></p>
+
+<p>To create a floating UIPickerView like the one that is included in Safari use the following code:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="c1">//  </span>
+<span class="c1">// FloatingPickerView.h  </span>
+<span class="c1">// AppearingPickerView  </span>
+<span class="c1">//  </span>
+<span class="c1">// Created by Daniel Vela on 2/22/11.  </span>
+<span class="c1">// Copyright 2011 velada.org . All rights reserved.  </span>
+<span class="c1">//  </span>
+<span class="cp">#import   
+</span><span class="k">@protocol</span> <span class="nc">FloatingPickerViewDelegate</span>  
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">donePressed</span><span class="p">;</span>  
+<span class="k">@end</span>  
+
+<span class="k">@interface</span> <span class="nc">FloatingPickerView</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>  
+    <span class="n">id</span> <span class="n">delegate</span><span class="p">;</span>  
+    <span class="n">id</span> <span class="n">dataSource</span><span class="p">;</span>  
+    <span class="n">id</span> <span class="n">delegate2</span><span class="p">;</span>  
+    <span class="n">UIViewController</span><span class="o">*</span> <span class="n">controller</span><span class="p">;</span>  
+    <span class="n">UIActionSheet</span><span class="o">*</span> <span class="n">aac</span><span class="p">;</span>  
+    <span class="n">UIPickerView</span><span class="o">*</span> <span class="n">pickerView</span><span class="p">;</span>  
+    <span class="n">NSInteger</span> <span class="n">selectRowRow</span><span class="p">;</span>  
+    <span class="n">NSInteger</span> <span class="n">selectRowComponent</span><span class="p">;</span>  
+    <span class="n">BOOL</span> <span class="n">selectRowAnimated</span><span class="p">;</span>  
+<span class="p">}</span>  
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">UIPickerView</span><span class="o">*</span> <span class="n">pickerView</span><span class="p">;</span>  
+<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">selectRowRow</span><span class="p">;</span>  
+<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">selectRowComponent</span><span class="p">;</span>  
+<span class="k">@property</span> <span class="n">BOOL</span> <span class="n">selectRowAnimated</span><span class="p">;</span>  
+<span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithController</span><span class="p">:(</span><span class="n">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">control</span>  
+                     <span class="nf">withDelegate</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span> <span class="n">dele</span>  
+                 <span class="n">withDataSource</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">data</span>  
+                  <span class="n">withDelegate2</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">dele2</span><span class="p">;</span>  
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">showPicker</span><span class="p">;</span>  
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">donePressed</span><span class="p">;</span>  
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">selectRow</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">row</span> 
+            <span class="nf">inComponent</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">component</span> 
+               <span class="nf">animated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">;</span>  
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">doSelectRow</span><span class="p">;</span>  
+<span class="k">@end</span>  
+
+<span class="c1">//  </span>
+<span class="c1">// FloatingPickerView.m  </span>
+<span class="c1">// AppearingPickerView  </span>
+<span class="c1">//  </span>
+<span class="c1">// Created by Daniel Vela on 2/22/11.  </span>
+<span class="c1">// Copyright 2011 veladan.org . All rights reserved.  </span>
+<span class="c1">//  </span>
+
+<span class="cp">#import "FloatingPickerView.h"  
+</span>
+<span class="k">@implementation</span> <span class="nc">FloatingPickerView</span>  
+<span class="k">@synthesize</span> <span class="n">pickerView</span><span class="p">;</span>  
+<span class="k">@synthesize</span> <span class="n">selectRowRow</span><span class="p">;</span>  
+<span class="k">@synthesize</span> <span class="n">selectRowComponent</span><span class="p">;</span>  
+<span class="k">@synthesize</span> <span class="n">selectRowAnimated</span><span class="p">;</span>  
+
+<span class="cp">#pragma mark -  
+#pragma mark initialization  
+</span><span class="k">-</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithController</span><span class="p">:(</span><span class="n">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">control</span>  
+           <span class="nf">withDelegate</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span> <span class="n">dele</span>  
+                 <span class="n">withDataSource</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">data</span>  
+                  <span class="n">withDelegate2</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="n">dele2</span> <span class="p">{</span>  
+    <span class="n">controller</span> <span class="o">=</span> <span class="n">control</span><span class="p">;</span>  
+    <span class="n">delegate</span> <span class="o">=</span> <span class="n">dele</span><span class="p">;</span>  
+    <span class="n">dataSource</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>  
+    <span class="n">delegate2</span> <span class="o">=</span> <span class="n">dele2</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>  
+<span class="p">}</span>  
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">showPicker</span> <span class="p">{</span>  
+    <span class="n">aac</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIActionSheet</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTitle</span><span class="p">:</span><span class="s">@""</span>  
+                                                                        <span class="nl">delegate:</span><span class="n">self</span>  
+                                                     <span class="nl">cancelButtonTitle:</span><span class="nb">nil</span>  
+                                          <span class="nl">destructiveButtonTitle:</span><span class="nb">nil</span>  
+                                                     <span class="nl">otherButtonTitles:</span><span class="nb">nil</span><span class="p">];</span>  
+    <span class="n">aac</span><span class="p">.</span><span class="n">actionSheetStyle</span> <span class="o">=</span> <span class="n">UIActionSheetStyleBlackTranslucent</span><span class="p">;</span>  
+    <span class="n">pickerView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIPickerView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span>  
+                                                                    <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)];</span>  
+    <span class="n">pickerView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">delegate</span><span class="p">;</span>  
+    <span class="n">pickerView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="n">dataSource</span><span class="p">;</span>  
+    <span class="n">pickerView</span><span class="p">.</span><span class="n">userInteractionEnabled</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>  
+    <span class="n">pickerView</span><span class="p">.</span><span class="n">showsSelectionIndicator</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">pickerView</span><span class="p">];</span>   
+    <span class="n">UISegmentedControl</span><span class="o">*</span> <span class="n">doneButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UISegmentedControl</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithItems</span><span class="p">:</span>  
+                                                                                    <span class="p">[</span><span class="n">NSArray</span> <span class="nf">arrayWithObject</span><span class="p">:</span><span class="s">@"OK"</span><span class="p">]];</span>  
+  <span class="n">doneButton</span><span class="p">.</span><span class="n">momentary</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>  
+    <span class="n">doneButton</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">,</span> <span class="mi">30</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">);</span>  
+    <span class="n">doneButton</span><span class="p">.</span><span class="n">segmentedControlStyle</span> <span class="o">=</span> <span class="n">UISegmentedControlStyleBar</span><span class="p">;</span>  
+    <span class="n">doneButton</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">blueColor</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">doneButton</span> <span class="nf">addTarget</span><span class="p">:</span><span class="n">self</span> <span class="nf">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">donePressed</span><span class="p">)</span> <span class="n">forControlEvents</span><span class="o">:</span><span class="n">UIControlEventValueChanged</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">doneButton</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">showInView</span><span class="p">:</span><span class="n">controller</span><span class="p">.</span><span class="n">view</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">beginAnimations</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">setBounds</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">496</span><span class="p">)];</span>  
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">commitAnimations</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">doneButton</span> <span class="nf">release</span><span class="p">];</span>  
+<span class="p">}</span> 
+
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">donePressed</span> <span class="p">{</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">dismissWithClickedButtonIndex</span><span class="p">:</span><span class="mi">0</span> <span class="nf">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">removeFromSuperview</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">aac</span> <span class="nf">autorelease</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">delegate2</span> <span class="nf">donePressed</span><span class="p">];</span>  
+<span class="p">}</span> 
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">selectRow</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">row</span> 
+          <span class="nf">inComponent</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">component</span> 
+                 <span class="nf">animated</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="p">{</span>  
+    <span class="c1">// If you call selectRow from UIPickerView while calling a delegate method, the   </span>
+    <span class="c1">// data will be not displayed.  </span>
+    <span class="c1">// This cheap trick allows to select a row animated.  </span>
+    <span class="n">self</span><span class="p">.</span><span class="n">selectRowRow</span> <span class="o">=</span> <span class="n">row</span><span class="p">;</span>  
+    <span class="n">self</span><span class="p">.</span><span class="n">selectRowComponent</span> <span class="o">=</span> <span class="n">component</span><span class="p">;</span>  
+    <span class="n">self</span><span class="p">.</span><span class="n">selectRowAnimated</span> <span class="o">=</span> <span class="n">animated</span><span class="p">;</span>  
+    <span class="p">[</span><span class="n">self</span> <span class="nf">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">doSelectRow</span><span class="p">)</span> <span class="nf">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="n">afterDelay</span><span class="o">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>   
+<span class="p">}</span>
+
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">doSelectRow</span> <span class="p">{</span>  
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">pickerView</span> <span class="nf">selectRow</span><span class="p">:</span><span class="n">self</span><span class="p">.</span><span class="n">selectRowRow</span>   
+    <span class="nl">inComponent:</span><span class="n">self</span><span class="p">.</span><span class="n">selectRowComponent</span>   
+    <span class="nl">animated:</span><span class="n">self</span><span class="p">.</span><span class="n">selectRowAnimated</span><span class="p">];</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<p>Example of use:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">pickerView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">FloatingPickerView</span> <span class="nf">alloc</span><span class="p">]</span> 
+                            <span class="nl">initWithController:</span><span class="n">sharedAppDelegate</span><span class="p">.</span><span class="n">myTabBarController</span> 
+                                  <span class="nl">withDelegate:</span><span class="n">self</span> 
+                                    <span class="nl">withDataSource:</span><span class="n">self</span>
+                                     <span class="nl">withDelegate2:</span><span class="nf">self</span><span class="p">];</span>  
+<span class="p">[</span><span class="n">pickerView</span> <span class="nf">showPicker</span><span class="p">];</span>  
+<span class="k">if</span><span class="p">(</span><span class="n">updateArticle</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">NSInteger</span> <span class="n">selectId</span> <span class="o">=</span> <span class="p">[</span><span class="n">dm</span><span class="p">.</span><span class="n">typesArray</span> <span class="nf">indexOfObject</span><span class="p">:</span><span class="n">updateArticle</span><span class="p">.</span><span class="n">type</span><span class="p">];</span>  
+    <span class="p">[</span><span class="n">pickerView</span> <span class="nf">selectRow</span><span class="p">:</span><span class="n">selectId</span> <span class="nf">inComponent</span><span class="p">:</span><span class="mi">0</span> <span class="n">animated</span><span class="o">:</span><span class="nb">YES</span><span class="p">];</span>  
+<span class="p">}</span></code></pre></figure>
+:ET

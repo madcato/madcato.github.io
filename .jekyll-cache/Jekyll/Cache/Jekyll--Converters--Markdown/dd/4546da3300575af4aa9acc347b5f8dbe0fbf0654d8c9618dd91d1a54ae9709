@@ -1,0 +1,1496 @@
+I"�<p><a href="https://www.bigdatauniversity.com"><img src="https://ibm.box.com/shared/static/cw2c7r3o20w9zn8gkecaeyjhgw3xdgbj.png" width="400" align="center" /></a></p>
+
+<h1 align="center"><font size="5">Classification with Python</font></h1>
+
+<p>In this notebook we try to practice all the classification algorithms that we learned in this course.</p>
+
+<p>We load a dataset using Pandas library, and apply the following algorithms, and find the best one for this specific dataset by accuracy evaluation methods.</p>
+
+<p>Lets first load required libraries:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">NullFormatter</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="n">ticker</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div></div>
+
+<h3 id="about-dataset">About dataset</h3>
+
+<p>This dataset is about past loans. The <strong>Loan_train.csv</strong> data set includes details of 346 customers whose loan are already paid off or defaulted. It includes following fields:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Loan_status</td>
+      <td>Whether a loan is paid off on in collection</td>
+    </tr>
+    <tr>
+      <td>Principal</td>
+      <td>Basic principal loan amount at the</td>
+    </tr>
+    <tr>
+      <td>Terms</td>
+      <td>Origination terms which can be weekly (7 days), biweekly, and monthly payoff schedule</td>
+    </tr>
+    <tr>
+      <td>Effective_date</td>
+      <td>When the loan got originated and took effects</td>
+    </tr>
+    <tr>
+      <td>Due_date</td>
+      <td>Since it’s one-time payoff schedule, each loan has one single due date</td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td>Age of applicant</td>
+    </tr>
+    <tr>
+      <td>Education</td>
+      <td>Education of applicant</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>The gender of applicant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Lets download the dataset</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="n">loan_train</span><span class="p">.</span><span class="n">csv</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">-</span><span class="n">api</span><span class="p">.</span><span class="n">us</span><span class="o">-</span><span class="n">geo</span><span class="p">.</span><span class="n">objectstorage</span><span class="p">.</span><span class="n">softlayer</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">cf</span><span class="o">-</span><span class="n">courses</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">CognitiveClass</span><span class="o">/</span><span class="n">ML0101ENv3</span><span class="o">/</span><span class="n">labs</span><span class="o">/</span><span class="n">loan_train</span><span class="p">.</span><span class="n">csv</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--2019-03-12 10:06:53--  https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/ML0101ENv3/labs/loan_train.csv
+Resolving s3-api.us-geo.objectstorage.softlayer.net (s3-api.us-geo.objectstorage.softlayer.net)... 67.228.254.193
+Connecting to s3-api.us-geo.objectstorage.softlayer.net (s3-api.us-geo.objectstorage.softlayer.net)|67.228.254.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 23101 (23K) [text/csv]
+Saving to: ‘loan_train.csv’
+
+100%[======================================&gt;] 23,101      --.-K/s   in 0.002s  
+
+2019-03-12 10:06:53 (11.4 MB/s) - ‘loan_train.csv’ saved [23101/23101]
+</code></pre></div></div>
+
+<h3 id="load-data-from-csv-file">Load Data From CSV File</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'loan_train.csv'</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>loan_status</th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>effective_date</th>
+      <th>due_date</th>
+      <th>age</th>
+      <th>education</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/8/2016</td>
+      <td>10/7/2016</td>
+      <td>45</td>
+      <td>High School or Below</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/8/2016</td>
+      <td>10/7/2016</td>
+      <td>33</td>
+      <td>Bechalor</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>15</td>
+      <td>9/8/2016</td>
+      <td>9/22/2016</td>
+      <td>27</td>
+      <td>college</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/9/2016</td>
+      <td>10/8/2016</td>
+      <td>28</td>
+      <td>college</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>6</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/9/2016</td>
+      <td>10/8/2016</td>
+      <td>29</td>
+      <td>college</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">shape</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(346, 10)
+</code></pre></div></div>
+
+<h3 id="convert-to-date-time-object">Convert to date time object</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'due_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'due_date'</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">])</span>
+<span class="n">df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>loan_status</th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>effective_date</th>
+      <th>due_date</th>
+      <th>age</th>
+      <th>education</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>45</td>
+      <td>High School or Below</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>33</td>
+      <td>Bechalor</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>15</td>
+      <td>2016-09-08</td>
+      <td>2016-09-22</td>
+      <td>27</td>
+      <td>college</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>28</td>
+      <td>college</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>6</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>29</td>
+      <td>college</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="data-visualization-and-pre-processing">Data visualization and pre-processing</h1>
+
+<p>Let’s see how many of each class is in our data set</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'loan_status'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PAIDOFF       260
+COLLECTION     86
+Name: loan_status, dtype: int64
+</code></pre></div></div>
+
+<p>260 people have paid off the loan on time while 86 have gone into collection</p>
+
+<p>Lets plot some columns to underestand data better:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># notice: installing seaborn might takes a few minutes
+</span><span class="err">!</span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">seaborn</span> <span class="o">-</span><span class="n">y</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching package metadata .............
+Solving package specifications: .
+
+Package plan for installation in environment /opt/conda/envs/DSX-Python35:
+
+The following packages will be UPDATED:
+
+    seaborn: 0.8.0-py35h15a2772_0 --&gt; 0.9.0-py35_0 anaconda
+
+seaborn-0.9.0- 100% |################################| Time: 0:00:00  47.36 MB/s
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">Principal</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">.</span><span class="n">Principal</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">"Gender"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"loan_status"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">"Set1"</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">plt</span><span class="p">.</span><span class="n">hist</span><span class="p">,</span> <span class="s">'Principal'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s">"k"</span><span class="p">)</span>
+
+<span class="n">g</span><span class="p">.</span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/output_18_0.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">age</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">.</span><span class="n">age</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">"Gender"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"loan_status"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">"Set1"</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">plt</span><span class="p">.</span><span class="n">hist</span><span class="p">,</span> <span class="s">'age'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s">"k"</span><span class="p">)</span>
+
+<span class="n">g</span><span class="p">.</span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/output_19_0.png" alt="png" /></p>
+
+<h1 id="pre-processing--feature-selectionextraction">Pre-processing:  Feature selection/extraction</h1>
+
+<h3 id="lets-look-at-the-day-of-the-week-people-get-the-loan">Lets look at the day of the week people get the loan</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'dayofweek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">dayofweek</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">dayofweek</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">.</span><span class="n">dayofweek</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">"Gender"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"loan_status"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s">"Set1"</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">plt</span><span class="p">.</span><span class="n">hist</span><span class="p">,</span> <span class="s">'dayofweek'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s">"k"</span><span class="p">)</span>
+<span class="n">g</span><span class="p">.</span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/output_22_0.png" alt="png" /></p>
+
+<p>We see that people who get the loan at the end of the week dont pay it off, so lets use Feature binarization to set a threshold values less then day 4</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'weekend'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'dayofweek'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span>  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>loan_status</th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>effective_date</th>
+      <th>due_date</th>
+      <th>age</th>
+      <th>education</th>
+      <th>Gender</th>
+      <th>dayofweek</th>
+      <th>weekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>45</td>
+      <td>High School or Below</td>
+      <td>male</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>33</td>
+      <td>Bechalor</td>
+      <td>female</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>15</td>
+      <td>2016-09-08</td>
+      <td>2016-09-22</td>
+      <td>27</td>
+      <td>college</td>
+      <td>male</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>28</td>
+      <td>college</td>
+      <td>female</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>6</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>29</td>
+      <td>college</td>
+      <td>male</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="convert-categorical-features-to-numerical-values">Convert Categorical features to numerical values</h2>
+
+<p>Lets look at gender:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'Gender'</span><span class="p">])[</span><span class="s">'loan_status'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gender  loan_status
+female  PAIDOFF        0.865385
+        COLLECTION     0.134615
+male    PAIDOFF        0.731293
+        COLLECTION     0.268707
+Name: loan_status, dtype: float64
+</code></pre></div></div>
+
+<p>86 % of female pay there loans while only 73 % of males pay there loan</p>
+
+<p>Lets convert male to 0 and female to 1:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'Gender'</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s">'male'</span><span class="p">,</span><span class="s">'female'</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>loan_status</th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>effective_date</th>
+      <th>due_date</th>
+      <th>age</th>
+      <th>education</th>
+      <th>Gender</th>
+      <th>dayofweek</th>
+      <th>weekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>45</td>
+      <td>High School or Below</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-08</td>
+      <td>2016-10-07</td>
+      <td>33</td>
+      <td>Bechalor</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>15</td>
+      <td>2016-09-08</td>
+      <td>2016-09-22</td>
+      <td>27</td>
+      <td>college</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>28</td>
+      <td>college</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>6</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>2016-09-09</td>
+      <td>2016-10-08</td>
+      <td>29</td>
+      <td>college</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="one-hot-encoding">One Hot Encoding</h2>
+<h4 id="how-about-education">How about education?</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'education'</span><span class="p">])[</span><span class="s">'loan_status'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>education             loan_status
+Bechalor              PAIDOFF        0.750000
+                      COLLECTION     0.250000
+High School or Below  PAIDOFF        0.741722
+                      COLLECTION     0.258278
+Master or Above       COLLECTION     0.500000
+                      PAIDOFF        0.500000
+college               PAIDOFF        0.765101
+                      COLLECTION     0.234899
+Name: loan_status, dtype: float64
+</code></pre></div></div>
+
+<h4 id="feature-befor-one-hot-encoding">Feature befor One Hot Encoding</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[[</span><span class="s">'Principal'</span><span class="p">,</span><span class="s">'terms'</span><span class="p">,</span><span class="s">'age'</span><span class="p">,</span><span class="s">'Gender'</span><span class="p">,</span><span class="s">'education'</span><span class="p">]].</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>age</th>
+      <th>Gender</th>
+      <th>education</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>45</td>
+      <td>0</td>
+      <td>High School or Below</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>33</td>
+      <td>1</td>
+      <td>Bechalor</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>15</td>
+      <td>27</td>
+      <td>0</td>
+      <td>college</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>28</td>
+      <td>1</td>
+      <td>college</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>29</td>
+      <td>0</td>
+      <td>college</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="use-one-hot-encoding-technique-to-conver-categorical-varables-to-binary-variables-and-append-them-to-the-feature-data-frame">Use one hot encoding technique to conver categorical varables to binary variables and append them to the feature Data Frame</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Feature</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">'Principal'</span><span class="p">,</span><span class="s">'terms'</span><span class="p">,</span><span class="s">'age'</span><span class="p">,</span><span class="s">'Gender'</span><span class="p">,</span><span class="s">'weekend'</span><span class="p">]]</span>
+<span class="n">Feature</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Feature</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'education'</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Feature</span><span class="p">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Master or Above'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Feature</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>age</th>
+      <th>Gender</th>
+      <th>weekend</th>
+      <th>Bechalor</th>
+      <th>High School or Below</th>
+      <th>college</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>45</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>33</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>15</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>28</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>29</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="feature-selection">Feature selection</h3>
+
+<p>Lets defind feature sets, X:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">Feature</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>age</th>
+      <th>Gender</th>
+      <th>weekend</th>
+      <th>Bechalor</th>
+      <th>High School or Below</th>
+      <th>college</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>45</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>33</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>15</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>28</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>29</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>What are our lables?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'loan_status'</span><span class="p">].</span><span class="n">values</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array(['PAIDOFF', 'PAIDOFF', 'PAIDOFF', 'PAIDOFF', 'PAIDOFF'], dtype=object)
+</code></pre></div></div>
+
+<h2 id="normalize-data">Normalize Data</h2>
+
+<p>Data Standardization give data zero mean and unit variance (technically should be done after train test split )</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span><span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">StandardScaler</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">).</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([[ 0.51578458,  0.92071769,  2.33152555, -0.42056004, -1.20577805,
+        -0.38170062,  1.13639374, -0.86968108],
+       [ 0.51578458,  0.92071769,  0.34170148,  2.37778177, -1.20577805,
+         2.61985426, -0.87997669, -0.86968108],
+       [ 0.51578458, -0.95911111, -0.65321055, -0.42056004, -1.20577805,
+        -0.38170062, -0.87997669,  1.14984679],
+       [ 0.51578458,  0.92071769, -0.48739188,  2.37778177,  0.82934003,
+        -0.38170062, -0.87997669,  1.14984679],
+       [ 0.51578458,  0.92071769, -0.3215732 , -0.42056004,  0.82934003,
+        -0.38170062, -0.87997669,  1.14984679]])
+</code></pre></div></div>
+
+<h1 id="classification">Classification</h1>
+
+<p>Now, it is your turn, use the training set to build an accurate model. Then use the test set to report the accuracy of the model
+You should use the following algorithm:</p>
+<ul>
+  <li>K Nearest Neighbor(KNN)</li>
+  <li>Decision Tree</li>
+  <li>Support Vector Machine</li>
+  <li>Logistic Regression</li>
+</ul>
+
+<p>__ Notice:__</p>
+<ul>
+  <li>You can go above and change the pre-processing, feature selection, feature-extraction, and so on, to make a better model.</li>
+  <li>You should use either scikit-learn, Scipy or Numpy libraries for developing the classification algorithms.</li>
+  <li>You should include the code of the algorithm in the following cells.</li>
+</ul>
+
+<h1 id="k-nearest-neighborknn">K Nearest Neighbor(KNN)</h1>
+<p>Notice: You should find the best k to build the model with the best accuracy.<br />
+<strong>warning:</strong> You should not use the <strong>loan_test.csv</strong> for finding the best k, however, you can split your train_loan.csv into train and test to find the best <strong>k</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c1">#Train Model and Predict  
+</span><span class="n">model_knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">model_knn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">model_knn</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=1, n_neighbors=6, p=2,
+           weights='uniform')
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h1 id="decision-tree">Decision Tree</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">model_tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s">"entropy"</span><span class="p">,</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">model_tree</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">model_tree</span> <span class="c1"># it shows the default parameters
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=4,
+            max_features=None, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+            splitter='best')
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h1 id="support-vector-machine">Support Vector Machine</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="n">model_svm</span> <span class="o">=</span> <span class="n">svm</span><span class="p">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s">'linear'</span><span class="p">)</span>
+<span class="n">model_svm</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">model_svm</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h1 id="logistic-regression">Logistic Regression</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">model_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">'liblinear'</span><span class="p">)</span>
+<span class="n">model_lr</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">model_lr</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LogisticRegression(C=0.0001, class_weight=None, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=100,
+          multi_class='ovr', n_jobs=1, penalty='l2', random_state=None,
+          solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h1 id="model-evaluation-using-test-set">Model Evaluation using Test set</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">jaccard_similarity_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+</code></pre></div></div>
+
+<p>First, download and load the test set:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="n">loan_test</span><span class="p">.</span><span class="n">csv</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">-</span><span class="n">api</span><span class="p">.</span><span class="n">us</span><span class="o">-</span><span class="n">geo</span><span class="p">.</span><span class="n">objectstorage</span><span class="p">.</span><span class="n">softlayer</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">cf</span><span class="o">-</span><span class="n">courses</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">CognitiveClass</span><span class="o">/</span><span class="n">ML0101ENv3</span><span class="o">/</span><span class="n">labs</span><span class="o">/</span><span class="n">loan_test</span><span class="p">.</span><span class="n">csv</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--2019-03-12 11:19:01--  https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/ML0101ENv3/labs/loan_test.csv
+Resolving s3-api.us-geo.objectstorage.softlayer.net (s3-api.us-geo.objectstorage.softlayer.net)... 67.228.254.193
+Connecting to s3-api.us-geo.objectstorage.softlayer.net (s3-api.us-geo.objectstorage.softlayer.net)|67.228.254.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3642 (3.6K) [text/csv]
+Saving to: ‘loan_test.csv’
+
+100%[======================================&gt;] 3,642       --.-K/s   in 0s      
+
+2019-03-12 11:19:01 (680 MB/s) - ‘loan_test.csv’ saved [3642/3642]
+</code></pre></div></div>
+
+<h3 id="load-test-set-for-evaluation">Load Test set for evaluation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'loan_test.csv'</span><span class="p">)</span>
+<span class="n">test_df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>loan_status</th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>effective_date</th>
+      <th>due_date</th>
+      <th>age</th>
+      <th>education</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/8/2016</td>
+      <td>10/7/2016</td>
+      <td>50</td>
+      <td>Bechalor</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>5</td>
+      <td>PAIDOFF</td>
+      <td>300</td>
+      <td>7</td>
+      <td>9/9/2016</td>
+      <td>9/15/2016</td>
+      <td>35</td>
+      <td>Master or Above</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21</td>
+      <td>21</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/10/2016</td>
+      <td>10/9/2016</td>
+      <td>43</td>
+      <td>High School or Below</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24</td>
+      <td>24</td>
+      <td>PAIDOFF</td>
+      <td>1000</td>
+      <td>30</td>
+      <td>9/10/2016</td>
+      <td>10/9/2016</td>
+      <td>26</td>
+      <td>college</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35</td>
+      <td>35</td>
+      <td>PAIDOFF</td>
+      <td>800</td>
+      <td>15</td>
+      <td>9/11/2016</td>
+      <td>9/25/2016</td>
+      <td>29</td>
+      <td>Bechalor</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Prepare test set the same way the train set was evaluated
+</span><span class="n">test_df</span><span class="p">[</span><span class="s">'due_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s">'due_date'</span><span class="p">])</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">])</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s">'dayofweek'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s">'effective_date'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">dayofweek</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s">'weekend'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s">'dayofweek'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span>  <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s">'Gender'</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">[</span><span class="s">'male'</span><span class="p">,</span><span class="s">'female'</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">test_df</span><span class="p">[[</span><span class="s">'Principal'</span><span class="p">,</span><span class="s">'terms'</span><span class="p">,</span><span class="s">'age'</span><span class="p">,</span><span class="s">'Gender'</span><span class="p">,</span><span class="s">'education'</span><span class="p">]].</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>age</th>
+      <th>Gender</th>
+      <th>education</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>50</td>
+      <td>1</td>
+      <td>Bechalor</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>300</td>
+      <td>7</td>
+      <td>35</td>
+      <td>0</td>
+      <td>Master or Above</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>43</td>
+      <td>1</td>
+      <td>High School or Below</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>26</td>
+      <td>0</td>
+      <td>college</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>800</td>
+      <td>15</td>
+      <td>29</td>
+      <td>0</td>
+      <td>Bechalor</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Feature_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[[</span><span class="s">'Principal'</span><span class="p">,</span><span class="s">'terms'</span><span class="p">,</span><span class="s">'age'</span><span class="p">,</span><span class="s">'Gender'</span><span class="p">,</span><span class="s">'weekend'</span><span class="p">]]</span>
+<span class="n">Feature_test</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Feature_test</span><span class="p">,</span><span class="n">pd</span><span class="p">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s">'education'</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Feature_test</span><span class="p">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Master or Above'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Feature_test</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Principal</th>
+      <th>terms</th>
+      <th>age</th>
+      <th>Gender</th>
+      <th>weekend</th>
+      <th>Bechalor</th>
+      <th>High School or Below</th>
+      <th>college</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>300</td>
+      <td>7</td>
+      <td>35</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>43</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000</td>
+      <td>30</td>
+      <td>26</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>800</td>
+      <td>15</td>
+      <td>29</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Test data input
+</span><span class="n">X_test</span> <span class="o">=</span> <span class="n">Feature_test</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">.</span><span class="n">StandardScaler</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X_test</span><span class="p">).</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Test data output
+</span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s">'loan_status'</span><span class="p">].</span><span class="n">values</span>
+<span class="n">y_test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array(['PAIDOFF', 'PAIDOFF', 'PAIDOFF', 'PAIDOFF', 'PAIDOFF'], dtype=object)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ACCURACY SCORES
+</span>
+<span class="c1"># knn 
+</span><span class="n">yhat</span> <span class="o">=</span> <span class="n">model_knn</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">yhat</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Train set KNN Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_knn</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test set KNN Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+<span class="n">knn_jaccard</span> <span class="o">=</span> <span class="n">jaccard_similarity_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+<span class="n">knn_f1_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'weighted'</span><span class="p">)</span>
+
+<span class="c1"># Decission tree 
+</span><span class="n">yhat</span> <span class="o">=</span> <span class="n">model_tree</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">yhat</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Train set Decission Tree Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_tree</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test set Decission Tree Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+<span class="n">tree_jaccard</span> <span class="o">=</span> <span class="n">jaccard_similarity_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+<span class="n">tree_f1_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'weighted'</span><span class="p">)</span>
+
+<span class="c1"># SVM 
+</span><span class="n">yhat</span> <span class="o">=</span> <span class="n">model_svm</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">yhat</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Train set SVM Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_svm</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test set SVM Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+<span class="n">svm_jaccard</span> <span class="o">=</span> <span class="n">jaccard_similarity_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+<span class="n">svm_f1_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'weighted'</span><span class="p">)</span>
+
+<span class="c1"># Logistic regression 
+</span><span class="n">yhat</span> <span class="o">=</span> <span class="n">model_lr</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">yhat_proba</span> <span class="o">=</span> <span class="n">model_lr</span><span class="p">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">yhat</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Train set Logistic regression Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_lr</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test set Logistic regression Accuracy: "</span><span class="p">,</span> <span class="n">metrics</span><span class="p">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">))</span>
+<span class="n">lr_jaccard</span> <span class="o">=</span> <span class="n">jaccard_similarity_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+<span class="n">lr_f1_score</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'weighted'</span><span class="p">)</span>
+<span class="n">lr_log_loss</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat_proba</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Train set KNN Accuracy:  0.806358381503
+Test set KNN Accuracy:  0.685185185185
+Train set Decission Tree Accuracy:  0.751445086705
+Test set Decission Tree Accuracy:  0.777777777778
+Train set SVM Accuracy:  0.751445086705
+Test set SVM Accuracy:  0.740740740741
+Train set Logistic regression Accuracy:  0.745664739884
+Test set Logistic regression Accuracy:  0.759259259259
+
+
+/opt/conda/envs/DSX-Python35/lib/python3.5/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">report</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="s">"KNN"</span><span class="p">,</span> <span class="n">knn_jaccard</span><span class="p">,</span> <span class="n">knn_f1_score</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">],</span>
+                                     <span class="p">[</span><span class="s">"Decision Tree"</span><span class="p">,</span> <span class="n">tree_jaccard</span><span class="p">,</span> <span class="n">tree_f1_score</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s">"SVM"</span><span class="p">,</span> <span class="n">svm_jaccard</span><span class="p">,</span> <span class="n">svm_f1_score</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s">"LogisticRegression"</span><span class="p">,</span> <span class="n">lr_jaccard</span><span class="p">,</span> <span class="n">lr_f1_score</span><span class="p">,</span> <span class="n">lr_log_loss</span><span class="p">]]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"Algorithm"</span><span class="p">,</span> <span class="s">"Jaccard"</span><span class="p">,</span> <span class="s">"F1-score"</span><span class="p">,</span> <span class="s">"LogLoss"</span><span class="p">])</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">report</span><span class="p">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">"Algorithm"</span><span class="p">,</span> <span class="s">"Jaccard"</span><span class="p">,</span> <span class="s">"F1-score"</span><span class="p">,</span> <span class="s">"LogLoss"</span><span class="p">])</span>
+<span class="c1"># Jaccard
+</span><span class="n">report</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Algorithm</th>
+      <th>Jaccard</th>
+      <th>F1-score</th>
+      <th>LogLoss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>KNN</th>
+      <th>0.685185185185</th>
+      <th>0.681298582533</th>
+      <th>nan</th>
+    </tr>
+    <tr>
+      <th>Decision Tree</th>
+      <th>0.777777777778</th>
+      <th>0.728395061728</th>
+      <th>nan</th>
+    </tr>
+    <tr>
+      <th>SVM</th>
+      <th>0.740740740741</th>
+      <th>0.630417651694</th>
+      <th>nan</th>
+    </tr>
+    <tr>
+      <th>LogisticRegression</th>
+      <th>0.759259259259</th>
+      <th>0.671764237356</th>
+      <th>0.689904024181</th>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Want to learn more?</h2>
+
+<p>IBM SPSS Modeler is a comprehensive analytics platform that has many machine learning algorithms. It has been designed to bring predictive intelligence to decisions made by individuals, by groups, by systems – by your enterprise as a whole. A free trial is available through this course, available here: <a href="http://cocl.us/ML0101EN-SPSSModeler">SPSS Modeler</a></p>
+
+<p>Also, you can use Watson Studio to run these notebooks faster with bigger datasets. Watson Studio is IBM’s leading cloud solution for data scientists, built by data scientists. With Jupyter notebooks, RStudio, Apache Spark and popular libraries pre-packaged in the cloud, Watson Studio enables data scientists to collaborate on their projects without having to install anything. Join the fast-growing community of Watson Studio users today with a free account at <a href="https://cocl.us/ML0101EN_DSX">Watson Studio</a></p>
+
+<h3>Thanks for completing this lesson!</h3>
+
+<h4>Author:  <a href="https://ca.linkedin.com/in/saeedaghabozorgi">Saeed Aghabozorgi</a></h4>
+<p><a href="https://ca.linkedin.com/in/saeedaghabozorgi">Saeed Aghabozorgi</a>, PhD is a Data Scientist in IBM with a track record of developing enterprise level applications that substantially increases clients’ ability to turn data into actionable knowledge. He is a researcher in data mining field and expert in developing advanced analytic methods like machine learning and statistical modelling on large datasets.</p>
+
+<hr />
+
+<p>Copyright &copy; 2018 <a href="https://cocl.us/DX0108EN_CC">Cognitive Class</a>. This notebook and its source code are released under the terms of the <a href="https://bigdatauniversity.com/mit-license/">MIT License</a>.</p>
+:ET

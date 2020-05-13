@@ -1,0 +1,170 @@
+I"jK<p>To record sound with iOS 7 use <strong>AVAudioRecorder</strong> class.</p>
+
+<p>Before stert the recording with the <strong>record</strong> method call the <strong>prepareToRecord</strong> method. Both methods return a boolean like return value.
+It’s important to check that returns <strong>YES</strong>. In order case show an error because the recording won’t start.</p>
+
+<h2 id="creation-and-configuration-ofavaudiorecorder">Creation and configuration ofAVAudioRecorder</h2>
+
+<p>The object <strong>AVAudioRecorder</strong> requires for its initialization an object of type <strong>NSDictionary</strong> with the following values:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="p">@{</span><span class="n">AVFormatIDKey</span><span class="o">:</span><span class="err">@</span><span class="p">(</span><span class="n">kAudioFormatMPEG4AAC</span><span class="p">),</span>
+  <span class="nl">AVSampleRateKey:</span><span class="mf">@44100.0</span><span class="p">,</span>
+  <span class="nl">AVNumberOfChannelsKey:</span><span class="mi">@2</span><span class="p">,</span>
+  <span class="nl">AVEncoderAudioQualityKey:</span><span class="err">@</span><span class="p">(</span><span class="n">AVAudioQualityMin</span><span class="p">),</span>
+  <span class="nl">AVEncoderBitRateKey:</span><span class="mi">@16</span><span class="p">,</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Also create this object <strong>NSDictionary</strong> is needed to make the previous step: create an <strong>AVAudioSesion</strong> object.</p>
+
+<p>Since iOS 7 is needed to create an <em>AVAudioSession** object before the creation of **AVAudioRecorder</em>8. In other case recording won’t start.</p>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_n0mhtxb2Q31qjhbuu.png" alt="Audio recording session" /></p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">Code</span> <span class="n">sample</span>
+
+<span class="c1">//</span>
+<span class="c1">//  ViewController.m</span>
+<span class="c1">//  NoiseAlertPrototype</span>
+<span class="c1">//</span>
+<span class="c1">//  Created by Daniel Vela on 30/01/14.</span>
+<span class="c1">//  Copyright (c) 2014 veladan. All rights reserved.</span>
+<span class="c1">//</span>
+
+<span class="cp">#import "ViewController.h"
+</span>
+<span class="k">const</span> <span class="kt">float</span> <span class="n">min_level</span> <span class="o">=</span> <span class="mi">20</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">float</span> <span class="n">max_level</span> <span class="o">=</span> <span class="mi">160</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
+
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">AVAudioRecorder</span><span class="o">*</span><span class="p">)</span><span class="n">recorder</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_recorder</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSURL</span><span class="o">*</span> <span class="n">url</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">NSFileManager</span> <span class="nf">defaultManager</span><span class="p">]</span> <span class="nf">URLsForDirectory</span><span class="p">:</span><span class="n">NSDocumentDirectory</span>
+                                                             <span class="nl">inDomains:</span><span class="n">NSUserDomainMask</span><span class="p">]</span>
+                      <span class="nf">lastObject</span><span class="p">];</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span> <span class="nf">URLByAppendingPathComponent</span><span class="p">:</span><span class="s">@"record.aac"</span><span class="p">];</span>
+        <span class="n">NSDictionary</span><span class="o">*</span> <span class="n">settings</span> <span class="o">=</span> <span class="p">@{</span><span class="n">AVFormatIDKey</span><span class="o">:</span><span class="err">@</span><span class="p">(</span><span class="n">kAudioFormatMPEG4AAC</span><span class="p">),</span>
+                                   <span class="nl">AVSampleRateKey:</span><span class="mf">@44100.0</span><span class="p">,</span>
+                                   <span class="nl">AVNumberOfChannelsKey:</span><span class="mi">@2</span><span class="p">,</span>
+                                   <span class="nl">AVEncoderAudioQualityKey:</span><span class="err">@</span><span class="p">(</span><span class="n">AVAudioQualityMin</span><span class="p">),</span>
+                                   <span class="nl">AVEncoderBitRateKey:</span><span class="mi">@16</span><span class="p">,</span>
+
+                                   <span class="p">};</span>
+        <span class="n">AVAudioSession</span> <span class="o">*</span><span class="n">audioSession</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVAudioSession</span> <span class="nf">sharedInstance</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">audioSession</span> <span class="nf">setCategory</span><span class="p">:</span><span class="n">AVAudioSessionCategoryRecord</span>
+                            <span class="nl">error:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="n">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">;</span>
+        <span class="n">_recorder</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AVAudioRecorder</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithURL</span><span class="p">:</span><span class="n">url</span>
+                                                    <span class="nl">settings:</span><span class="n">settings</span>
+                                                       <span class="nl">error:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">UIAlertView</span><span class="o">*</span> <span class="n">alert</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIAlertView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTitle</span><span class="p">:</span><span class="s">@"Error creating audio recorder"</span>
+                                                            <span class="nl">message:</span><span class="p">[</span><span class="n">error</span> <span class="nf">description</span><span class="p">]</span>
+                                                           <span class="nl">delegate:</span><span class="nb">nil</span>
+                                                  <span class="nl">cancelButtonTitle:</span><span class="s">@"cancel"</span>
+                                                  <span class="nl">otherButtonTitles:</span><span class="nb">nil</span><span class="p">];</span>
+            <span class="p">[</span><span class="n">alert</span> <span class="nf">show</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">_recorder</span><span class="p">.</span><span class="n">meteringEnabled</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_recorder</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">self</span> <span class="nf">setStop</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">startTakingNoiseSamples</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didReceiveMemoryWarning</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">didReceiveMemoryWarning</span><span class="p">];</span>
+    <span class="c1">// Dispose of any resources that can be recreated.</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">adjustNoiseLevel</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">max_level</span> <span class="o">+</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="n">max_level</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setAverageLevelValue</span><span class="p">:(</span><span class="kt">float</span><span class="p">)</span><span class="nv">value</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">adjustNoiseLevel</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">averageLevel</span> <span class="nf">setProgress</span><span class="p">:</span><span class="n">value</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setPeakLevelValue</span><span class="p">:(</span><span class="kt">float</span><span class="p">)</span><span class="nv">value</span>  <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">adjustNoiseLevel</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">peakLevel</span> <span class="nf">setProgress</span><span class="p">:</span><span class="n">value</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">startTakingNoiseSamples</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">([</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">isRecording</span><span class="p">]</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">updateMeters</span><span class="p">];</span>
+        <span class="kt">float</span> <span class="n">averagePower</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">averagePowerForChannel</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+        <span class="kt">float</span> <span class="n">peakPower</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">peakPowerForChannel</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">setAverageLevelValue</span><span class="p">:</span><span class="n">averagePower</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">setPeakLevelValue</span><span class="p">:</span><span class="n">peakPower</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="n">self</span> <span class="nf">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">startTakingNoiseSamples</span><span class="p">)</span>
+               <span class="nl">withObject:</span><span class="nb">nil</span>
+               <span class="nl">afterDelay:</span><span class="mi">0</span><span class="p">.</span><span class="mo">05</span><span class="n">f</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">startRecording</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">setStart</span><span class="p">];</span>
+    <span class="n">BOOL</span> <span class="n">prepared</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">prepareToRecord</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">prepared</span> <span class="o">==</span> <span class="nb">NO</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">UIAlertView</span><span class="o">*</span> <span class="n">alert</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIAlertView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTitle</span><span class="p">:</span><span class="s">@"Error creating audio recorder"</span>
+                                                        <span class="nl">message:</span><span class="s">@"no preparado"</span>
+                                                       <span class="nl">delegate:</span><span class="nb">nil</span>
+                                              <span class="nl">cancelButtonTitle:</span><span class="s">@"cancel"</span>
+                                              <span class="nl">otherButtonTitles:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">alert</span> <span class="nf">show</span><span class="p">];</span>
+
+    <span class="p">}</span>
+    <span class="n">BOOL</span> <span class="n">started</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">record</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">started</span> <span class="o">==</span> <span class="nb">NO</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">UIAlertView</span><span class="o">*</span> <span class="n">alert</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIAlertView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTitle</span><span class="p">:</span><span class="s">@"Error starting recording"</span>
+                                                        <span class="nl">message:</span><span class="s">@"no preparado"</span>
+                                                       <span class="nl">delegate:</span><span class="nb">nil</span>
+                                              <span class="nl">cancelButtonTitle:</span><span class="s">@"cancel"</span>
+                                              <span class="nl">otherButtonTitles:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">alert</span> <span class="nf">show</span><span class="p">];</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">stopRecording</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">setStop</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">recorder</span> <span class="nf">stop</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setStop</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">startStopButton</span> <span class="nf">setTitle</span><span class="p">:</span><span class="s">@"Start"</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">startStopButton</span> <span class="nf">addTarget</span><span class="p">:</span><span class="n">self</span>
+                          <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="n">startRecording</span><span class="p">)</span>
+                <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setStart</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">startStopButton</span> <span class="nf">setTitle</span><span class="p">:</span><span class="s">@"Stop"</span> <span class="nf">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">startStopButton</span> <span class="nf">addTarget</span><span class="p">:</span><span class="n">self</span>
+                          <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="n">stopRecording</span><span class="p">)</span>
+                <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
+<span class="p">}</span>
+
+
+<span class="k">@end</span></code></pre></figure>
+:ET
