@@ -16,7 +16,7 @@ These advance features are:
 - [Mixins]({% link _posts/2020-04-26-advanced-ruby-1.markdown %})
 - [Object-Specific Classes]({% link _posts/2020-05-02-advanced-ruby-2.markdown %})
 - [module_eval]({% link _posts/2020-05-13-advanced-ruby-3.markdown %})
-- class << self
+- [class << self]({% link _posts/2020-05-16-advanced-ruby-4.markdown %})
 - Metaclasses
 - Dynamic typing
 - Duck typing
