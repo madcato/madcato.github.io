@@ -29,4 +29,4 @@ These advance features are:
 ## Links
 
 - [Ruby Programming Language](https://www.ruby-lang.org/en/)
-- [Ruby (programming language) - Wikipedia](https://en.wikipedia.org/wiki/Ruby_(programming_language)
+- [Ruby programming language - Wikipedia](https://en.wikipedia.org/wiki/Ruby_(programming_language)
