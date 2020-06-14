@@ -9,7 +9,7 @@ lang:       en
 
 # Advance Ruby: metaclasses
 
-Each object in Ruby has a hidden class. Evan classes in Ruby, that are also object, have a hidden class associated.
+Each object in Ruby has a hidden class. Even classes in Ruby, that are also objects, have a hidden class associated.
 
 ```ruby
 class Person

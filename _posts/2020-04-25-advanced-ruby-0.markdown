@@ -18,7 +18,7 @@ These advance features are:
 - [module_eval]({% link _posts/2020-05-13-advanced-ruby-3.markdown %})
 - [class << self]({% link _posts/2020-05-16-advanced-ruby-4.markdown %})
 - [Metaclasses]({% link _posts/2020-05-20-advanced-ruby-5.markdown %})
-- Dynamic typing
+- [Dynamic typing]({% link _posts/2020-06-14-advanced-ruby-6.markdown %})
 - Duck typing
 - DSL
 - Functional programming
