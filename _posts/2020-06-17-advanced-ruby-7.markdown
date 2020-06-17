@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Advanced Ruby: Duck typing"
+title:      "Advanced Ruby: duck typing"
 date:       2020-06-17 04:50:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
 lang:       en
 ---
 
-# Advance Ruby: Duck typing
+# Advance Ruby: duck typing
 
 Ruby is a dynamic typing language. This means that declaring a variable doesn't fix the type of it. The class of every variable in Ruby depends on the class of the object assigned to it. This class can be changed.
 
@@ -16,7 +16,7 @@ In Ruby the way to interact with objects isn't fixed by its class. The way to in
 Duck typing is not a intrinsic mechanism of the Ruby language. It is a convention that developers choose to adopt. 
 
 ```ruby
-'Hello Wrold!'.respond_to?(:to str)  # => true  
+'Hello World!'.respond_to?(:to str)  # => true  
 42.respond_to?(:to_str)  # => false  
 ```
 
