@@ -3,7 +3,7 @@ layout:     post
 title:      "Great Developer Habits"
 date:       2020-06-23 16:08:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+header-img: "img/post-bg-03.jpg"
 lang:       en
 ---
 
@@ -30,7 +30,7 @@ Successful app development requires mastering a lot of different things. Discove
 * **Document**
     - It's important to describe the **why** the code is written. Document it. Comments are criticial for future understanding.
     - A good comment explains the **why**. Good comments provide background and reasoning.
-    - Use Command+option+/ to add a funtion/class commentary. Use descriptive variable and constant names.
+    - Use Command+option+/ to add a funtion or class commentary. Use descriptive variable and constant names.
     - Include documentation.
 * **Test**
     - Write unit tests.
