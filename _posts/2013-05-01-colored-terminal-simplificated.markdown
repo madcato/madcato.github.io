@@ -15,4 +15,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\u@\h\[\033[1;31m\]:\[\033[0;36m\]\w$\[\033[0m\] '  
 {% endhighlight %}
 
+# Uncomment this two lines for zsh
+# autoload -U colors && colors
+# export PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$fg[green]%}%~ %{$reset_color%}%% "
+
 ![colored terminal]({{ site.url }}/tumblr_inline_mm467uUP0m1qz4rgp.png)
