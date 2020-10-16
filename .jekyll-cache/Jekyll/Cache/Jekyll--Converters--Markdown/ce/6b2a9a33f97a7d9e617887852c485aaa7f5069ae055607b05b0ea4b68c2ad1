@@ -1,0 +1,77 @@
+I"�<h1 id="great-developer-habits">Great Developer Habits</h1>
+
+<p><a href="https://developer.apple.com/videos/play/wwdc2019/239/">Great Developer Habits - WWDC 2019</a></p>
+
+<p>Successful app development requires mastering a lot of different things. Discover practices you can incorporate into your development workflow to enhance your productivity, and improve your app’s performance and stability. Learn how to improve the quality of code you write with Xcode. Gain a practical understanding of some valuable development techniques.</p>
+
+<h2 id="habits">Habits</h2>
+
+<ul>
+  <li><strong>Organize</strong>
+    <ul>
+      <li>Use <em>groups</em> in Xcode to organize everything: <strong>functionally</strong></li>
+      <li>Match <em>groups</em> with file system.</li>
+      <li>Storyboards: use several using links.</li>
+      <li>Keep up-to-date project configuration.</li>
+      <li>Remove scrap code.</li>
+      <li>Remove warnings.</li>
+    </ul>
+  </li>
+  <li><strong>Track</strong>
+    <ul>
+      <li>Use source control.</li>
+      <li>Commits small, localize and self-contained.</li>
+      <li>Write usefull comments messages.</li>
+      <li>Use branches for bugs and feature work.</li>
+    </ul>
+  </li>
+  <li><strong>Document</strong>
+    <ul>
+      <li>It’s important to describe the <strong>why</strong> the code is written. Document it. Comments are criticial for future understanding.</li>
+      <li>A good comment explains the <strong>why</strong>. Good comments provide background and reasoning.</li>
+      <li>Use Command+option+/ to add a funtion or class commentary. Use descriptive variable and constant names.</li>
+      <li>Include documentation.</li>
+    </ul>
+  </li>
+  <li><strong>Test</strong>
+    <ul>
+      <li>Write unit tests.</li>
+      <li>Run uniet tests before commiting code.</li>
+      <li>Build a foundation for continuous integration.</li>
+    </ul>
+  </li>
+  <li><strong>Analyze</strong>
+    <ul>
+      <li>Simulate poor networks with Network Link Conditioner.</li>
+      <li>Use sanitizers and checkers.</li>
+      <li>Measure performance and efficiency with Debug Gauges.</li>
+      <li>Investigate issues with Intruments.</li>
+    </ul>
+  </li>
+  <li><strong>Evaluate</strong>
+    <ul>
+      <li>Include code review as part of your practice.</li>
+      <li>Understand each line.</li>
+      <li>Build it.</li>
+      <li>Run tests.</li>
+    </ul>
+  </li>
+  <li><strong>Decouple</strong>
+    <ul>
+      <li>Determine functional segments and break them out.</li>
+      <li>Scale your work across multiple apps.</li>
+      <li>Improve efficiency with extensions.</li>
+      <li>Share your efforts with the broader community.</li>
+    </ul>
+  </li>
+  <li><strong>Manage</strong>
+    <ul>
+      <li>Use community and open source projects responsability.</li>
+      <li>Understand dependencies thoroughly.</li>
+      <li>Ensure that privacy is respected.</li>
+      <li>Have a plan if a dependency goes away or is no longer maintained.</li>
+    </ul>
+  </li>
+</ul>
+
+:ET

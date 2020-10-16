@@ -1,0 +1,20 @@
+I"a<h1 id="advance-ruby-dsl">Advance Ruby: DSL</h1>
+
+<p><strong>DSL</strong> means “Domain Specific Language”. This king of programming languages are designed to be used in some king of specific subject: like maths, Machine Learning, networking, CI/CD, etc.</p>
+
+<p>A good example of a DSL is <a href="https://fastlane.tools">fastlane</a>. This tool is a great helper for developers in orrder to build and distribute mobile apps, and more. Here are a sample of this <strong>DSL</strong>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">default_platform</span><span class="p">(</span><span class="ss">:ios</span><span class="p">)</span>
+
+<span class="n">platform</span> <span class="ss">:ios</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"Push a new beta build to TestFlight"</span>
+  <span class="n">lane</span> <span class="ss">:beta</span> <span class="k">do</span>
+    <span class="n">build_app</span><span class="p">(</span><span class="ss">workspace: </span><span class="s2">"project-ios.xcworkspace"</span><span class="p">,</span> <span class="ss">scheme: </span><span class="s2">"project-ios"</span><span class="p">)</span>
+    <span class="n">upload_to_testflight</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Then, in terminal you can execute <code class="highlighter-rouge">fastlane beta</code> to build project and publish it into TestFlight. Fastlane would ask for your “Apple Developer Program” credentials in order to have access to “App Store Connect”.</p>
+
+:ET
