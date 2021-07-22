@@ -50,6 +50,7 @@ lang:       en
 - [iOS development native](https://developer.apple.com)
 - [Swiftlint code quality](https://github.com/realm/SwiftLint)
 - [Website creation for an ios app with turbolinks](https://github.com/turbolinks/turbolinks-ios)
+- [Image resize tool: Prepo](https://apps.apple.com/es/app/prepo/id476533227?l=en&mt=12)
 
 #### Android
 
