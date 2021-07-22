@@ -34,7 +34,7 @@ Successful app development requires mastering a lot of different things. Discove
     - Include documentation.
 * **Test**
     - Write unit tests.
-    - Run uniet tests before commiting code.
+    - Run unit tests before commiting code.
     - Build a foundation for continuous integration.
 * **Analyze**
     - Simulate poor networks with Network Link Conditioner.
