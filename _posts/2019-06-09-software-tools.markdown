@@ -12,6 +12,7 @@ lang:       en
 ## Communication
 
 - [Team comunications and third party integrations with Slack](https://slack.com)
+- [Mattermost: Open-source, high-trust, developer-centric collaboration platform](https://mattermost.com)
 
 ## Development
 
@@ -19,13 +20,14 @@ lang:       en
 - Create your own quallity,tracking and analytics services to avoid Admob, Firebase, Analytics, etc.
 - [Use Semver for versioning](https://semver.org)
 - [Textmate: Text editor for macOS](https://macromates.com)
+- [Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com)
 - [Diagram online service Draw.io](https://www.draw.io)
 
 ### Web
 
 - [Website creating with Figma](https://www.figma.com)
 - [Mantain blogs and static websites with jekyll](https://jekyllrb.com)
-- [Mobile website creation with turbolinks](https://github.com/turbolinks/turbolinks)
+- [Mobile website creation with Turbo](https://github.com/hotwired/turbo)
 - [Postman client to automate rest api testing](https://www.getpostman.com)
 
 ### API
@@ -44,7 +46,7 @@ lang:       en
 #### iOS
 
 - Try to avoid using third party frameworks.
-- When third party framework is need user [Swift Package Manager](https://swift.org/package-manager/) or [Carthage](https://github.com/Carthage/Carthage)
+- When third party framework is need user [Swift Package Manager](https://swift.org/package-manager/) or [Carthage](https://github.com/Carthage/Carthage), avoid CocoaPods .
 - [iOS development native](https://developer.apple.com)
 - [Swiftlint code quality](https://github.com/realm/SwiftLint)
 - [Website creation for an ios app with turbolinks](https://github.com/turbolinks/turbolinks-ios)
@@ -59,12 +61,13 @@ lang:       en
 - [Backend development with Rails](https://rubyonrails.org)
 - [PostgreSQL](https://www.postgresql.org)
 - [Sqlite db for little projects](https://sqlite.org)
+- [Parse backend: the complete application stack](https://parseplatform.org)
 
-### Repositories
+### Git repositories
 
 - [Git repo management with SourceTree](https://www.sourcetreeapp.com)
 
-### Software quality
+### Software quality d
 
 - [Automated code review with Codebeat](https://codebeat.co)
 

@@ -1,0 +1,113 @@
+I"¶<h1 id="software-tools-for-business-freelances-and-startups">Software tools for business, freelances and startups</h1>
+
+<h2 id="communication">Communication</h2>
+
+<ul>
+  <li><a href="https://slack.com">Team comunications and third party integrations with Slack</a></li>
+  <li><a href="https://mattermost.com">Mattermost: Open-source, high-trust, developer-centric collaboration platform</a></li>
+</ul>
+
+<h2 id="development">Development</h2>
+
+<ul>
+  <li>Avoid Google: they get to much information by using their libraries.</li>
+  <li>Create your own quallity,tracking and analytics services to avoid Admob, Firebase, Analytics, etc.</li>
+  <li><a href="https://semver.org">Use Semver for versioning</a></li>
+  <li><a href="https://macromates.com">Textmate: Text editor for macOS</a></li>
+  <li><a href="https://code.visualstudio.com">Visual Studio Code - Code Editing. Redefined</a></li>
+  <li><a href="https://www.draw.io">Diagram online service Draw.io</a></li>
+</ul>
+
+<h3 id="web">Web</h3>
+
+<ul>
+  <li><a href="https://www.figma.com">Website creating with Figma</a></li>
+  <li><a href="https://jekyllrb.com">Mantain blogs and static websites with jekyll</a></li>
+  <li><a href="https://github.com/hotwired/turbo">Mobile website creation with Turbo</a></li>
+  <li><a href="https://www.getpostman.com">Postman client to automate rest api testing</a></li>
+</ul>
+
+<h3 id="api">API</h3>
+
+<ul>
+  <li><a href="https://swagger.io">API development with Swagger</a></li>
+</ul>
+
+<h3 id="develop-environments">Develop Environments</h3>
+
+<ul>
+  <li><a href="https://about.gitlab.com">Git repos, CI/CD, wiki, environment management with Gitlab. Use Community Version</a></li>
+  <li><a href="https://danger.systems">Dangerfile to customize CI with your own conventions</a></li>
+</ul>
+
+<h3 id="mobile">Mobile</h3>
+
+<ul>
+  <li><a href="https://fastlane.tools/">fastlane for automated deployment and more</a></li>
+</ul>
+
+<h4 id="ios">iOS</h4>
+
+<ul>
+  <li>Try to avoid using third party frameworks.</li>
+  <li>When third party framework is need user <a href="https://swift.org/package-manager/">Swift Package Manager</a> or <a href="https://github.com/Carthage/Carthage">Carthage</a></li>
+  <li><a href="https://developer.apple.com">iOS development native</a></li>
+  <li><a href="https://github.com/realm/SwiftLint">Swiftlint code quality</a></li>
+  <li><a href="https://github.com/turbolinks/turbolinks-ios">Website creation for an ios app with turbolinks</a></li>
+</ul>
+
+<h4 id="android">Android</h4>
+
+<ul>
+  <li><a href="https://developer.android.com">Android development native</a></li>
+  <li><a href="https://github.com/turbolinks/turbolinks-android">Website creation for an android app with turbolinks</a></li>
+</ul>
+
+<h3 id="backend">Backend</h3>
+
+<ul>
+  <li><a href="https://rubyonrails.org">Backend development with Rails</a></li>
+  <li><a href="https://www.postgresql.org">PostgreSQL</a></li>
+  <li><a href="https://sqlite.org">Sqlite db for little projects</a></li>
+</ul>
+
+<h3 id="repositories">Repositories</h3>
+
+<ul>
+  <li><a href="https://www.sourcetreeapp.com">Git repo management with SourceTree</a></li>
+</ul>
+
+<h3 id="software-quality">Software quality</h3>
+
+<ul>
+  <li><a href="https://codebeat.co">Automated code review with Codebeat</a></li>
+</ul>
+
+<h2 id="project-management">Project management</h2>
+
+<ul>
+  <li><a href="https://www.openproject.org">OpenProject</a></li>
+</ul>
+
+<h2 id="servers">Servers</h2>
+
+<ul>
+  <li><a href="https://www.digitalocean.com">Digital Ocean</a></li>
+  <li><a href="https://aws.amazon.com">AWS</a></li>
+  <li><a href="https://pages.github.com">Free static web site server with Github Pages</a></li>
+</ul>
+
+<h3 id="containers">Containers</h3>
+
+<ul>
+  <li><a href="https://www.docker.com/resources/what-container">Docker containers</a></li>
+  <li><a href="https://docs.docker.com/engine/swarm/">Docker swarm</a></li>
+  <li><a href="https://kubernetes.io">Kubernetes</a></li>
+</ul>
+
+<h3 id="monitoring">Monitoring</h3>
+
+<ul>
+  <li><a href="https://prometheus.io">Prometheus</a></li>
+</ul>
+:ET
