@@ -63,7 +63,7 @@ public static int addTwoNumbers(int a, int b) throws {
 }
 ```
 
-... a few minutes later, the same guy returns and ask you to check the authorization level is enaouh, because in that company _"every function check it"_ and _"every one does it this way"_.
+... a few minutes later, the same guy returns and ask you to check the authorization level is enouh, because in that company _"every function check it"_ and _"every one does it this way"_.
 
 ```java
 public static int addTwoNumbers(int a, int b) throws {\
@@ -85,7 +85,7 @@ public static int addTwoNumbers(int a, int b) throws {\
 }
 ```
 
-#### Next day, someone that presents himself as the exploitation manager, ...
+#### Next day, someone that presents himself as the operations manager, ...
 
 ... ask you to save the results in a database, because in that company _"every function save it"_ and _"every one does it this way"_.
 
@@ -165,7 +165,7 @@ public static int addTwoNumbers(int a, int b) throws {
 
 ***This shit was a function to add two numbers!!!***
 
-# And the worst of this code can't be read between these lines, the worst is that the rest of project is equal.
+# And the worst of this code can't be seen between these lines, the worst is that the rest of project is the same.
 
 Someone may think that this project requires an OOP framework that can solve auhtentication, authorization, persistence, logging, in a more designable way. But this approach tend to lack of the flexibility needed to add new kinds of functionality once the desing is settled.
 
@@ -198,5 +198,4 @@ I like this way to program for this reason:
 - Functions are much much easier to test.
 
 What negative point are?
-- This code is hard to debug, because 
-- Most of languages are not desinged to do this king of progrramming. (Almost only Python and Ruby were created thinking in this king of programming)
+- This code is hard to debug, because most of languages are not desinged to do this king of progrramming. (Almost only Python and Ruby were created thinking in this king of programming)
