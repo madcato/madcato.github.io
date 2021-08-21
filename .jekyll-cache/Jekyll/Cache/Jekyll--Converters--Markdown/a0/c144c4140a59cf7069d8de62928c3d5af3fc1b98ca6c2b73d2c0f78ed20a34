@@ -1,6 +1,0 @@
-I"N
-<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">__weak</span> <span class="n">id</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
-<span class="p">[</span><span class="n">someObject</span> <span class="nf">someMethodWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>    
-<span class="p">[</span><span class="n">weakSelf</span> <span class="nf">someOtherMethod</span><span class="p">];</span>
-<span class="p">}]</span> </code></pre></figure>
-:ET

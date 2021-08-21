@@ -1,8 +1,0 @@
-I"ë<p>The build directory in every Xcode project can be ignored using this svn command:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">svn propset svn:ignore <span class="nb">.</span> build  </code></pre></figure>
-
-<p>When you make a <strong>svn stat</strong> you will see this files marked as ?. But i fyou try to import or add it to the project, it will be ignored.</p>
-
-<p><a href="http://svnbook.red-bean.com/en/1.1/ch07s02.html">SVN Documentation</a></p>
-:ET

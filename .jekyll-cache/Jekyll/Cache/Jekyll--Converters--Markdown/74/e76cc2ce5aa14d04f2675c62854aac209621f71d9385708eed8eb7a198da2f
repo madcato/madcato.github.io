@@ -1,4 +1,0 @@
-I"Ê<p>To invoke some code from the main queue thread in iOS use the following code:</p>
-
-<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span> <span class="cm">/* some code like show an alert view */</span> <span class="p">});</span></code></pre></figure>
-:ET

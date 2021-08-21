@@ -1,18 +1,0 @@
-I"I<p>To store objects in <strong>NSUserDefaults</strong> must use the class <strong>NSKeyedArchiver</strong>:</p>
-
-<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">+</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">saveCustomObject</span><span class="p">:(</span><span class="n">NSMutableArray</span><span class="o">*</span><span class="p">)</span><span class="nv">object</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">key</span>  
-<span class="p">{</span>  
-    <span class="n">NSUserDefaults</span> <span class="o">*</span><span class="n">prefs</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSUserDefaults</span> <span class="nf">standardUserDefaults</span><span class="p">];</span>  
-    <span class="n">NSData</span> <span class="o">*</span><span class="n">myEncodedObject</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSKeyedArchiver</span> <span class="nf">archivedDataWithRootObject</span><span class="p">:</span><span class="n">object</span><span class="p">];</span>  
-    <span class="p">[</span><span class="n">prefs</span> <span class="nf">setObject</span><span class="p">:</span><span class="n">myEncodedObject</span> <span class="nf">forKey</span><span class="p">:</span><span class="n">key</span><span class="p">];</span>  
-    <span class="p">[[</span><span class="n">NSUserDefaults</span> <span class="nf">standardUserDefaults</span><span class="p">]</span> <span class="nf">synchronize</span><span class="p">];</span>  
-<span class="p">}</span> 
-
-<span class="k">+</span><span class="p">(</span><span class="n">NSMutableArray</span><span class="o">*</span><span class="p">)</span><span class="nf">loadCustomObjectWithKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">key</span>  
-<span class="p">{</span>  
-    <span class="n">NSUserDefaults</span> <span class="o">*</span><span class="n">prefs</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSUserDefaults</span> <span class="nf">standardUserDefaults</span><span class="p">];</span>  
-    <span class="n">NSData</span> <span class="o">*</span><span class="n">myEncodedObject</span> <span class="o">=</span> <span class="p">[</span><span class="n">prefs</span> <span class="nf">objectForKey</span><span class="p">:</span><span class="n">key</span> <span class="p">];</span>  
-    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">obj</span> <span class="o">=</span> <span class="p">(</span><span class="n">NSMutableArray</span> <span class="o">*</span><span class="p">)[</span><span class="n">NSKeyedUnarchiver</span> <span class="nf">unarchiveObjectWithData</span><span class="p">:</span> <span class="n">myEncodedObject</span><span class="p">];</span>  
-    <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>  
-<span class="p">}</span></code></pre></figure>
-:ET

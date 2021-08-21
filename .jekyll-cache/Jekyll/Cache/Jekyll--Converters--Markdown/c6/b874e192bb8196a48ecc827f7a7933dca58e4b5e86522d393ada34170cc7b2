@@ -1,4 +1,0 @@
-I"O<p>The correct way to change the executable name of an iOS app is to change the <strong>Product name</strong> in the target settings.</p>
-
-<p>It must be in the target settings. if you change the executable name in the project plist file you can get code signing errors like: <em>“object file format invalid or unsuitable”</em></p>
-:ET

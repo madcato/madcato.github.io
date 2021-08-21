@@ -1,7 +1,0 @@
-I"�<p>To remove directories recursively, you can use the following commnad.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">rm</span> <span class="nt">-rf</span> <span class="sb">`</span>find <span class="nb">.</span> <span class="nt">-type</span> d <span class="nt">-name</span> .svn<span class="sb">`</span>  </code></pre></figure>
-
-<p>“- type d” is used for directories. Without it you can delete files also.</p>
-
-:ET

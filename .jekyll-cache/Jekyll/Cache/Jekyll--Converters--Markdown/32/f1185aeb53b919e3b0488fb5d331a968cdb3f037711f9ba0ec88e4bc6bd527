@@ -1,8 +1,0 @@
-I"9<p>To run a Swift script in Terminal type the following:</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="err">$</span> <span class="n">swift</span> <span class="n">fileName</span><span class="o">.</span><span class="n">swift</span></code></pre></figure>
-
-<p>Alternatively you can put the following line of text at the top of the script file and run that file</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="cp">#!/usr/bin/env xcrun --sdk swift</span></code></pre></figure>
-:ET

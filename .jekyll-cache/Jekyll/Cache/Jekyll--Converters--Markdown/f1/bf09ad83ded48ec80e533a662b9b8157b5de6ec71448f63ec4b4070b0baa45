@@ -1,6 +1,0 @@
-I"�<p>In Xcode 4 the default preferences specify a build output directory different from de Xcode 3 one. You can change this configuration and let the Xcode works as before. Open Xcode 4 and go to Preferences -&gt; Locations and change “Build location”.</p>
-
-<p><img src="http://localhost:4000/assets/tumblr_inline_mjukw5hSwY1qz4rgp.png" alt="xcode setting" /></p>
-
-<p>If you want to use the current recommended configuration, you must know how to build and find the release binary: Build the project with option “Product -&gt; Build For -&gt; Build for Archiving” Then go to path <em>~/Library/Developer/Xcode/DerivedData//Build/Products/Release-iphoneos/</em></p>
-:ET

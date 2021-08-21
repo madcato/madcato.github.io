@@ -1,8 +1,0 @@
-I"h<p>Today I suffered from a bizarre failure of Xcode that make us lose time. When attempting to access one of my in-app Purchases, the framework StoreKit returned my ID on invalidProductIdentifiers property as if the ID not exist.</p>
-
-<p>The strange thing is that yesterday worked. I had no problem when I created the ID, but today failed. What was different today?</p>
-
-<p>After much searching online I found the solution. For Sandbox environment to work correctly, the app must be installed from the Xcode debugging process. This means you have to delete any earlier versions you have installed from the App Store, because these applications do not fall within the Sandbox environment and therefore have no access to in-app Purchases test environment of iTunes Connect.</p>
-
-<p>This same error can cause other failures related to the test environment, such as iAds.</p>
-:ET
