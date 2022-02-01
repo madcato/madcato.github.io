@@ -1,0 +1,10 @@
+I"+<p>When subclassing an UIView and you need to create a method for initialization, then you must choose at least one of the following.</p>
+
+<ul>
+  <li><strong>initWithFrame</strong>. This is the default initializator. Implement it when your class is created from code.</li>
+  <li><strong>initWithCoder</strong>. Implement this method when your UIView subclass will be created by the Interface Builder.</li>
+  <li><strong>layerClass</strong>. Implement this when the view will be draw by an alternative method like OpenGL ES.</li>
+</ul>
+
+<p>20110324.30</p>
+:ET

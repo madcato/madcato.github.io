@@ -1,0 +1,6 @@
+I"ñ<p>To add a file with an @ inside the its name put another @ at the end of the file name.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">svn add Icon@x2.png@</code></pre></figure>
+
+<p>â€¦ and it works!!</p>
+:ET

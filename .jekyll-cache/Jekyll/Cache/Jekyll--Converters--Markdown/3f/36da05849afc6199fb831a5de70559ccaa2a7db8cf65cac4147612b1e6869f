@@ -1,0 +1,34 @@
+I"T<p><img src="http://localhost:4000/assets/tumblr_inline_mjuuzjzbF01qz4rgp.jpg" alt="xcode icon" /></p>
+
+<h2 id="property-declaration">Property declaration:</h2>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">@property</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="n">type</span> <span class="n">name</span><span class="p">;</span></code></pre></figure>
+
+<h2 id="accessor-method-names">Accessor method names</h2>
+
+<ul>
+  <li><strong>getter=getterName</strong> Specifies the name of the getter method.</li>
+  <li><strong>setter=setterName</strong> Specifies the name of the setter method.</li>
+</ul>
+
+<h2 id="writability">Writability</h2>
+
+<ul>
+  <li><strong>readwrite</strong> Read and write property.</li>
+  <li><strong>readonly</strong> Property can be only red.</li>
+</ul>
+
+<h2 id="setter-semantics">Setter semantics</h2>
+
+<ul>
+  <li><strong>assign</strong> The setter is simple assignment. You typically use this setter with non-pointer variables like: NSInteger, float and CGRect.</li>
+  <li><strong>retain</strong> Specifies that retain will be called each time a new assignment is done. The previous value of the property will be released.</li>
+  <li><strong>copy</strong> A copy of the object will be used in the assignment. No retain is called, but a release is send to the previous object.</li>
+</ul>
+
+<h2 id="atomicity">Atomicity</h2>
+
+<ul>
+  <li><strong>nonatomic</strong> It’s used in multithreaded environments to avoid that two or more different thread access the same property at same time.</li>
+</ul>
+:ET

@@ -1,0 +1,63 @@
+I".<p>Both codes are in the Xcode Settings:</p>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mk26jyIqZ41qz4rgp.png" alt="Xcode: Version and Build" /></p>
+
+<p>Both can be modified in the configuration file <em>.plist</em> of any Xcode project:</p>
+
+<ul>
+  <li>Version: <strong>CFBundleShortVersionString</strong></li>
+  <li>Build: <strong>CFBundleVersion</strong></li>
+</ul>
+
+<h2 id="differences">Differences</h2>
+
+<p>Both numbers can be used the same way. Both can hold the same number, but that is not the original propouse of Apple.</p>
+
+<ul>
+  <li>The <strong>Version</strong> number usually is an identificator we use to tell final users what is the funcitonality set of a software version: <em>Version 1.2.1</em></li>
+  <li>The  <strong>Build</strong> number usually indicates an incremental code to indicate the installation package is subsequent to others.</li>
+</ul>
+
+<h2 id="for-what-these-two-numbers-are-used">For what these two numbers are used?</h2>
+
+<p>Regarding Apple documentation, these are the characteristics that must fulfill the version and buld numebrs:</p>
+
+<p><strong>Version</strong> usually are compund of one, two or three integer numbers separated by a coma:</p>
+
+<ol>
+  <li>The fist number indicates the <strong>mayor version</strong> of the software.</li>
+  <li>The second indicates a <strong>minor version</strong>, that is, some additional functionality of a mayor version.</li>
+  <li>The third number indicates a <strong>fix</strong></li>
+</ol>
+
+<p>As an example: version <strong>1.1</strong> is equal to the <strong>1.0</strong> version with some new functionality. Version <strong>2</strong> could be a big change in the functionality of the app: a bigger change, like a whole redesign.</p>
+
+<p>If, as an example, some bugs are found in the version <strong>1.2</strong>, we could fix those bugs and launch version <strong>1.2.1</strong>.</p>
+
+<p><strong>Build</strong> usually is used as an incremental value to distinguish the installation packages independently of its version. It’s usefull when <strong>we had distributed different installation packages of the same version</strong>. This happends frequently in testing teams and distributing betas through out users. If we make beta tests of a particular version (like 1.3.1), we’ll have to know how to distinguish between a version created this last week and a package created last month of the same version. To avoid confusions is very useful to use a <strong>Build</strong> code.</p>
+
+<blockquote>
+  <p>In your Mac, click over the Xcode menu the first option “About Xcode” you’ll see both numbers: <strong>Version</strong> and <strong>Build</strong>. Example: Version 4.6.1 (4H512). Many other Apple apps use this scheme.</p>
+</blockquote>
+
+<h2 id="when-uploading-apps-to-itunes-connect">When uploading apps to iTunes Connect</h2>
+
+<p>There are two important points regarding the upload of a new version. In the screens of <a href="https://itunesconnect.apple.com/">iTunes Connect</a></p>
+
+<ol>
+  <li>When you create a new version, we have to indicate our <strong>Version</strong> number. This number must be equal to the project one. If it’s different, an error would happen uploading the app.
+ <img src="http://localhost:4000/assets/tumblr_inline_mk26le1gVo1qz4rgp.png" alt="iTunes Connenct: new Version" /></li>
+  <li>The <strong>Build</strong> of the project must be superior than the uploaded previously. If is equal of inferior, the package can’t be uploaded: <strong>you must increment always before upload it</strong>.  You can see the number of the <strong>Build</strong> of your apps already uploaded in the section <em>“Binary Details”</em> in “<em>Summary</em>” 
+ <img src="http://localhost:4000/assets/tumblr_inline_mk26kveFyQ1qz4rgp.png" alt="iTunes Connenct: binary details" /></li>
+</ol>
+
+<p><strong>Version</strong> is a number better changed manually each time functionality is added. However the <strong>Build</strong> increment can be automated using <em>scripts</em>.</p>
+
+<h2 id="mas-información">Mas información</h2>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/6851660/version-vs-build-in-xcode-4/6965086#6965086">stackoverflow: Version vs Build in XCode 4</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Software_versioning">wikipedia:Software versioning</a></li>
+  <li><a href="https://semver.org">semver versioning</a></li>
+</ul>
+:ET

@@ -1,0 +1,11 @@
+I"D<p>Touching the “Cancel” button in an UIActionSheet sometimes fails. This happen when touching bottom half of its frame and also you have an UITabBar in your current view.</p>
+
+<p>To solve this problem you must add the UIActionSheet to the tabBar view, as:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[actionSheet showInView:[YourAppDelegate sharedAppDelegate].tabBar.view];  
+</code></pre></div></div>
+
+<p>…or the current tab bar.</p>
+
+<p><img src="http://localhost:4000/assets/tumblr_inline_mjpapsvhMb1qz4rgp.png" alt="" /></p>
+:ET

@@ -1,0 +1,35 @@
+I"<p>This keyboard shortcuts are the more useful:</p>
+
+<p><strong>Cmd+Alt+º</strong>	Set a breakpoint  <br />
+<strong>Cmd+Ctrl+Up/Down</strong>	Change from .h to .m files and viceversa  <br />
+<strong>Cmd+Ctrl+Left</strong>	Return to previous document  <br />
+<strong>Cmd+Ctrl+Right</strong>	Return tho the next open document  <br />
+<strong>Cmd+Enter</strong>	Normal view  <br />
+<strong>Cmd+Alt+Enter</strong>	Assistant view  <br />
+<strong>Cmd+1</strong>	Show Project Navigator  <br />
+<strong>Cmd+0</strong>	Hide Project Navigator  <br />
+<strong>Cmd+Alt+0</strong>	Hide/Show utilities  <br />
+<strong>Cmd+Shift+y</strong>	Hide/Show output  <br />
+<strong>Cmd+Alt+y</strong>	Continue debug  <br />
+<strong>F6</strong>	Step to step debug  <br />
+<strong>Cmd+f</strong>	Find  <br />
+<strong>Cmd+Shift+f</strong>	Find text in all project  <br />
+<strong>Cmd+e</strong>	Use selection to find  <br />
+<strong>Cmd+g</strong>	Find next  <br />
+<strong>Cmd+b</strong>	Build  <br />
+<strong>Cmd+r</strong>	Run  <br />
+<strong>Cmd+u</strong>	Unit test  <br />
+<strong>Cmd+’</strong>	Go to the next Error or Warning  <br />
+<strong>Cmd+.</strong>	Stop debug o see autocomplete  <br />
+<strong>Esc</strong>	See autocomplete  <br />
+<strong>Cmd+Shift+o</strong>	Open Quickly (Amazing!!!!!!!!)  <br />
+<strong>Ctrl+6</strong>	Find method in the open file  <br />
+<strong>fn+Alt+Up/Down</strong>	Paginate moving the cursor  <br />
+<strong>Cmd+Shift+7</strong>	Commant out selected lines  <br />
+<strong>Cmd+Ctrl+j</strong>	Jump to the definition of the selected symbol  <br />
+<strong>Cmd+Ctrl+e</strong>	Edit all occurrences below cursor all at once  <br />
+<strong>Cmd+Shift+2</strong>	Open Organizer  <br />
+<strong>Cmd+Alt+j</strong>	Filter in navegador  <br />
+<strong>Cmd+Alt+l</strong>	Filter in library</p>
+
+:ET

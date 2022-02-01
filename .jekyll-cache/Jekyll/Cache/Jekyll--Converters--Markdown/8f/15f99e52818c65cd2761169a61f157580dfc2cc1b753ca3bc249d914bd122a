@@ -1,0 +1,27 @@
+I"7<p><strong>IMPORTANT:</strong> <em>This method only works if the output static web files are served from a web server and the files are served from the root directory of the web server</em></p>
+
+<p>Precompile assets with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  <span class="nv">$ </span>bundle <span class="nb">exec </span>rake assets:precompile</code></pre></figure>
+
+<p>Open config/enviroments/production.rb and change the following attribute to <strong>true</strong>:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">config</span><span class="p">.</span><span class="nf">serve_static_assets</span> <span class="o">=</span> <span class="kp">true</span></code></pre></figure>
+
+<p>Run the server in production mode</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  <span class="nv">$ </span>rails s <span class="nt">-e</span> production</code></pre></figure>
+
+<p>then execute <strong>wget</strong> command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  <span class="nv">$ </span>wget <span class="nt">-P</span> static <span class="nt">-nH</span> <span class="nt">-m</span> http://localhost:3000</code></pre></figure>
+
+<p>Parameters:</p>
+
+<ul>
+  <li><strong>-P</strong> prefix directory. the base directory to write web</li>
+  <li><strong>-nH</strong> no-host-directories. Don’t create the base direcotry with the site name</li>
+  <li><strong>-m</strong> man mirror equivalent to -r -N -l inf –no-remove-listing</li>
+</ul>
+
+:ET

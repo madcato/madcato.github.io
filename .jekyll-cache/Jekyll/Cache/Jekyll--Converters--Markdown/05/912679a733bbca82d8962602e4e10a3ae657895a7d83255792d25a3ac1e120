@@ -1,0 +1,40 @@
+I"¯<p>if you see this message un your app log:</p>
+
+<p><em>App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your appâ€™s Info.plist file.</em></p>
+
+<p>You must add some configuration to your <project>.plist file.</project></p>
+
+<p><strong>Short version</strong> allow all:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+  &lt;!--Include to allow all connections (DANGER)--&gt;
+  &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+      &lt;true/&gt;
+&lt;/dict&gt;	
+</code></pre></div></div>
+
+<p><strong>Extended version</strong> allow only some domains:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;NSExceptionDomains&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;yourserver.com&lt;/key&gt;
+    &lt;dict&gt;
+      &lt;!--Include to allow subdomains--&gt;
+      &lt;key&gt;NSIncludesSubdomains&lt;/key&gt;
+      &lt;true/&gt;
+      &lt;!--Include to allow HTTP requests--&gt;
+      &lt;key&gt;NSTemporaryExceptionAllowsInsecureHTTPLoads&lt;/key&gt;
+      &lt;true/&gt;
+      &lt;!--Include to specify minimum TLS version--&gt;
+      &lt;key&gt;NSTemporaryExceptionMinimumTLSVersion&lt;/key&gt;
+      &lt;string&gt;TLSv1.1&lt;/string&gt;
+    &lt;/dict&gt;
+  &lt;/dict&gt;
+&lt;/dict&gt;
+</code></pre></div></div>
+
+<p><a href="http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http">http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http</a></p>
+:ET

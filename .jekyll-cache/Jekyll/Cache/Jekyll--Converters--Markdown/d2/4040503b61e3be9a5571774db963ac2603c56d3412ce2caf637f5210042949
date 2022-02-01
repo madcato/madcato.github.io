@@ -1,0 +1,36 @@
+I"�<p>Code</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">createXMLHttpRequest</span><span class="p">()</span> <span class="p">{</span>  
+	<span class="k">try</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span> <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{}</span>  
+	<span class="k">try</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="err">“</span><span class="nx">Msxml2</span><span class="p">.</span><span class="nx">XMLHTTP</span><span class="err">”</span><span class="p">);</span> <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{}</span>  
+	<span class="nx">alert</span><span class="p">(</span><span class="err">“</span><span class="nx">XMLHttpRequest</span> <span class="nx">not</span> <span class="nx">supported</span><span class="err">”</span><span class="p">);</span>  
+	<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>  
+<span class="p">}</span>  
+<span class="kd">function</span> <span class="nx">reloadGPSData</span><span class="p">()</span> <span class="p">{</span>  
+	<span class="kd">var</span> <span class="nx">xhReq</span> <span class="o">=</span> <span class="nx">createXMLHttpRequest</span><span class="p">();</span>  
+	<span class="nx">xhReq</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="err">“</span><span class="nx">GET</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">gps</span><span class="p">.</span><span class="nx">php</span><span class="p">?</span><span class="nx">mode</span><span class="o">=</span><span class="nx">ajax</span><span class="err">”</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>  
+	<span class="nx">xhReq</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+		<span class="k">if</span> <span class="p">(</span><span class="nx">xhReq</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>  
+		<span class="k">if</span> <span class="p">(</span> <span class="nx">xhReq</span><span class="p">.</span><span class="nx">status</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">400</span> <span class="p">)</span> <span class="p">{</span>  
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">xhReq</span><span class="p">.</span><span class="nx">status</span> <span class="o">+</span> <span class="err">‘</span><span class="p">:</span> <span class="err">‘</span> <span class="o">+</span> <span class="nx">xhReq</span><span class="p">.</span><span class="nx">statusText</span><span class="p">);</span>  
+			<span class="k">return</span><span class="p">;</span>  
+		<span class="p">}</span>  
+		<span class="k">if</span> <span class="p">(</span> <span class="nx">xhReq</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>  
+			<span class="nx">alert</span><span class="p">(</span><span class="err">“</span><span class="nx">Imposible</span> <span class="nx">conectar</span> <span class="nx">con</span> <span class="nx">el</span> <span class="nx">servidor</span><span class="p">.</span><span class="err">”</span><span class="p">);</span>  
+			<span class="k">return</span><span class="p">;</span>  
+		<span class="p">}</span>  
+		<span class="kd">var</span> <span class="nx">json_text</span> <span class="o">=</span> <span class="nx">xhReq</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>  
+		<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json_text</span><span class="p">);</span>  
+		<span class="kd">var</span> <span class="nx">latitude</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>  
+		<span class="kd">var</span> <span class="nx">longitude</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>  
+		<span class="kd">var</span> <span class="nx">satellites</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>  
+		<span class="kd">var</span> <span class="nx">error_desc</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>  
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">“</span><span class="nx">longitude</span><span class="err">”</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">longitude</span><span class="p">;</span>  
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">“</span><span class="nx">latitude</span><span class="err">”</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">latitude</span><span class="p">;</span>  
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">“</span><span class="nx">satellites</span><span class="err">”</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">satellites</span><span class="p">;</span>  
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">“</span><span class="nx">error_desc</span><span class="err">”</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">error_desc</span><span class="p">;</span>  
+		<span class="nx">setTimeout</span><span class="p">(</span><span class="err">‘</span><span class="nx">reloadGPSData</span><span class="p">()</span><span class="err">’</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>  
+	<span class="p">}</span>  
+	<span class="nx">xhReq</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>  
+<span class="p">}</span>  </code></pre></figure>
+:ET

@@ -1,0 +1,7 @@
+I"�<p><strong>reason: ‘Invalid content size ‘ADBannerContentSizeLandscape’ passed to ADAdSizeForBannerContentSize’</strong></p>
+
+<p>The problem comes from version incompatibilities. The identifier <strong>ADBannerContentSizeLandscape</strong> works only for version 4.2. If you have declared the <strong>AdBannerView</strong> inside a xib, this identifier will crash your aplication when running in a 4.0 or 4.1 iOS iPhone.</p>
+
+<p>To solve this problem follow the steps described in: <a href="http://www.raywenderlich.com/1371/how-to-integrate-iad-into-your-iphone-app">http://www.raywenderlich.com/1371/how-to-integrate-iad-into-your-iphone-app</a></p>
+
+:ET

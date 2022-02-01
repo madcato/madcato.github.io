@@ -1,0 +1,9 @@
+I"t<p>I solved this warning removing the following setting: “$(SDKROOT)/Developer/Library/Frameworks”
+This options is located in Settings -&gt; Build Settings -&gt; Search Paths -&gt; Framework Search Paths</p>
+
+<p><img src="http://localhost:4000/assets/setting-location.png" alt="Setting location" /></p>
+
+<p>My project continues compiling and working fine, after removing this option.</p>
+
+<p><a href="http://stackoverflow.com/questions/32040038/warning-directory-not-found-for-option-error-on-build/36017148#36017148">http://stackoverflow.com/questions/32040038/warning-directory-not-found-for-option-error-on-build</a></p>
+:ET

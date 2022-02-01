@@ -1,0 +1,4 @@
+I"v<p>In order to see the commits of a repository in a cool way.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git log <span class="nt">--graph</span> <span class="nt">--decorate</span> <span class="nt">--pretty</span><span class="o">=</span>oneline <span class="nt">--abbrev-commit</span> <span class="nt">--all</span></code></pre></figure>
+:ET

@@ -1,0 +1,16 @@
+I"�<p>Many users of LiShop had camplained about the list dessapearing when creating many articles.</p>
+
+<p>Reviewing the logs I discover the next error:</p>
+
+<p><strong>Aug 1 18:06:38 unknown ListaCompra2[19674] : CoreData: error: (NSFetchedResultsController) The fetched object at index 6 has an out of order section name ‘Appetizers. Objects must be sorted by section name’</strong></p>
+
+<p>The problem was provoked because when objects are sorted by a property, this ordering must correspond with the sort of sections of the <strong>NSFetchRequest</strong>.</p>
+
+<p>To solve put the folloing parameter in the constructor of <strong>NSSortDescriptor</strong> of text fields. To avoid sort problems with uppercase and lowercase.</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="nl">selector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">caseInsensitiveCompare</span><span class="o">:</span><span class="p">)</span></code></pre></figure>
+
+<p>It must be:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">NSSortDescriptor</span> <span class="o">*</span><span class="n">sortDescriptor1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSSortDescriptor</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithKey</span><span class="p">:</span><span class="s">@"name"</span> <span class="nf">ascending</span><span class="p">:</span><span class="nb">YES</span> <span class="n">selector</span><span class="o">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">caseInsensitiveCompare</span><span class="o">:</span><span class="p">)];</span></code></pre></figure>
+:ET

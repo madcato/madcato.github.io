@@ -1,0 +1,138 @@
+I"ì<h2 id="1-install-git-from">1. Install git from:</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git-osx-installer <span class="k">for </span>Mac OS X</code></pre></figure>
+
+<h2 id="2-configure">2. Configure:</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$git</span> config <span class="nt">--global</span> user.name <span class="s2">"Your name here"</span>   
+<span class="nv">$git</span> config <span class="nt">--global</span> user.email <span class="s2">"yourmail@here.com"</span>   </code></pre></figure>
+
+<p><strong>optional</strong></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$git</span> config <span class="nt">--global</span> merge.tool vimdiff    
+<span class="nv">$git</span> config <span class="nt">--global</span> core.editor vim   
+<span class="nv">$git</span> config <span class="nt">--global</span> color.ui <span class="nb">true</span>   </code></pre></figure>
+
+<h2 id="3-commands">3. Commands:</h2>
+
+<ul>
+  <li>Help:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git <span class="nb">help</span>   </code></pre></figure>
+
+<ul>
+  <li>Initialization: In the project root directory execute this:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git init</code></pre></figure>
+
+<ul>
+  <li>Common usage:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git add  <span class="c"># add new files or modified ones to be commited</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"message"</span></code></pre></figure>
+
+<ul>
+  <li>Delete last 3 commits:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git reset <span class="nt">--hard</span> HEAD~3  </code></pre></figure>
+
+<ul>
+  <li>Undo last changes:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git revert  <span class="c"># This option creates a new commit with the last changes removed  </span></code></pre></figure>
+
+<h2 id="4-branches">4. Branches</h2>
+
+<ul>
+  <li>Create branch</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git branch   </code></pre></figure>
+
+<ul>
+  <li>Change current branch</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git checkout   </code></pre></figure>
+
+<ul>
+  <li>Merge two branches</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git merge   <span class="c"># Merges current branch with   </span></code></pre></figure>
+
+<ul>
+  <li>Delete branch</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git branch <span class="nt">-d</span>   </code></pre></figure>
+
+<h2 id="5-tags">5. Tags</h2>
+
+<ul>
+  <li>Create tag</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"> <span class="nv">$ </span>git tag   
+ <span class="c"># The tag names can be used with other   </span>
+ <span class="c"># git commands like $ git checkout   </span></code></pre></figure>
+
+<h2 id="6-remote-repository">6. Remote repository</h2>
+
+<ul>
+  <li>Configure remote repository</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git remote add origin git@github.com:madcat/cachirulo.git  </code></pre></figure>
+
+<ul>
+  <li>Send files to remote repository</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git push <span class="nt">-u</span> origin master   </code></pre></figure>
+
+<ul>
+  <li>Retrive files from remote repository</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git pull   </code></pre></figure>
+
+<h2 id="7-misc">7. Misc</h2>
+
+<ul>
+  <li>Hide the current changes</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git stash  </code></pre></figure>
+
+<ul>
+  <li>Recover last hidden changes</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git stash pop     </code></pre></figure>
+
+<ul>
+  <li>Download all tracked branches</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git remote update      
+<span class="nv">$ </span>git pull <span class="nt">--all</span>            </code></pre></figure>
+
+<ul>
+  <li>To track a branch</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git checkout <span class="nt">-b</span> localbranchName origin/remotebranchname        </code></pre></figure>
+
+<ul>
+  <li>List all branches, even those not tracked</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git branch <span class="nt">-a</span></code></pre></figure>
+
+:ET

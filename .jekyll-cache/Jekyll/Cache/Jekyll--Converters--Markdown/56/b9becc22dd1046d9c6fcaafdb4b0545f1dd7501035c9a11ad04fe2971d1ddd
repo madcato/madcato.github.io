@@ -1,0 +1,6 @@
+I"c<p>In the last version of xcode (3.2.5) breakpoints are disabled when debugging the Release version.</p>
+
+<p>To solve this problem go to the Preferences, then Debugging, and uncheck “Load symbols lazily”. This fix the issue.</p>
+
+<p><img src="http://localhost:4000/assets/Xcode_breakpoints_disabled_in_Release_mode.png" alt="Xcode preferences" /></p>
+:ET

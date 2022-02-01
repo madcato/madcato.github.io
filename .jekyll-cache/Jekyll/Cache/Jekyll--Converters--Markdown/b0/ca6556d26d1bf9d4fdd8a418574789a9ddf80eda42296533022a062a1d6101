@@ -1,0 +1,155 @@
+I"o<h1 id="app-clips">App Clips</h1>
+
+<p>App clips allow a fast access to a part of a mobile app.</p>
+
+<ul>
+  <li><a href="https://developer.apple.com/documentation/app_clips/creating_an_app_clip">How to create an App Clip</a></li>
+  <li><a href="https://developer.apple.com/documentation/swiftui/fruta_building_a_feature-rich_app_with_swiftui">Sample app: Fruta: Building a Feature-Rich App with SwiftUI</a></li>
+</ul>
+
+<h2 id="launchers">Launchers</h2>
+
+<p>Launchers have an URL or a MFC tag, this way they can by launches with a NFC label or a QR code.</p>
+
+<ul>
+  <li>NFC tag</li>
+  <li>QR Code</li>
+  <li>Siri location suggestion</li>
+  <li>Safari App Banner</li>
+  <li>Links in messages</li>
+  <li>Place Cards in Maps</li>
+  <li>Recentyly Used App Clips</li>
+  <li>Email</li>
+</ul>
+
+<h2 id="characteristics">Characteristics</h2>
+
+<ul>
+  <li>8-hour locations. App Clips can present a notification within the eight hours of the user launching the clip.</li>
+  <li>Can check if the App Clip is checked by the user at an specific location.</li>
+  <li>Can offer a button to install an app.</li>
+</ul>
+
+<h2 id="hig">HIG</h2>
+
+<p><a href="https://developer.apple.com/design/human-interface-guidelines/app-clips/overview/">Human Interface Guidelines</a></p>
+
+<ul>
+  <li>A simple app or fucntionality.</li>
+</ul>
+
+<h3 id="possible-uses-samples">Possible uses samples</h3>
+
+<ul>
+  <li>Cycle renting, a tag in the cycle can launch the App Clip.</li>
+  <li>Ask for a coffe</li>
+  <li>Launch a restauran menu from the Map app.</li>
+  <li>Launch the film list of a cinema from the Map app.</li>
+  <li>A museum can put tags near pictures to launch an App Clip with information.</li>
+</ul>
+
+<h3 id="desing-principles">Desing principles</h3>
+
+<ul>
+  <li>Focus on the essential</li>
+  <li>Don’t use it for marketing purposes.</li>
+  <li>Design a linear, easy and focused UI.</li>
+  <li>On launch, show only the relevant.</li>
+  <li>User must use the App clip inmediately.</li>
+  <li>Small</li>
+  <li>Allow to share hte App Clip (they are URL)</li>
+  <li>Use Apple Pay</li>
+  <li>Don’t require user to create a account.</li>
+  <li>Don’t require the user to install a complete app.</li>
+  <li>Require access to notifications if they are needed along time.</li>
+  <li>Use more graphics than text.</li>
+  <li>Simple verb for actions.</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<ul>
+  <li>App CLips require a complete app to upload it to the App Store Connect.</li>
+  <li>Requires: a header image, a subtitle, a call-to-action.</li>
+  <li>Add the URL that launch your app in the section <em>advanced app clip experiences</em> in the App Store Connect. And
+    <ul>
+      <li>nfc tags</li>
+      <li>pyshical location</li>
+      <li>multiple bussines to use.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="frameworks-not-avialable-to-app-clips">Frameworks NOT avialable to App Clips</h2>
+
+<ul>
+  <li>CallKit</li>
+  <li>CareKit</li>
+  <li>CloudKit</li>
+  <li>HealthKit</li>
+  <li>HomeKit</li>
+  <li>ResearchKit</li>
+  <li>SensorKit</li>
+  <li>Speech</li>
+</ul>
+
+<h3 id="reserve-some-functionality-to-the-main-app">Reserve some functionality to the main app</h3>
+
+<ul>
+  <li>Advanced networking features like Bonjour, or configuration of local Wi-Fi networks</li>
+  <li>App extensions</li>
+  <li>Customization and settings; for example, creation of a settings bundle</li>
+  <li>Data handoff and document opening</li>
+  <li>In-app purchases and in-app provisioning of payment cards</li>
+  <li>Low-level Unix functionality; for example, BSD notifications</li>
+  <li>Multiple scenes on iPad</li>
+  <li>Registration of custom URL schemes</li>
+  <li>Requests for user reviews of the app, using StoreKit’s requestReview(in:) method</li>
+  <li>Searches for paired Bluetooth devices</li>
+</ul>
+
+<h2 id="code-shortcut">Code shortcut</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#if !APPCLIP
+  // Code you don't want to use in your app clip.
+#else
+  // Code your app clip may access.
+#endif
+</code></pre></div></div>
+
+<h2 id="notiffications">Notiffications</h2>
+
+<ul>
+  <li><a href="https://developer.apple.com/documentation/app_clips/enabling_notifications_in_app_clips">Enabling Notifications in App Clips</a></li>
+</ul>
+
+<p>Is not needed to require user for permissions if the notification only is going to happen before next eight hours.</p>
+
+<h2 id="respond-to-invocation">Respond to invocation</h2>
+
+<ul>
+  <li>
+    <p><a href="https://developer.apple.com/documentation/app_clips/responding_to_invocations">Responding to Invocations</a></p>
+
+    <p>func respondTo(_ activity: NSUserActivity?) {</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // Guard against faulty data.
+  guard activity != nil else { return }
+  guard activity!.activityType != NSUserActivityTypeBrowsingWeb else { return }
+  guard let incomingURL = activity?.webpageURL else { return }
+  guard let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else { return }
+    
+  // Update the user interface based on URL components passed to the app clip.   }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+  <li>With <a href="https://developer.apple.com/documentation/storekit/skoverlay">SKOverlay</a> you can reommend the user to instal an app.</li>
+  <li><a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html">Safari App Banners</a></li>
+  <li><a href="https://developer.apple.com/documentation/app_clips/making_data_available_to_the_app_clip_s_corresponding_app">Share data with the main app using NSUserDefault</a></li>
+</ul>
+
+:ET

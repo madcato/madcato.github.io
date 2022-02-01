@@ -1,0 +1,50 @@
+I"Ä<p>This is the fourth of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:</p>
+
+<ul>
+  <li><a href="/2018/02/13/S-of-SOLID/"><strong>S</strong> Single responsability principle</a></li>
+  <li><a href="/2018/02/20/O-of-SOLID/"><strong>O</strong> Open/Closed principle</a></li>
+  <li><a href="/2018/03/01/L-of-SOLID/"><strong>L</strong> Liskov substitution principle</a></li>
+  <li><a href="/2018/03/20/I-of-SOLID/"><strong>I</strong> Interface segregation principle</a></li>
+  <li><a href="/2018/04/03/D-of-SOLID/"><strong>D</strong> Dependency inversion principle</a></li>
+</ul>
+
+<h2 id="interface-segregation-principle">Interface segregation principle</h2>
+
+<p>Its better to have many small interfaces, than a few big ones. Every code must only depend on the interfaces that directly needs and no more.</p>
+
+<h3 id="sample">Sample</h3>
+
+<p>Imagine a Plane class that has some functionalities at its service: like flight control and comunications. Its better to segregate those functionalities into two separte interfaces than have only one.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Plane</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">funcs</span> <span class="o">=</span> <span class="n">PlaneFucntions</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">PlaneFunctions</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">communitation1</span><span class="p">:</span>
+   <span class="o">//</span> <span class="n">code</span>
+
+  <span class="k">def</span> <span class="nf">communitation2</span><span class="p">:</span>
+    <span class="o">//</span> <span class="n">code</span>
+
+  <span class="k">def</span> <span class="nf">control1</span>
+    <span class="o">//</span> <span class="n">code</span></code></pre></figure>
+
+<p>Itâ€™s better to segreate complex interfaces into smaller ones:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Plane</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">controls</span> <span class="o">=</span> <span class="n">PlaneControls</span><span class="p">()</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">comms</span> <span class="o">=</span> <span class="n">PlaneCommunications</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">PlaneControls</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">control1</span>
+    <span class="o">//</span> <span class="n">code</span>
+
+<span class="k">class</span> <span class="nc">PlaneCommunications</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">communitation1</span><span class="p">:</span>
+   <span class="o">//</span> <span class="n">code</span>
+
+  <span class="k">def</span> <span class="nf">communitation2</span><span class="p">:</span>
+    <span class="o">//</span> <span class="n">code</span></code></pre></figure>
+:ET

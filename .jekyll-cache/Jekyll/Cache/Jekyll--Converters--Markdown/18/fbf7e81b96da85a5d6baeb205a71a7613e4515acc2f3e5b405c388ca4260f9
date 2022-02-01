@@ -1,0 +1,195 @@
+I"}T<p>As you can see in the <a href="https://en.wikipedia.org/wiki/Aspect_(computer_programming)">Wikipedia</a>, an aspect is:</p>
+
+<blockquote>
+  <p>An aspect of a program is a feature linked to many other parts of the program, but which is not related to the program’s primary function. An aspect crosscuts the program’s core concerns, therefore violating its separation of concerns that tries to encapsulate unrelated functions. For example, logging code can crosscut many modules, yet the aspect of logging should be separate from the functional concerns of the module it cross-cuts. Isolating such aspects as logging and persistence from business logic is at the core of the aspect-oriented programming (AOP) paradigm.[1]</p>
+</blockquote>
+
+<p>But, as always, things are much better understood with an example…</p>
+
+<h4 id="imagine-that-you-are-a-young-developer-in-your-first-job-and">Imagine that you are a young developer, in your first job, and…</h4>
+
+<p>… your boss ask you to create a function that add two numbers. (This is for a <em>very</em> special client)</p>
+
+<p>Then you program it and publish it in the company application server.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Wow, your first day!</p>
+
+<h4 id="next-day-someone-that-presents-himself-as-the-systems-operator-">Next day, someone that presents himself as the systems operator, …</h4>
+
+<p>… ask you to write a log line, because in that company <em>“every function has a log”</em> and <em>“every one does it this way”</em>.</p>
+
+<p>Then you type:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// Print log</span>
+  <span class="no">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Funtion addTwoNumbers called, params {} and {}"</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="that-same-afternoon-someone-that-presents-himself-as-the-security-officer-">That same afternoon, someone that presents himself as the security officer, …</h4>
+
+<p>… ask you to check if the user is logged, because in that company <em>“every function check it”</em> and <em>“every one does it this way”</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="kd">throws</span> <span class="o">{</span>
+  <span class="c1">// Print log</span>
+  <span class="no">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Funtion addTwoNumbers called, params {} and {}"</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="c1">// Check auth</span>
+  <span class="nc">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">session</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedInUser"</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserNotAuthenticated</span><span class="o">();</span>
+  <span class="o">}</span> 
+
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>… a few minutes later, the same guy returns and ask you to check the authorization level is enouh, because in that company <em>“every function check it”</em> and <em>“every one does it this way”</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="kd">throws</span> <span class="o">{</span><span class="err">\</span>
+  <span class="c1">// Print log</span>
+  <span class="no">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Funtion addTwoNumbers called, params {} and {}"</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="c1">// Check auth</span>
+  <span class="nc">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">session</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedInUser"</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserNotAuthenticated</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="c1">// Check authorization</span>
+  <span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedUserAuthLevel"</span><span class="o">)</span>
+  <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="no">LEVEL_7</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserAuthorizationNotEnough</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="next-day-someone-that-presents-himself-as-the-operations-manager-">Next day, someone that presents himself as the operations manager, …</h4>
+
+<p>… ask you to save the results in a database, because in that company <em>“every function save it”</em> and <em>“every one does it this way”</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="kd">throws</span> <span class="o">{</span>
+  <span class="c1">// Print log</span>
+  <span class="no">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Funtion addTwoNumbers called, params {} and {}"</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="c1">// Check auth</span>
+  <span class="nc">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">session</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedInUser"</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserNotAuthenticated</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="c1">// Check authorization</span>
+  <span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedUserAuthLevel"</span><span class="o">)</span>
+  <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="no">LEVEL_7</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserAuthorizationNotEnough</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+
+  <span class="c1">// Save on db</span>
+  <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"Insert into addTwoNumebrTable(a,b,result) values(?,?,?)"</span><span class="o">;</span>
+  <span class="n">pst</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="next-day-someone-that-presents-himself-as-marketing-">Next day, someone that presents himself as marketing, …</h4>
+
+<p>… ask you to send the function information to exploit the data. You answer that the information can found in hte log and also in the explotation database, but he answer: <em>“we are marketing, we need Google Analytics”</em>.</p>
+
+<p>… and the you add it.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="kd">throws</span> <span class="o">{</span>
+  <span class="c1">// Print log</span>
+  <span class="no">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Funtion addTwoNumbers called, params {} and {}"</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="c1">// Check auth</span>
+  <span class="nc">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">session</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedInUser"</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserNotAuthenticated</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="c1">// Check authorization</span>
+  <span class="kt">int</span> <span class="n">level</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"loggedUserAuthLevel"</span><span class="o">)</span>
+  <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="no">LEVEL_7</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UserAuthorizationNotEnough</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+
+  <span class="c1">// Save on db</span>
+  <span class="nc">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">"Insert into addTwoNumebrTable(a,b,result) values(?,?,?)"</span><span class="o">;</span>
+  <span class="n">pst</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
+  <span class="n">pst</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+
+  <span class="c1">// Google Analytics</span>
+  <span class="nc">Bundle</span> <span class="n">parameters</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="s">"function"</span><span class="o">,</span> <span class="s">"addTwoNumbers"</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"b"</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"sum"</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
+  <span class="n">analytics</span><span class="o">.</span><span class="na">setDefaultEventParameters</span><span class="o">(</span><span class="n">parameters</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="and-then-you-read-your-own-code-and-">And then, you read your own code and …</h2>
+
+<p><img src="/assets/wtf.jpg" alt="What the fuck am I looking at" /></p>
+
+<p><strong><em>This shit was a function to add two numbers!!!</em></strong></p>
+
+<h1 id="and-the-worst-of-this-code-cant-be-seen-between-these-lines-the-worst-is-that-the-rest-of-project-is-the-same">And the worst of this code can’t be seen between these lines, the worst is that the rest of project is the same.</h1>
+
+<p>Someone may think that this project requires an OOP framework that can solve auhtentication, authorization, persistence, logging, in a more designable way. But this approach tend to lack of the flexibility needed to add new kinds of functionality once the desing is settled.</p>
+
+<p>There is other way to solve this: <strong>Aspect-oriented programming</strong></p>
+
+<h2 id="first-whats-an-aspect">First: what’s an aspect.</h2>
+
+<p>The definition in the wikipedia is perfectly correct. Any kind of code that affects the project in a transversal way, can be considered an aspect. Not everything is an aspect, there are some aspects of programming that are evident. Among them we find:</p>
+<ul>
+  <li>log</li>
+  <li>persistence</li>
+  <li>authentication</li>
+  <li>authorization</li>
+  <li>the input / output console</li>
+  <li>analytics</li>
+  <li>transactions</li>
+</ul>
+
+<h2 id="then-whats-aspect-oriented-programming">Then: what’s aspect-oriented programming</h2>
+
+<p>In a simple way to say it: aspect-oriented programming is a way to add some functionality to an existing function, without editing or modifying it.</p>
+
+<p>There are some techniques to accomplish this. One of them is the <a href="https://en.wikipedia.org/wiki/Interceptor_pattern">interceptor pattern</a>, other is the <a href="https://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a> and almost every programming language has its own <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming#Implementations">aspect implementation</a>.</p>
+
+<p>To understand this type of programming, first you must change your mind in the way you solve algorithms. Specially if you are used to do <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> and apply <a href="https://en.wikipedia.org/wiki/Design_pattern">Design Patterns</a>, because this king of programming requires to know every aspect you are going to use before implementing the project.</p>
+
+<p>In Aspect-oriented programming, instead defining an structure of classes that interact to solve transversal functionality, you can design the bussines model and logic, and then add the different aspects to that functionality. <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming#Motivation_and_basic_concepts">Wikipedia sample code is really good to see this way to solve use cases.</a></p>
+
+<p>I like this way to program for this reason:</p>
+<ul>
+  <li>It’s easier to add new functionality without modifing code.</li>
+  <li>It doesn’t require injections.</li>
+  <li>Functions are much much easier to test.</li>
+</ul>
+
+<p>What negative point are?</p>
+<ul>
+  <li>This code is hard to debug, because most of languages are not desinged to do this king of progrramming. (Almost only Python and Ruby were created thinking in this king of programming)</li>
+</ul>
+:ET

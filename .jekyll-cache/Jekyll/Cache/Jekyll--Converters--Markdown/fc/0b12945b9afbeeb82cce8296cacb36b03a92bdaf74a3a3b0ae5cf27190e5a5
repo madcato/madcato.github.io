@@ -1,0 +1,63 @@
+I"�<hr />
+<p>(Mac only) When trying to execute <strong>“$ bundle install”</strong> and the next error occurs: <strong>“can’t find header files for ruby at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/ruby.h”</strong> you must install <strong>“Command Line Tools of Xcode”</strong>.</p>
+
+<hr />
+<p>Use $ bundle exec \ to execute any command (like rake) using the gems defined in the Gemfile of your project.</p>
+
+<hr />
+<p>Every thing os generated with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>rails generate</code></pre></figure>
+
+<p>can be undone with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$rails</span> destroy</code></pre></figure>
+
+<p><strong>$ rale db:migrate</strong> it’s undone with <strong>$ rake db:rollback</strong></p>
+
+<hr />
+
+<p><strong>$ rails generate controller PageController method1 method2</strong> to generate static pages</p>
+
+<hr />
+
+<p><a href="http://blog.veladan.org/2012/04/how-to-upload-rails-app-to-heroku.html">Upload to Heroku</a></p>
+
+<hr />
+
+<p><strong>scss - sass</strong> app/assets/stylesheets/</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="na">variable</span><span class="p">:</span> <span class="nv">$grayMediumLight</span><span class="o">:</span> <span class="mh">#eaeaea</span><span class="p">;</span>
+<span class="na">tree</span><span class="p">:</span>
+<span class="o">.</span><span class="nb">center</span> <span class="p">{</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@mixin</span> <span class="nf">box</span> <span class="p">{</span>
+ <span class="nt">-moz-box-sizing</span><span class="nd">:border-box</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.class1</span> <span class="p">{</span>
+ <span class="nt">clear</span><span class="nd">:both</span><span class="p">;</span>
+ <span class="k">@include</span> <span class="nd">box</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<hr />
+
+<p><strong>rake db:reset</strong> # empty db and reload migrations</p>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SampleApp</span><span class="o">::</span><span class="no">Application</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span>
+  <span class="p">.</span>
+  <span class="nf">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Force all access to the app over SSL, use Strict-Transport-Security,</span>
+  <span class="c1"># and use secure cookies.</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">force_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="p">.</span>
+  <span class="nf">.</span>
+  <span class="p">.</span>
+<span class="nf">end</span></code></pre></figure>
+:ET

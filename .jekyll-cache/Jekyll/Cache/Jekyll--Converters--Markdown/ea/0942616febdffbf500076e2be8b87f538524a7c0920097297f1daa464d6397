@@ -1,0 +1,11 @@
+I"ã<h1 id="advance-ruby-dynamic-typing">Advance Ruby: dynamic typing</h1>
+
+<p>With dynamic typing the type of any variable can change:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">obj</span> <span class="o">=</span> <span class="s2">"Hi, world!"</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre></div></div>
+
+<p>In Ruby there is no implicit type-checking.</p>
+
+:ET
