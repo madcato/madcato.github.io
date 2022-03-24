@@ -9,8 +9,8 @@ lang:       es
 
 Este artículo es un resumen rápido de este podcast de Pau Ninja:
 
-- https://capitalistalibre.com/abrir-llc-en-usa-desde-espana/
-- https://podcast-espana.es/podcast/pau-ninja-el-podcast/adios-sl-espanola-hola-llc-en-estados-unidos
+- [Abrir LLC en USA desde España: Qué es y cómo crear una (fácilmente)](https://capitalistalibre.com/abrir-llc-en-usa-desde-espana/)
+- [Podcast: Adiós SL española... hola LLC en Estados Unidos](https://podcast-espana.es/podcast/pau-ninja-el-podcast/adios-sl-espanola-hola-llc-en-estados-unidos)
 
 LLC: es compañía de responsabilidad limitada.
 
