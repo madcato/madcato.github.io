@@ -1,16 +1,4 @@
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="languages">
-                {% for lang in site.data.languages %}
-                {% assign language = lang[1] %}
-                <li><a href="/{{lang[0]}}/">{{language.icon}} {{ language.label }} &nbsp &nbsp</a></li>
-                {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
 
 {% for post in paginator.posts %}
 <div class="post-preview">
