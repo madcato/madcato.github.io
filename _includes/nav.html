@@ -18,10 +18,10 @@
                 <li>
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
-                {% for page in site.html_pages %}
-                {% if page.title and page.autogen == nil and page.lang-ref != "index" %}
+                {% for spage in site.html_pages %}
+                {% if spage.title and spage.autogen == nil and spage.lang-ref != "index" and spage.lang == page.lang %}
                 <li>
-                    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                    <a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
