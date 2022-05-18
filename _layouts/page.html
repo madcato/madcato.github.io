@@ -17,6 +17,13 @@ layout: default
     </div>
 </header>
 
+<ul class="languages">
+{% for lang in site.data.languages %}
+{% assign language = lang[1] %}
+<li><a href="/{{lang[0]}}/">{{language.icon}} {{ language.label }}</a></li>
+{% endfor %}
+</ul>
+
 <!-- Main Content -->
 <div class="container">
 	<div class="row">

@@ -1,11 +1,11 @@
-I"Ä<p>This is the fourth of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:</p>
+I"Ó<p>This is the fourth of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:</p>
 
 <ul>
-  <li><a href="/2018/02/13/S-of-SOLID/"><strong>S</strong> Single responsability principle</a></li>
-  <li><a href="/2018/02/20/O-of-SOLID/"><strong>O</strong> Open/Closed principle</a></li>
-  <li><a href="/2018/03/01/L-of-SOLID/"><strong>L</strong> Liskov substitution principle</a></li>
-  <li><a href="/2018/03/20/I-of-SOLID/"><strong>I</strong> Interface segregation principle</a></li>
-  <li><a href="/2018/04/03/D-of-SOLID/"><strong>D</strong> Dependency inversion principle</a></li>
+  <li><a href="/en/2018/02/13/S-of-SOLID/"><strong>S</strong> Single responsability principle</a></li>
+  <li><a href="/en/2018/02/20/O-of-SOLID/"><strong>O</strong> Open/Closed principle</a></li>
+  <li><a href="/en/2018/03/01/L-of-SOLID/"><strong>L</strong> Liskov substitution principle</a></li>
+  <li><a href="/en/2018/03/20/I-of-SOLID/"><strong>I</strong> Interface segregation principle</a></li>
+  <li><a href="/en/2018/04/03/D-of-SOLID/"><strong>D</strong> Dependency inversion principle</a></li>
 </ul>
 
 <h2 id="interface-segregation-principle">Interface segregation principle</h2>

@@ -1,0 +1,78 @@
+I"C#<p>Many times we make mistakes when designing simple data types. We usually have the habit of declaring a type and then adding the properties of that type. For example, the National ID class:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">NID</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span> <span class="err">❌</span>
+
+    <span class="kd">func</span> <span class="nf">validate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">validity_character</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Character</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We add a property called ‘id’ to this class, which represents a National Identity Document number, to contain the value of the class and its methods.</p>
+
+<p>However, this should not be the case. We would have to apply the principle of object-oriented programming and understand that the NID is a specialization of the String class: because it is actually a string made up of numbers and letters, that holds a National Identity Document.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">DNI</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">validate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">validity_character</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Character</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Doing this way has un advantage: all the functions that allow strings, also will be able to treat NID class objects, such as assigning their value directly, without the need to access a property, such as:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">uiLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="kt">ID</span>
+</code></pre></div></div>
+
+<p>… serialize, save in database, everything is easier. But the real advantage can be found when using generic functions, which can access all the functionality of strings, without the need to program any adapter.</p>
+
+<h3 id="another-use-dictionary">Another use: Dictionary</h3>
+
+<p>Another type of data that we can take advantage of to extend on many occasions is the dictionary.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Person</span><span class="p">:</span> <span class="kt">Dictionary</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">self</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span> <span class="p">}</span>
+        <span class="k">set</span> <span class="p">{</span> <span class="k">self</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">newValue</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">NID</span> <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">self</span><span class="p">[</span><span class="s">"nid"</span><span class="p">]</span> <span class="p">}</span>
+        <span class="k">set</span> <span class="p">{</span> <span class="k">self</span><span class="p">[</span><span class="s">"nid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">newValue</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This class derived from Dictionary allows us to use all the dictionay functionalities, without the need to create an adapter. For example, there is the <strong>iOS</strong> <code class="highlighter-rouge">UserDefaults</code> functionality that allows you to save and retrieve data easily, making them persistent:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">person</span> <span class="o">=</span> <span class="kt">Person</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Dani"</span><span class="p">,</span> <span class="nv">dni</span><span class="p">:</span> <span class="s">"12345678A"</span><span class="p">)</span>
+<span class="kt">UserDefaults</span><span class="o">.</span><span class="n">standard</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"person"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="other-uses">Other uses</h3>
+
+<p>There are many types of data that we can take advantage of to extend on many occasions. Classes like <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Int</code>, <code class="highlighter-rouge">Double</code>, <code class="highlighter-rouge">Array</code>, <code class="highlighter-rouge">Dictionary</code>, <code class="highlighter-rouge">Set</code>, <code class="highlighter-rouge">Date</code>. All these types can be extended to add specialized properties and methods, but allowing to take advantage of all the functionalities that these classes and their helper functions already have. Mainly it is useful to us when it comes to serializing, persisting and saving in the database, but also to filter data, assign it, convert it.</p>
+
+<h3 id="labels">Labels</h3>
+
+<p>Another example would be the <code class="highlighter-rouge">Label</code> type that we could use to represent an internationalizable UI label.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">Label</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">localized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">NSLocalizedString</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">comment</span><span class="p">:</span> <span class="s">""</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This class, programmed this way, would allow us to assign it directly to a UI label, without the need to create an adapter. But of course, the <code class="highlighter-rouge">localized</code> method would have to be called every time it was assigned to a UILabel; we could overload the ‘=’ operator to do the localization automatically upon seeing that assignment. It would be like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">label</span> <span class="o">=</span> <span class="kt">Label</span><span class="p">(</span><span class="s">"VIEW_TITLE"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">uiLabel</span> <span class="o">=</span> <span class="kt">UILabel</span><span class="p">()</span>
+<span class="n">uiLabel</span> <span class="o">=</span> <span class="n">label</span>
+
+<span class="kd">func</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="nv">uiLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">Label</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">uiLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="nf">localized</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

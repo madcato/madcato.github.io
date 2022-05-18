@@ -1,10 +1,12 @@
 ---
 layout:     post
-title:      "Datos zaragoza"
+title:      "Zaragoza data"
 subtitle:   "Open Data"
 date:       2010-05-15 19:01:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   datos-zaragoza
 ---
 
 [http://datos.zaragoza.es](http://datos.zaragoza.es)  
