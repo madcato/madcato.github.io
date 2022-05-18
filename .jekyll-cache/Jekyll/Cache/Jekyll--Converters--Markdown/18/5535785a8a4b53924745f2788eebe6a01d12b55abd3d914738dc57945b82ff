@@ -1,18 +1,18 @@
-I"�<h1 id="advance-ruby-summary">Advance Ruby (Summary)</h1>
+I"<h1 id="advance-ruby-summary">Advance Ruby (Summary)</h1>
 
 <p>In the following set of posts I’m going ot explore some advance concepts of Ruby, usually these special features most of programmers don’t use, because these concepts are not found in other programming languages. When a programmer uses Ruby at first time, usually he doesn’t realize how important and usefull this language is. This is because the real motivation to use Ruby is hidden from the average programmer, because in other mainstream languages these features doesn’t even exists.</p>
 
 <p>These advance features are:</p>
 
 <ul>
-  <li><a href="/2020/04/26/advanced-ruby-1/">Mixins</a></li>
-  <li><a href="/2020/05/02/advanced-ruby-2/">Object-Specific Classes</a></li>
-  <li><a href="/2020/05/13/advanced-ruby-3/">module_eval</a></li>
-  <li><a href="/2020/05/16/advanced-ruby-4/">class « self</a></li>
-  <li><a href="/2020/05/20/advanced-ruby-5/">Metaclasses</a></li>
-  <li><a href="/2020/06/14/advanced-ruby-6/">Dynamic typing</a></li>
-  <li><a href="/2020/06/17/advanced-ruby-7/">Duck typing</a></li>
-  <li><a href="/2020/10/16/advanced-ruby-8/">DSL</a></li>
+  <li><a href="/en/2020/04/26/advanced-ruby-1/">Mixins</a></li>
+  <li><a href="/en/2020/05/02/advanced-ruby-2/">Object-Specific Classes</a></li>
+  <li><a href="/en/2020/05/13/advanced-ruby-3/">module_eval</a></li>
+  <li><a href="/en/2020/05/16/advanced-ruby-4/">class « self</a></li>
+  <li><a href="/en/2020/05/20/advanced-ruby-5/">Metaclasses</a></li>
+  <li><a href="/en/2020/06/14/advanced-ruby-6/">Dynamic typing</a></li>
+  <li><a href="/en/2020/06/17/advanced-ruby-7/">Duck typing</a></li>
+  <li><a href="/en/2020/10/16/advanced-ruby-8/">DSL</a></li>
   <li>Functional programming</li>
   <li>Procedural programming</li>
   <li>Aspect oriented programming</li>
