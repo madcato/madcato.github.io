@@ -4,6 +4,8 @@ title:      "Bug CoreData - cells dessapear"
 date:       2012-08-01 18:55:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang:       en
+lang-ref:   bug-coredata-celdas-desaparecen
 ---
 
 Many users of LiShop had camplained about the list dessapearing when creating many articles.

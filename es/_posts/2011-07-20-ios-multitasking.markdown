@@ -1,0 +1,13 @@
+---
+layout:     post
+title:      "iOS Multitasking"
+date:       2011-07-20 16:28:00
+author:     "Daniel Vela"
+header-img: "img/post-bg-05.jpg"
+---
+
+iOS multitasking states and **UIApplication** methods called in each transition.
+
+![xcode icon]({{ site.url }}/assets/tumblr_inline_mjwwbr30ye1qz4rgp.png)
+
+20110324.8

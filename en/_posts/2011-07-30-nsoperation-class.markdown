@@ -4,6 +4,8 @@ title:      "NSOperation class"
 date:       2011-07-30 21:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   nsoperation-class
 ---
 
 NSOperation is useful for asynchronous executions:

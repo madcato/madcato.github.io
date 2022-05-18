@@ -4,6 +4,8 @@ title:      "How to add comments to Gitlab 'Merge Request' from CI script"
 date:       2018-11-13 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
+lang:       en
+lang-ref:   add-comments-gitlab-merge-request-ci
 ---
 
 This doc was made to explain how to send the output of an script (like swiftlint or other lints or quality utils) from the CI process of Gitlab to the Merge Request comment list.

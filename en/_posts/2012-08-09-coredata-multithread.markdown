@@ -4,6 +4,8 @@ title:      "CoreData with multithread"
 date:       2012-08-09 12:14:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   coredata-multithread
 ---
 
 

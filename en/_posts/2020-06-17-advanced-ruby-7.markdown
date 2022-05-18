@@ -5,6 +5,7 @@ date:       2020-06-17 04:50:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
 lang:       en
+lang-ref:   advanced-ruby-7
 ---
 
 # Advance Ruby: duck typing

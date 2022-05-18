@@ -4,6 +4,8 @@ title:      "Xcode breakpoints disabled in Release mode"
 date:       2011-02-02 15:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   xcode-breakpoints
 ---
 
 In the last version of xcode (3.2.5) breakpoints are disabled when debugging the Release version.

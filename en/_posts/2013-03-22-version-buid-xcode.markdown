@@ -4,6 +4,8 @@ title:      "‘Version’ and ‘Build’ numbers in the Xcode projects"
 date:       2013-03-22 12:01:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   version-buid-xcode
 ---
 
 

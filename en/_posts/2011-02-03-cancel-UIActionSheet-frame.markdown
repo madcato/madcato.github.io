@@ -4,6 +4,8 @@ title:      "Cancel button in UIActionSheet fails when touching bottom half of i
 date:       2011-02-03 18:07:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   cancel-UIActionSheet-frame
 ---
 
 Touching the "Cancel" button in an UIActionSheet sometimes fails. This happen when touching bottom half of its frame and also you have an UITabBar in your current view.  

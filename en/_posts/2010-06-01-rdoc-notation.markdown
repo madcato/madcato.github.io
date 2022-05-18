@@ -4,6 +4,8 @@ title:      "RDoc Notation Reference"
 date:       2010-06-01 04:48:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   rdoc-notation
 ---
 
 # Simple RDoc Reference (written in RDoc!)  

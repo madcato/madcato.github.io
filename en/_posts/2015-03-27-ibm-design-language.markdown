@@ -4,6 +4,8 @@ title:      "IBM Design: language"
 date:       2015-03-27 12:13:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   2015-03-27-ibm-design-language
 ---
 
 

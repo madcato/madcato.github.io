@@ -4,6 +4,8 @@ title:      "Usando http digest authentication con Ruby"
 date:       2010-05-26 15:23:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   http-digest-ruby
 ---
 
 This sample code shows how to use authentication of type *Digest* with ruby. From version 1.8.6 is supported natively.

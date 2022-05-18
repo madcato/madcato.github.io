@@ -4,6 +4,8 @@ title:      "Write in spanish with an american keyboard"
 date:       2013-02-13 13:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   escribir-espanol-con-teclado-americano
 ---
 
 

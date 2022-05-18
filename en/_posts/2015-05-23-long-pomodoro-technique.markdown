@@ -4,6 +4,8 @@ title:      "Long-Pomodoro Technique"
 date:       2015-05-23 17:28:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   long-pomodoro-technique
 ---
 
 

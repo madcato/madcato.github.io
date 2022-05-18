@@ -4,6 +4,8 @@ title:      "Printing in iOS"
 date:       2018-01-03 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   printing-ios
 ---
 ## Doc 
 

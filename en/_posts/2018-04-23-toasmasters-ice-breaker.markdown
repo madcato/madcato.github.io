@@ -4,6 +4,8 @@ title:      "My Toastmasters Icebreaker"
 date:       2018-04-22 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-07.jpg"
+lang:       en
+lang-ref:   2018-04-23-toasmasters-ice-breaker
 ---
 
 Toastmasters is an international organization aimed to develop the leadership and communication skills of his members.

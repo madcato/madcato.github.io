@@ -4,6 +4,8 @@ title:      "Git for Mac"
 date:       2011-10-08 10:55:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   git-for-mac
 ---
 
 ## 1. Install git from:

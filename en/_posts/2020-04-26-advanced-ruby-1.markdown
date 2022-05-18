@@ -5,6 +5,7 @@ date:       2020-04-26 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-15.jpg"
 lang:       en
+lang-ref:   advanced-ruby-1
 ---
 
 # Advance Ruby: Mixins

@@ -4,6 +4,8 @@ title:      "Change iOS executable app name"
 date:       2011-05-23 13:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   change-ios-executable-app-name
 ---
 
 The correct way to change the executable name of an iOS app is to change the **Product name** in the target settings.

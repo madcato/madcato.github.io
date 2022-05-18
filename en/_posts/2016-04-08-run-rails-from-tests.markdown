@@ -4,6 +4,8 @@ title:      "Launch a clean Rails server every time the Xcode unit test are laun
 date:       2016-04-7 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   run-rails-from-tests
 ---
 
 If you need to launch a Rails server in order to execute some Unit Tests from Xcode, you can use this method.

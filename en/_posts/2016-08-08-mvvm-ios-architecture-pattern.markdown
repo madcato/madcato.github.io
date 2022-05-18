@@ -4,6 +4,8 @@ title:      "MVVM architecture pattern in iOS (improved)"
 date:       2016-08-8 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   mvvm-ios-architecture-pattern
 ---
 
 Inspired by [this](https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.8t6ex2n88) post, I tried to develop an app using the MVVM architecture pattern.

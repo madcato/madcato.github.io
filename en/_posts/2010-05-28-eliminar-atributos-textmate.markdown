@@ -4,6 +4,8 @@ title:      "Eliminate extended attributes of files saved with Textmate"
 date:       2010-05-28 20:13:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   eliminar-atributos-textmate
 ---
 
 [Macromates](http://manual.macromates.com/en/saving_files.html)  

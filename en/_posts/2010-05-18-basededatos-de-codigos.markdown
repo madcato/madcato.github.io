@@ -4,6 +4,8 @@ title:      "Bases de datos de códigos de barras"
 date:       2010-05-18 20:06:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   basededatos-de-codigos
 ---
 
 There is no centralized database where we can search for any existing bar code.

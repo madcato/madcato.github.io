@@ -4,6 +4,8 @@ title:      "Appearance of UIKit"
 date:       2012-01-01 11:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   appearance-uikit
 ---
 
 

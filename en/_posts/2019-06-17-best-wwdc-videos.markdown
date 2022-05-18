@@ -5,6 +5,7 @@ date:       2019-06-13 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-13.jpg"
 lang:       en
+lang-ref:   best-wwdc-videos
 ---
 
 # Best videos of the WWDC

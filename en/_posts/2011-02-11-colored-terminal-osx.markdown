@@ -4,6 +4,8 @@ title:      "Colored Terminal for Mac OS X"
 date:       2011-02-11 14:23:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   colored-terminal-osx
 ---
 
 ![]({{ site.url }}/assets/tumblr_inline_mjpckjI3lf1qz4rgp.png)

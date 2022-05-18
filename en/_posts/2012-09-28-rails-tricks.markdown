@@ -4,6 +4,8 @@ title:      "Rails tricks"
 date:       2012-09-28 10:07:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   rails-tricks
 ---
 
 

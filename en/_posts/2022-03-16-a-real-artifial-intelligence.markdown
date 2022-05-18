@@ -5,6 +5,7 @@ date:       2022-03-16 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-11.jpg"
 lang:       en
+lang-ref:   a-real-artificial-intelligence
 ---
 
 The image that we have in society as a whole of what a true artificial intelligence will be like comes from the movies. Almost exclusively from Hollywood. These intelligences come, sometimes inside robots more or less similar to us, at other times they are supercomputers. But in any case, what characterizes these artificial intelligences is their intellectual resemblance to us, humans; it makes a lot of sense that it is so, because the human is always the measure of everything.

@@ -4,6 +4,8 @@ title:      "HeaderDoc for Xcode"
 date:       2011-08-05 09:24:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   headerdoc-for-xcode
 ---
 
 For more information, follow this link: [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html)

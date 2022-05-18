@@ -5,6 +5,7 @@ date:       2019-03-22 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-10.jpg"
 lang:       en
+lang-ref:   machine-learning-juoyter-labs
 ---
 
 

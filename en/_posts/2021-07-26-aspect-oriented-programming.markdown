@@ -5,6 +5,7 @@ date:       2021-07-20 08:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
 lang:       en
+lang-ref:   aspect-oriented-programming
 ---
 
 As you can see in the [Wikipedia](https://en.wikipedia.org/wiki/Aspect_(computer_programming)), an aspect is: 

@@ -4,6 +4,8 @@ title:      "BUG: Invalid content size ‘ADBannerContentSizeLandscape’"
 date:       2011-03-09 10:07:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   invalid-content-size-ADBannerContentSizeLandscape
 ---
 
 **reason: ‘Invalid content size 'ADBannerContentSizeLandscape’ passed to ADAdSizeForBannerContentSize’**

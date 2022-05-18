@@ -5,6 +5,7 @@ date:       2020-05-02 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-16.jpg"
 lang:       en
+lang-ref:   advanced-ruby-2
 ---
 
 # Advance Ruby: Object-Specific Classes

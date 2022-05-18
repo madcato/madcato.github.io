@@ -5,6 +5,7 @@ date:       2022-03-02 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
 lang:       en
+lang-ref:   data-types
 ---
 
 Many times we make mistakes when designing simple data types. We usually have the habit of declaring a type and then adding the properties of that type. For example, the National ID class:
