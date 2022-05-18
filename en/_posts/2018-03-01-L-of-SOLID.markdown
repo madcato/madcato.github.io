@@ -4,6 +4,8 @@ title:      "L of SOLID (3/5)"
 date:       2018-02-28 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang:       en
+lang-ref:   2018-03-01-L-of-SOLID
 ---
 
 This is the third of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:

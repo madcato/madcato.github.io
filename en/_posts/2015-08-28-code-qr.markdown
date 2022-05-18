@@ -4,6 +4,8 @@ title:      "Test scan QR NPD"
 date:       2015-08-26 01:50:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   code-qr
 ---
 
 Scan the QR code at the bottom of this image 

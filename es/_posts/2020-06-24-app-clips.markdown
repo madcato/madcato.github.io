@@ -1,0 +1,134 @@
+---
+layout:     post
+title:      "iOS 14: App Clips"
+date:       2020-06-24 06:54:00
+author:     "Daniel Vela"
+header-img: "img/post-bg-04.jpg"
+lang:       en
+---
+
+# App Clips
+
+App clips allow a fast access to a part of a mobile app.
+
+- [How to create an App Clip](https://developer.apple.com/documentation/app_clips/creating_an_app_clip)
+- [Sample app: Fruta: Building a Feature-Rich App with SwiftUI](https://developer.apple.com/documentation/swiftui/fruta_building_a_feature-rich_app_with_swiftui)
+
+## Launchers
+
+Launchers have an URL or a MFC tag, this way they can by launches with a NFC label or a QR code.
+
+- NFC tag
+- QR Code
+- Siri location suggestion
+- Safari App Banner
+- Links in messages
+- Place Cards in Maps
+- Recentyly Used App Clips
+- Email
+
+## Characteristics
+
+- 8-hour locations. App Clips can present a notification within the eight hours of the user launching the clip.
+- Can check if the App Clip is checked by the user at an specific location.
+- Can offer a button to install an app.
+
+## HIG
+
+[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-clips/overview/)
+
+- A simple app or fucntionality.
+
+### Possible uses samples
+
+- Cycle renting, a tag in the cycle can launch the App Clip.
+- Ask for a coffe
+- Launch a restauran menu from the Map app.
+- Launch the film list of a cinema from the Map app.
+- A museum can put tags near pictures to launch an App Clip with information.
+
+### Desing principles
+
+- Focus on the essential
+- Don't use it for marketing purposes.
+- Design a linear, easy and focused UI.
+- On launch, show only the relevant.
+- User must use the App clip inmediately.
+- Small
+- Allow to share hte App Clip (they are URL)
+- Use Apple Pay
+- Don't require user to create a account.
+- Don't require the user to install a complete app.
+- Require access to notifications if they are needed along time.
+- Use more graphics than text.
+- Simple verb for actions.
+
+## Configuration
+
+- App CLips require a complete app to upload it to the App Store Connect.
+- Requires: a header image, a subtitle, a call-to-action.
+- Add the URL that launch your app in the section *advanced app clip experiences* in the App Store Connect. And
+    * nfc tags
+    * pyshical location
+    * multiple bussines to use.
+
+## Frameworks NOT avialable to App Clips
+
+- CallKit
+- CareKit
+- CloudKit
+- HealthKit
+- HomeKit
+- ResearchKit
+- SensorKit
+- Speech
+
+### Reserve some functionality to the main app
+
+- Advanced networking features like Bonjour, or configuration of local Wi-Fi networks
+- App extensions
+- Customization and settings; for example, creation of a settings bundle
+- Data handoff and document opening
+- In-app purchases and in-app provisioning of payment cards
+- Low-level Unix functionality; for example, BSD notifications
+- Multiple scenes on iPad
+- Registration of custom URL schemes
+- Requests for user reviews of the app, using StoreKit’s requestReview(in:) method
+- Searches for paired Bluetooth devices
+
+
+## Code shortcut
+
+    #if !APPCLIP
+      // Code you don't want to use in your app clip.
+    #else
+      // Code your app clip may access.
+    #endif
+
+## Notiffications
+
+- [Enabling Notifications in App Clips](https://developer.apple.com/documentation/app_clips/enabling_notifications_in_app_clips)
+
+Is not needed to require user for permissions if the notification only is going to happen before next eight hours.
+
+## Respond to invocation
+
+- [Responding to Invocations](https://developer.apple.com/documentation/app_clips/responding_to_invocations)
+
+    func respondTo(_ activity: NSUserActivity?) {
+        
+        // Guard against faulty data.
+        guard activity != nil else { return }
+        guard activity!.activityType != NSUserActivityTypeBrowsingWeb else { return }
+        guard let incomingURL = activity?.webpageURL else { return }
+        guard let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true) else { return }
+        
+        // Update the user interface based on URL components passed to the app clip.
+    }
+
+## Tips
+
+- With [SKOverlay](https://developer.apple.com/documentation/storekit/skoverlay) you can reommend the user to instal an app.
+- [Safari App Banners](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
+- [Share data with the main app using NSUserDefault](https://developer.apple.com/documentation/app_clips/making_data_available_to_the_app_clip_s_corresponding_app)
+

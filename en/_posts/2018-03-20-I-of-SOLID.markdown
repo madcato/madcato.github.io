@@ -4,6 +4,8 @@ title:      "I of SOLID (4/5)"
 date:       2018-03-19 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   2018-03-20-I-of-SOLID
 ---
 
 This is the fourth of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:

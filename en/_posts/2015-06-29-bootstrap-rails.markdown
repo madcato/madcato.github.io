@@ -4,6 +4,8 @@ title:      "Install Bootstrap into Rails apps"
 date:       2015-06-29 17:15:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   bootstrap-rails
 ---
 
 

@@ -5,6 +5,7 @@ date:       2022-03-09 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-10.jpg"
 lang:       en
+lang-ref:   disposable-prototypes
 ---
 
 A disposable prototype in a small project that is done to learn something. A prototype is only as big as the problem it studies. When a code is started for the sole purpose of understanding how the code works, we can talk about creating a disposable prototype.

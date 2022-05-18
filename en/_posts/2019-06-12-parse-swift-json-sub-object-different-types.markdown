@@ -5,6 +5,7 @@ date:       2019-06-17 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-14.jpg"
 lang:       en
+lang-ref:   parse-swift-json-sub-object-different-types
 ---
 
 # How to decode/encode Github API event feed

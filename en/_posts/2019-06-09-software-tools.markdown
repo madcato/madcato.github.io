@@ -5,6 +5,7 @@ date:       2019-06-09 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-12.jpg"
 lang:       en
+lang-ref:   2019-06-09-software-tools
 ---
 
 # Software tools for business, freelances and startups

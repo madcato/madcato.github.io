@@ -4,6 +4,8 @@ title:      "@ in the name of a file - subversion"
 date:       2011-02-20 14:06:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   file-name-subversion
 ---
 
 To add a file with an @ inside the its name put another @ at the end of the file name.

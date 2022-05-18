@@ -4,6 +4,8 @@ title:      "O of SOLID (2/5)"
 date:       2018-02-19 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   O-of-SOLID
 ---
 
 This is the second of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:

@@ -4,6 +4,8 @@ title:      "To memorize"
 date:       2012-01-15 12:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   memorize
 ---
 
 ![brain]({{ site.url }}/assets/tumblr_inline_mk0bd7lMo41qz4rgp.jpg)

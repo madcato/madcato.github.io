@@ -5,6 +5,7 @@ date:       2020-05-16 15:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-18.jpg"
 lang:       en
+lang-ref:   advanced-ruby-4
 ---
 
 # Advance Ruby: class << self

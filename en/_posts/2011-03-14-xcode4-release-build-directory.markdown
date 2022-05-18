@@ -4,6 +4,8 @@ title:      "Xcode 4: release build directory"
 date:       2011-03-14 11:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   xcode4-release-build-directory
 ---
 
 In Xcode 4 the default preferences specify a build output directory different from de Xcode 3 one. You can change this configuration and let the Xcode works as before. Open Xcode 4 and go to Preferences -> Locations and change “Build location”.

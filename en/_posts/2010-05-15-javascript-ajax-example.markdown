@@ -5,6 +5,8 @@ subtitle:   "javascript trick"
 date:       2010-05-15 12:20:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang: en
+lang-ref: javascript-ajax-example
 ---
 
 Code

@@ -4,6 +4,8 @@ title:      "D of SOLID (5/5)"
 date:       2018-04-02 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   D-of-SOLID
 ---
 
 This is the fifth of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:

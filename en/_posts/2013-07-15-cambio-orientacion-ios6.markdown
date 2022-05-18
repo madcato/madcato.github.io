@@ -4,6 +4,8 @@ title:      "Orientation change on iOS 6"
 date:       2013-07-15 11:56:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   cambio-orientacion-ios6
 ---
 
 With iOS 6 Apple modified the way to control the views orientation. Now is managed by the UIWindow root controller.

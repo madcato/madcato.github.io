@@ -5,6 +5,7 @@ date:       2022-04-23 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-15.jpg"
 lang:       en
+lang-ref:   complicate-things
 ---
 
 During my college years I suffered from - or should I say, enjoyed from- several obsessions. One of them was discovering the difference between what was called a “software design” and a “software analysis”. I read and read a multitude of computer design and analysis books, but I couldn't resolve my doubts: in some books they called analysis, in others the same thing is called design. In none of those books did I find the difference between these terms. If I became obsessed with them, it was due to some books, or courses that I took, where the phases of software development were specified: from requirement collection, to the coding, they went through several stages: two of those stages were analysis and design.

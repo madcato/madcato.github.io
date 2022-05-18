@@ -4,6 +4,8 @@ title:      "La Arquitectura Limpia"
 date:       2016-03-29 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
+lang:       en
+lang-ref:   clean-architecture
 ---
 
 Esto es una traducción al idioma español del artículo de Uncle Bob: [The Clean Architecture](http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html)

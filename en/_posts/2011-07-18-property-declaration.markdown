@@ -4,6 +4,8 @@ title:      "@property attributes"
 date:       2011-07-18 14:43:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
+lang:       en
+lang-ref:   2011-07-18-property-declaration
 ---
 
 ![xcode icon]({{ site.url }}/assets/tumblr_inline_mjuuzjzbF01qz4rgp.jpg)

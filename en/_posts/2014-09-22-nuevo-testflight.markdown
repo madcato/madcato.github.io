@@ -4,6 +4,8 @@ title:      "New TestFlight"
 date:       2014-09-22 15:41:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
+lang:       en
+lang-ref:   nuevo-testflight
 ---
 
 Apple bougth TestFlightApp. Now is integrated with the service "iTunes Connect". The had eliminated the functionality of the SDK and I don't know where to download the "Crash logs": It will be odd if Apple had not included this functionality. (It's included in the Xcode Organizer)

@@ -4,6 +4,8 @@ title:      "UITableView index"
 date:       2011-05-22 13:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang:       en
+lang-ref:   uitableview-index
 ---
 
 You can generate the index of the tables with the class **UIlocalizedIndexedCollation (UIKit)**.

@@ -5,6 +5,7 @@ date:       2019-01-30 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
 lang:       en
+lang-ref:   learn-how-to-learn
 ---
 
 This are some quotes extracted from the book [“A Mind For Number” by Barbara Oakley](https://itunes.apple.com/es/book/a-mind-for-numbers/id761835360?l=en&mt=11)

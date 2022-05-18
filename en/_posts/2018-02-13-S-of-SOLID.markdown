@@ -4,6 +4,8 @@ title:      "S of SOLID (1/5)"
 date:       2018-02-12 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   S-of-SOLID.
 ---
 
 This is the first of five posts talking about the SOLID principles. This principles are a great guide to write good source code. Each post will talk about one of the principles:

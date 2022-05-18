@@ -4,6 +4,8 @@ title:      "iOS 7 sound recording"
 date:       2014-02-07 12:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang:       en
+lang-ref:   grabacion-audio-ios7
 ---
 
 To record sound with iOS 7 use **AVAudioRecorder** class.
@@ -11,7 +13,7 @@ To record sound with iOS 7 use **AVAudioRecorder** class.
 Before stert the recording with the **record** method call the **prepareToRecord** method. Both methods return a boolean like return value.
 It's important to check that returns **YES**. In order case show an error because the recording won't start.
 
-## Creation and configuration ofAVAudioRecorder
+## Creation and configuration of AVAudioRecorder
 
 The object **AVAudioRecorder** requires for its initialization an object of type **NSDictionary** with the following values:
 

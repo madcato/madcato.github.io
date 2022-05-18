@@ -5,6 +5,7 @@ date:       2022-04-02 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-13.jpg"
 lang:       en
+lang-ref:   programmer-self-delusion
 ---
 
 Throughout my professional life as a programmer, I have very often come across ideas that all my colleagues defend, but none of them have asked themselves the reason for that idea. Sometimes when someone complains to me that I have programmed something wrong, they ask why we should do it that way: in most cases I didn't received an answer, in which I do, when I asked the why of the why, then there is no answer.

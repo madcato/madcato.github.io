@@ -5,6 +5,7 @@ date:       2022-02-01 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-08.jpg"
 lang:       en
+lang-ref:   software-mindset
 ---
 
 There is an apparent paradox related to the software we use as programmers. Technically every programmer could create from scratch all the software he needs: but nowadays it is practically impossible to create all that software. We would have to create operating systems, programming languages, compilers, libraries: this is not possible, because it takes too much development time.

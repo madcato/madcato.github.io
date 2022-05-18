@@ -4,6 +4,8 @@ title:      "Removing directory not found warning from Xcode"
 date:       2016-03-15 23:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   remove-directory-warning
 ---
 
 I solved this warning removing the following setting: "$(SDKROOT)/Developer/Library/Frameworks"

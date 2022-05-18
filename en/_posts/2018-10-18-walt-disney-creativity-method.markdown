@@ -4,6 +4,8 @@ title:      "Walt Disney method to be creative"
 date:       2018-10-18 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-08.jpg"
+lang:       en
+lang-ref:   walt-disney-creativity-method.
 ---
 
 ![Walt Disnay portrait](https://upload.wikimedia.org/wikipedia/commons/d/df/Walt_Disney_1946.JPG)

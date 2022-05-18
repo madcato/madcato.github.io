@@ -4,6 +4,8 @@ title:      "Sandbox environment for iPhone development"
 date:       2011-05-11 12:22:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+lang:       en
+lang-ref:   sandbox-enviroment-iphone-development
 ---
 
 Today I suffered from a bizarre failure of Xcode that make us lose time. When attempting to access one of my in-app Purchases, the framework StoreKit returned my ID on invalidProductIdentifiers property as if the ID not exist.

@@ -4,6 +4,8 @@ title:      "Core Location iPhone / iPad"
 date:       2011-11-13 17:18:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   core-location-iphone-ipad
 ---
 
 ![iPhone location optimizations]({{ site.url}}/assets/tumblr_inline_mjyfyhTr2u1qz4rgp.png)

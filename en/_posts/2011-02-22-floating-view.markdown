@@ -4,6 +4,8 @@ title:      "Floating UIPickerView like the Safari one"
 date:       2011-02-22 19:59:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
+lang:       en
+lang-ref:   floating-view
 ---
 
 ![floating view]({{ site.url}}/assets/tumblr_inline_mjpfqfkirm1qz4rgp.png)

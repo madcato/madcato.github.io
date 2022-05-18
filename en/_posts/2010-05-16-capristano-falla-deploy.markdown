@@ -4,6 +4,8 @@ title:      "Capristano falla al realizar deploy"
 date:       2010-05-16 01:32:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
+lang:       en
+lang-ref:   capristano-falla-deploy
 ---
 
 There is a lot of failures we can expect deploying with Capistrano.
