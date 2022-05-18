@@ -1,22 +1,23 @@
 ---
 layout:     post
-title:      "Disposable prototypes"
+title:      "Prototipos desechables"
 date:       2022-03-09 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-10.jpg"
-lang:       en
+locale:       es
+lang-ref:   disposable-prototypes
 ---
 
-A disposable prototype in a small project that is done to learn something. A prototype is only as big as the problem it studies. When a code is started for the sole purpose of understanding how the code works, we can talk about creating a disposable prototype.
+Un prototipo desechable en un pequeño proyecto que se realiza para aprender algo. Un prototipo es tan grande como el problema que estudia. Cuando se inicia un código con el único objetivo de entender cómo funciona dicho código, podemos hablar de que hemos creado un prototipo desechable.
 
-There are different reasons to invest time in creating one of these prototypes:
-- Learn to use a library or framework.
-- Test a design or architecture.
+Hay diferentes motivos por los que invertir tiempo en crear uno de estos prototipos:
+- Aprender a usar una librería o framework.
+- Probar un diseño o arquitectura.
 
-An example of a disposable prototype would be a small iOS app to learn how to integrate the Apple Pay payment system. It is better to create a small proof of concept, in order to assimilate the operation of this technology, with the aim of integrating said functionality into an existing project, which is more complex to modify than an empty app. Another example could be the integration of an OAuth authentication.
+Un ejemplo de un prototipo desechable sería una pequeña app iOS para aprender a integrar el sistema de pagos Apple Pay. Es mejor crear una pequeña prueba de concepto, para así asimilar el funcionamiento de esta tecnología, con el objetivo de integrar dicha funcionalidad en una proyecto existente, el cual es más complejo de modificar que una app vacía. Otro ejemplo podría ser la integración de una autenticación OAuth.
 
-It is very important to understand, and accept, that a prototype is made up of code that is not going to be reused. Neither other projects should use these codes, nor should this prototype be used to start a new project. The reason is that these codes must be done quickly and quickly, with the sole purpose of learning something. You don't need to write good code, as this would make it take a long time to code. It is also not necessary to define the graphic resources correctly, nor to make a safe code, nor to comply with the guidelines defined by the providers of the operating system or the programming environment. Only the prototype primary target needs to be programmed.
+Es muy importante entender, y aceptar, que un prototipo se compone de un código que no va a ser reutilizado. Ni otros proyecto deben usar estos códigos, ni tampoco este prototipo debe usarse para iniciar un nuevo proyecto. El motivo es que estos códigos deben hacerse deprisa y corriendo, con el único propósito de aprender algo. No hace falta escribir un buen código, pues esto haría que se tardara mucho en codificar. Tampoco es necesario definir correctamente los recursos gráficos, ni tampoco realizar un código seguro, ni cumplir las directrices definidas por los proveedores del sistema operativo o del entorno de programación. Solo se ha de programar el objetivo principal prototipo.
 
-For this reason, the code of any prototype should be used exclusively as a reference. It's worth saving, but only for advisory purposes, just to check how the problem was resolved.
+Por ello, el código de todo prototipo debe usarse exclusivamente como referencia. Merece la pena guardarlo, pero sólo con intenciones consultivas, solo para comprobar cómo se resolvió el problema.  
 
-The really important thing is to record all the findings and conclusions in a text document, such as a 'readme.md' file, where it is described what has been done, why, what documentation and libraries were used, and finally, what conclusions were drawn from this effort.
+Lo realmente importante es dejar constancia de todos los descubrimientos y conclusiones en un documento de texto, como un fichero ‘readme.md’, donde se describe lo que se ha hecho, por qué, qué documentación y librerías se usaron, y por último, qué conclusiones se sacaron de este esfuerzo.

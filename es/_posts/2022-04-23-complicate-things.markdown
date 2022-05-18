@@ -1,16 +1,18 @@
 ---
 layout:     post
-title:      "How we like to complicate things"
+title:      "Cómo nos gusta complicar las cosas"
+subtitle:   "Ains..."
 date:       2022-04-23 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-15.jpg"
-lang:       en
+locale:     es
+lang-ref:   complicate-things
 ---
 
-During my college years I suffered from - or should I say, enjoyed from- several obsessions. One of them was discovering the difference between what was called a “software design” and a “software analysis”. I read and read a multitude of computer design and analysis books, but I couldn't resolve my doubts: in some books they called analysis, in others the same thing is called design. In none of those books did I find the difference between these terms. If I became obsessed with them, it was due to some books, or courses that I took, where the phases of software development were specified: from requirement collection, to the coding, they went through several stages: two of those stages were analysis and design.
+Durante mis años universitarios sufrí -o más valdría decir, disfruté- varias obsesiones. Una de ellas fue descubrir la diferencia entre lo que se denominaba un **“diseño de software”** y un **“análisis de software”**. Leí y leí multitud de libros de diseño y análisis informático, pero no conseguí resolver mis dudas; lo que en algunos libros denominaban análisis, en otros lo llamaban diseño. En ninguno de esos libros encontré la diferencia entre estos términos. Si me obsesioné con ellos fue debido a algún libro, o curso que realicé, donde se especificaban las fases del desarrollo de software: desde la recogida de requerimientos, hasta la codificación, se pasaban por varios estados: dos de esos estados eran el análisis y el diseño.
 
-As much as I asked my teachers and classmates, and as much as I searched in books and on the internet, I couldn't resolve this question. What is the difference between analysis and software design? In the end I managed to resolve this doubt in the most unexpected place of all, -I don't remember how I came to the conclusion of looking there, maybe desperation-: the place where I found the difference was the dictionary of the Spanish academy.
+Por más que preguntaba a mis profesores y compañeros, y por más que buscaba en libros e internet, no conseguí resolver esta duda. ¿Cuál es la diferencia entre el análisis y el diseño de software? Al final conseguí resolver esta duda en el sitio más insospechado de todos, -no recuerdo cómo llegué a la conclusión de mirar ahí, puede que desesperación-: el lugar donde encontré la diferencia fue el real diccionario de la academia española.
 
-My confusion was caused by the fact that everywhere I looked, the result of the analysis and design was the same, but everywhere they say that is different. Thanks to the dictionary I was able to discover that analysis is a mental process with which we break down concepts in order to understand them better. A design is a graphic representation of concepts. Analysis and design are related because to design anything we must first analyze it, and thanks to that design, we can continue analyzin without having to have everything in our heads. In other words, design is a tool that helps to analyze, and to leave a graphic record of that analysis.
+Mi confusión estaba provocada por que mirase donde mirase, el resultado del análisis y el diseño era lo mismo, pero en todos lados decían que eran conceptos diferentes. Gracias al diccionario conseguí descubrir que el análisis es un proceso mental con el que desmenuzamos conceptos para poder entenderlos mejor. Un diseño es una representación gráfica de unos conceptos. Análisis y diseño están relacionados porque para diseñar cualquier cosas primero debemos analizarla, y gracias a ese diseño, podemos seguir diseñando, sin necesidad de tenerlo todo en la cabeza. Es decir, el diseño es una herramienta que ayuda a analizar, y a dejar constancia gráfica de dicho análisis.
 
-All this, today, seems superficial even simple, but I can assure you that reading all those software engineering books, none of them presented it in such a simple way, which caused me many doubts about something that was that simple. . Why do we get so complicated?
+Todo esto, a día de hoy, parece superficial incluso simplón, pero os puedo asegurar que leyendo todos aquellos libros de ingeniería de software, ninguno de ellos lo presentaba de manera tan sencilla, lo que me provocó muchas dudas de algo que era así de simple. ¿Para qué nos complicamos tanto? 

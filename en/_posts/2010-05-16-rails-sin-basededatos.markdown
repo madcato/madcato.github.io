@@ -4,7 +4,7 @@ title:      "Usando Ruby on Rails sin base de datos"
 date:       2010-05-16 01:18:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   rails-sin-basededatos
 ---
 

@@ -12,7 +12,7 @@ layout: default
                     {% if page.subtitle %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% endif %}
-                    <span class="meta">{{ site.data.translations['postedBy'][page.lang] }} {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.lang] }} {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">{{ site.data.translations['postedBy'][page.locale] }} {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.locale] }} {{ page.date | date: "%B %-d, %Y" }}</span>
                 </div>
             </div>
         </div>
@@ -23,16 +23,16 @@ layout: default
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     {% if page.layout != 'page' %}
-      {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+      {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'locale' %}
       {% if posts.size == 0 %}
-          {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+          {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'locale' %}
       {% endif %}
       {% if posts.size > 1 %}
       <div class="lang-options">
-          <em>{{ site.data.translations['differentLanguage'][page.lang] }}</em>
+          <em>{{ site.data.translations['differentLanguage'][page.locale] }}</em>
           <ul class="languages">
           {% for post in posts %}
-          <li><a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">{{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }} &nbsp &nbsp</a></li>
+          <li><a href="{{ site.base-url }}{{ post.url }}" class="{{ post.locale }}" title="View in {{post.locale}}">{{ site.data.languages[post.locale].icon }} {{ site.data.languages[post.locale].label }} &nbsp &nbsp</a></li>
           {% endfor %}
           </ul>
       </div>
@@ -55,12 +55,12 @@ layout: default
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; {{ site.data.translations['prevPost'][page.lang] }} </a>
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; {{ site.data.translations['prevPost'][page.locale] }} </a>
                     </li>
                     {% endif %}
                     {% if page.next.url %}
                     <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">{{ site.data.translations['nextPost'][page.lang] }}  &rarr;</a>
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">{{ site.data.translations['nextPost'][page.locale] }}  &rarr;</a>
                     </li>
                     {% endif %}
                 </ul>

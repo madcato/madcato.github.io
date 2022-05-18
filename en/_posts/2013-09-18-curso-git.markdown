@@ -4,7 +4,7 @@ title:      "Git course"
 date:       2013-09-18 06:41:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   curso-git
 ---
 

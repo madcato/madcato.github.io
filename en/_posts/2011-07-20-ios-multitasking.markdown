@@ -4,7 +4,7 @@ title:      "iOS Multitasking"
 date:       2011-07-20 16:28:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   ios-multitasking
 ---
 

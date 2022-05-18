@@ -4,7 +4,7 @@ title:      "Walt Disney method to be creative"
 date:       2018-10-18 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-08.jpg"
-lang:       en
+locale:       en
 lang-ref:   walt-disney-creativity-method.
 ---
 

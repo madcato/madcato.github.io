@@ -4,7 +4,7 @@ title:      "S of SOLID (1/5)"
 date:       2018-02-12 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   S-of-SOLID.
 ---
 

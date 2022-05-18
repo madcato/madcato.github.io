@@ -4,7 +4,7 @@ title:      "Bug CoreData - cells dessapear"
 date:       2012-08-01 18:55:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   bug-coredata-celdas-desaparecen
 ---
 

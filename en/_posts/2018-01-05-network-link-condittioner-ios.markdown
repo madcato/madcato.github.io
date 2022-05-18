@@ -4,7 +4,7 @@ title:      "Simulate slow network in macOS"
 date:       2018-01-04 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   network-link-condittioner-ios
 ---
 

@@ -4,7 +4,7 @@ title:      "Decorated git commits"
 date:       2013-07-09 20:27:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   commits-git-decorados
 ---
 

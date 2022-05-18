@@ -4,7 +4,7 @@ title:      "UITableView index"
 date:       2011-05-22 13:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   uitableview-index
 ---
 

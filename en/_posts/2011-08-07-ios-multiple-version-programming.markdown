@@ -4,7 +4,7 @@ title:      "iOS Multiple Version Programming"
 date:       2011-08-07 10:55:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   ios-multiple-version-programming
 ---
 

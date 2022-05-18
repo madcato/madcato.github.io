@@ -4,7 +4,7 @@ title:      "Launching the App Store from iPhone app"
 date:       2011-02-15 16:13:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   launching-app-store
 ---
 

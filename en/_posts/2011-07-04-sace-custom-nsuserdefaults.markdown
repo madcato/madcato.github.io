@@ -4,7 +4,7 @@ title:      "Save custom objects in NSUserDefaults"
 date:       2011-07-04 13:29:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   sace-custom-nsuserdefaults
 ---
 

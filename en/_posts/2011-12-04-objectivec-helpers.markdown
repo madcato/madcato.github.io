@@ -4,7 +4,7 @@ title:      "Objective-C helpers"
 date:       2011-12-04 11:24:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   objectivec-helpers
 ---
 

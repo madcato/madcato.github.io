@@ -4,7 +4,7 @@ title:      "Business Models"
 date:       2011-12-13 12:11:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   business-models
 ---
 

@@ -4,7 +4,7 @@ title:      "iOS 7 sound recording"
 date:       2014-02-07 12:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   grabacion-audio-ios7
 ---
 

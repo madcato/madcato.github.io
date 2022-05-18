@@ -4,7 +4,7 @@ title:      "iOS4 Issue: NSURLConnection and NSOperation"
 date:       2010-12-19 23:06:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   ios-issue-connection-operations
 ---
 

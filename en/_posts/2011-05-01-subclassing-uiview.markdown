@@ -4,7 +4,7 @@ title:      "Subclassing UIView"
 date:       2011-05-01 11:26:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   subclassing-uiview
 ---
 

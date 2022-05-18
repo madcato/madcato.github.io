@@ -4,7 +4,7 @@ title:      "Soundex: fonetic search"
 date:       2010-05-15 18:59:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   soundex-fonetic-search
 ---
 

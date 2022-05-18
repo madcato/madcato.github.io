@@ -4,7 +4,8 @@ title:      "Montar empresa LLC en EEUU"
 date:       2022-03-23 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-12.jpg"
-lang:       es
+locale:       es
+lang-ref:   llc
 ---
 
 Este artículo es un resumen rápido de este podcast de Pau Ninja:

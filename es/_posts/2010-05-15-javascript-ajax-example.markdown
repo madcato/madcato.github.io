@@ -1,10 +1,12 @@
 ---
 layout:     post
-title:      "Javascript Ajax example"
+title:      "Ejemplo de Javascript Ajax"
 subtitle:   "javascript trick"
 date:       2010-05-15 12:20:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
+locale:       es
+lang-ref:   javascript-ajax-example
 ---
 
 Code

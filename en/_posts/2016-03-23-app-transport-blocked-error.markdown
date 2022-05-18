@@ -4,7 +4,7 @@ title:      "App Transport Security has blocked a cleartext HTTP prevent http qu
 date:       2016-03-23 10:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   app-transport-blocked-error
 ---
 

@@ -4,7 +4,7 @@ title:      "MVVM architecture pattern in iOS (improved)"
 date:       2016-08-8 12:02:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   mvvm-ios-architecture-pattern
 ---
 

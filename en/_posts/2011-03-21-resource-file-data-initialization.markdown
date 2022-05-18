@@ -4,7 +4,7 @@ title:      "Resource file for data initialization"
 date:       2011-03-21 22:24:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   resource-file-data-initialization
 ---
 

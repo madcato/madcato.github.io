@@ -4,7 +4,7 @@ title:      "NSDate formatter snippets"
 date:       2011-07-28 12:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   nsdate-formatter-snippets
 ---
 

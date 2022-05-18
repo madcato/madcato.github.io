@@ -4,7 +4,7 @@ title:      "Why do some developers at strong companies like Google consider Agi
 date:       2015-03-26 12:13:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   google-agile-nosense
 ---
 

@@ -4,7 +4,7 @@ title:      "Core Location iPhone / iPad"
 date:       2011-11-13 17:18:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   core-location-iphone-ipad
 ---
 

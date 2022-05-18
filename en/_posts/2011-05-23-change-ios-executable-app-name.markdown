@@ -4,7 +4,7 @@ title:      "Change iOS executable app name"
 date:       2011-05-23 13:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   change-ios-executable-app-name
 ---
 

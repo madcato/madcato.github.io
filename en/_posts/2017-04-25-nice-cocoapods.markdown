@@ -4,7 +4,7 @@ title:      "Nice cocoapods"
 date:       2017-04-25 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   nice-cocoapods
 ---
 

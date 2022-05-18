@@ -4,7 +4,7 @@ title:      "Orientation change on iOS 6"
 date:       2013-07-15 11:56:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   cambio-orientacion-ios6
 ---
 
