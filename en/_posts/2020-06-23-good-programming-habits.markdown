@@ -4,7 +4,7 @@ title:      "Great Developer Habits"
 date:       2020-06-23 16:08:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   good-programming-habits
 ---
 

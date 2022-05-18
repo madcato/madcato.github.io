@@ -1,17 +1,17 @@
 ---
 layout:     post
 title:      "Jpegcam"
-subtitle:   "javasript trick"
+subtitle:   "Truco de javascript"
 date:       2010-05-15 11:09:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       es
+locale:       es
 lang-ref:   jpegcam
 ---
 
 [http://code.google.com/p/jpegcam/](http://code.google.com/p/jpegcam/)     
 
-Use the webcam to take a photo a send it to a HTTP server. It uses Flash.    
+Use la webcam para tomar una foto y enviarla a un servidor HTTP, usando Flash.
 
-Great project, works fine.     
+Gran proyecto, funciona bien.
 

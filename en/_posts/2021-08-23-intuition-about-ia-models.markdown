@@ -4,7 +4,7 @@ title:      "Intuition about AI models"
 date:       2021-08-23 14:56:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-07.jpg"
-lang:       en
+locale:       en
 lang-ref:   intuition-about-ia-models
 ---
 

@@ -4,7 +4,7 @@ title:      "Learning how to learn"
 date:       2019-01-30 00:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
-lang:       en
+locale:       en
 lang-ref:   learn-how-to-learn
 ---
 

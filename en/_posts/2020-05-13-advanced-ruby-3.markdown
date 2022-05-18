@@ -4,7 +4,7 @@ title:      "Advanced Ruby: module\_eval"
 date:       2020-05-13 14:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-17.jpg"
-lang:       en
+locale:       en
 lang-ref:   advanced-ruby-3
 ---
 

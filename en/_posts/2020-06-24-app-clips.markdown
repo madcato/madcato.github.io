@@ -4,7 +4,7 @@ title:      "iOS 14: App Clips"
 date:       2020-06-24 06:54:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   app-clips
 ---
 

@@ -4,7 +4,7 @@ title:      "HeaderDoc for Xcode"
 date:       2011-08-05 09:24:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   headerdoc-for-xcode
 ---
 

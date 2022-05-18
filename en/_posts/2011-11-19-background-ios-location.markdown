@@ -4,7 +4,7 @@ title:      "Background iOS location"
 date:       2011-11-19 18:10:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   background-ios-location
 ---
 

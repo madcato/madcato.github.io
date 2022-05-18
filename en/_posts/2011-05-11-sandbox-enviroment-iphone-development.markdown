@@ -4,7 +4,7 @@ title:      "Sandbox environment for iPhone development"
 date:       2011-05-11 12:22:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   sandbox-enviroment-iphone-development
 ---
 

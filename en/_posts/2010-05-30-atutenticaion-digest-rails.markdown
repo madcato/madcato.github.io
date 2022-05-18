@@ -4,7 +4,7 @@ title:      "Implement http digest authentication with Rails"
 date:       2010-05-30 03:27:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   atutenticaion-digest-rails
 ---
 

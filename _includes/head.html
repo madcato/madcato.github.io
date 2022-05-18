@@ -24,9 +24,9 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
 {% if page.layout != 'page' %}
-  {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+  {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'locale' %}
   {% if posts.size == 0 %}
-    {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+    {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'locale' %}
   {% endif %}
   {% if posts.size > 1 %}
     {% for post in posts %}

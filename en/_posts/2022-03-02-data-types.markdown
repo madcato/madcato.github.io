@@ -4,7 +4,7 @@ title:      "Data types"
 date:       2022-03-02 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
-lang:       en
+locale:       en
 lang-ref:   data-types
 ---
 

@@ -1,3 +1,17 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="languages">
+                {% for lang in site.data.languages %}
+                {% assign language = lang[1] %}
+                <li><a href="/{{lang[0]}}/">{{language.icon}} {{ language.label }} &nbsp &nbsp</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -9,22 +23,23 @@
         </h3>
         {% endif %}
     </a>
-    <p class="post-meta">{{ site.data.translations['postedBy'][page.lang] }} {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.lang] }} {{ post.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-meta">{{ site.data.translations['postedBy'][page.locale] }} {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.locale] }} {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
 <hr>
 {% endfor %}
+
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; {{ site.data.translations['prevPost'][page.locale] }}</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ site.data.translations['nextPost'][page.locale] }} &rarr;</a>
     </li>
     {% endif %}
 </ul>

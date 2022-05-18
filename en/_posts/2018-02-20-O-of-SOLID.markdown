@@ -4,7 +4,7 @@ title:      "O of SOLID (2/5)"
 date:       2018-02-19 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   O-of-SOLID
 ---
 

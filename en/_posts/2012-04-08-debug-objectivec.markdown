@@ -4,7 +4,7 @@ title:      "Debug with Objective-C"
 date:       2012-04-08 11:24:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   debug-objectivec
 ---
 

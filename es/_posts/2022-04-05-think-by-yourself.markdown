@@ -1,10 +1,11 @@
 ---
 layout:     post
-title:      "Think by Yourself"
+title:      "Piensa por ti mismo"
 date:       2022-04-05 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-14.jpg"
-lang:       en
+locale:       es
+lang-ref:   think-by-yourself
 ---
 
 ![think by yourself]({{ site.url }}/assets/think_by_yourself.png)

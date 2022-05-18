@@ -4,7 +4,7 @@ title:      "How to make a rebase with Source Tree creating only one new commit 
 date:       2017-04-19 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   sourcetree-rebase-interactive
 ---
 

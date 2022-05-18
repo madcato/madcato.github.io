@@ -4,7 +4,7 @@ title:      "Circular progress indicator control"
 date:       2014-09-24 15:41:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   circular-progress-control
 ---
 

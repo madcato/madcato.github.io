@@ -4,7 +4,7 @@ title:      "@property attributes"
 date:       2011-07-18 14:43:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   2011-07-18-property-declaration
 ---
 

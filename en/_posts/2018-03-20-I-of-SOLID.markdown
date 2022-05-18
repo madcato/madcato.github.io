@@ -4,7 +4,7 @@ title:      "I of SOLID (4/5)"
 date:       2018-03-19 23:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   2018-03-20-I-of-SOLID
 ---
 

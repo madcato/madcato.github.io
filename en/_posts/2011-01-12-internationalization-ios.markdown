@@ -4,7 +4,7 @@ title:      "Internationalization for iOS"
 date:       2011-01-12 10:11:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   internationalization-ios
 ---
 

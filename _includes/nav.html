@@ -19,7 +19,7 @@
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
                 {% for spage in site.html_pages %}
-                {% if spage.title and spage.autogen == nil and spage.lang-ref != "index" and spage.lang == page.lang %}
+                {% if spage.title and spage.autogen == nil and spage.lang-ref != "index" and spage.locale == page.locale %}
                 <li>
                     <a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a>
                 </li>

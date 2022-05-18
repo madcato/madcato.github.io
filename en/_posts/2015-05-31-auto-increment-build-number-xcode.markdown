@@ -4,7 +4,7 @@ title:      "Auto-increment BUILDNUMBER for Xcode Projects"
 date:       2015-05-31 17:28:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-01.jpg"
-lang:       en
+locale:       en
 lang-ref:   auto-increment-build-number-xcode
 ---
 

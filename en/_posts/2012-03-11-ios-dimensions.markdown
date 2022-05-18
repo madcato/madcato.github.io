@@ -4,7 +4,7 @@ title:      "iOS Dimensions"
 date:       2012-03-11 16:44:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
-lang:       en
+locale:       en
 lang-ref:   ios-dimensions
 ---
 

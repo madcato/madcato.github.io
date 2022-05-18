@@ -4,7 +4,7 @@ title:      "Recursively remove directories - UNIX"
 date:       2011-02-04 19:14:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   recursively-remove-directories
 ---
 

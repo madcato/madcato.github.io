@@ -4,7 +4,7 @@ title:      "Multidevice programming"
 date:       2011-07-25 19:34:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-06.jpg"
-lang:       en
+locale:       en
 lang-ref:   multidevice-programming
 ---
 

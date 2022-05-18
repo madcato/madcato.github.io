@@ -4,7 +4,7 @@ title:      "Xcode breakpoints disabled in Release mode"
 date:       2011-02-02 15:19:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
-lang:       en
+locale:       en
 lang-ref:   xcode-breakpoints
 ---
 

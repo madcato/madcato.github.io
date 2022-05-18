@@ -5,7 +5,7 @@ subtitle:   "Open Data"
 date:       2010-05-15 19:01:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-lang:       en
+locale:       en
 lang-ref:   zaragoza-data
 ---
 

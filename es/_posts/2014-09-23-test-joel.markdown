@@ -1,9 +1,0 @@
----
-layout:     post
-title:      "The Joel Test For Programmers (The Simple Programmer Test)"
-date:       2014-09-23 15:41:00
-author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
----
-
-[Test de Joel for programmers](http://simpleprogrammer.com/2015/02/16/joel-test-programmers-simple-programmer-test/)

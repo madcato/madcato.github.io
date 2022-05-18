@@ -4,7 +4,7 @@ title:      "Xcode - keyboard shortcuts"
 date:       2013-02-11 16:04:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
-lang:       en
+locale:       en
 lang-ref:   xcode-atajos-teclado
 ---
 
