@@ -4,7 +4,7 @@ header-img: img/home-bg.jpg
 email: daniel@veladan.org
 description: "Veladan programming blog for all the programming issues I found."
 baseurl: ""
-url: "http://madcato.github.io"
+url: "https://blog.veladan.org"
 twitter_username:  danieltvela
 github_username:  madcato
 linkedin_profile: https://www.linkedin.com/in/veladan/
@@ -16,7 +16,7 @@ highlighter: rouge
 permalink: pretty
 paginate: 7
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","bower_components"]
-plugins: [jekyll-paginate, jekyll-seo-tag]
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap]
 sass:
     sass_dir: bower_components/bootstrap-sass/assets/stylesheets
 # plugins:
