@@ -1,0 +1,17 @@
+I"i<p>Last <strong>macOS</strong> versions have <em>zsh</em> by default, instead <em>bash</em>. Better than try to use <em>bash</em> again, is to use a new way to add color to Terminal for <em>zsh</em>.</p>
+
+<p>Create a file called <code class="highlighter-rouge">.zshrc</code> in your <code class="highlighter-rouge">$HOME</code> path, with the following content (then restart terminal):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">LS_COLORS</span><span class="o">=</span><span class="s1">'no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:'</span>
+<span class="nb">export </span>LS_COLORS
+<span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span>1
+zstyle <span class="s1">':completion:*'</span> list-colors <span class="k">${</span><span class="p">(s.</span>:.<span class="p">)LS_COLORS</span><span class="k">}</span>
+<span class="nv">PROMPT</span><span class="o">=</span><span class="s1">'%F{green}%n@%m%k %B%F{cyan}%(4~|...|)%3~%F{white} %# %b%f%k'</span>
+</code></pre></div></div>
+
+<h2 id="additional-doc">Additional Doc</h2>
+<ul>
+  <li><a href="https://linuxhint.com/change-zsh-prompt-name/">How Do I Change My ZSH Prompt Name</a></li>
+  <li><a href="https://superuser.com/questions/700406/zsh-not-recognizing-ls-colors">Zsh not recognizing ls colors</a></li>
+</ul>
+:ET
