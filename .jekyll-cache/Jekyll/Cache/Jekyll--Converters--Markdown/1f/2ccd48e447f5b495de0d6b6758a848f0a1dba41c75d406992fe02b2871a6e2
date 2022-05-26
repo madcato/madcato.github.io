@@ -1,2 +1,0 @@
-I"u<p>To store objects in <strong>NSUserDefaults</strong> must use the class <strong>NSKeyedArchiver</strong>:</p>
-:ET

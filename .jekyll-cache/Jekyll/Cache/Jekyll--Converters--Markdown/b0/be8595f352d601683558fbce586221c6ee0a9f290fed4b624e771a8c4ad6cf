@@ -1,2 +1,0 @@
-I"<p>If we use CoreData in a multithreaded applications, we must take count of the following. A <strong>NSManagedObject</strong> created in one thread, can’t be used in another thread. Also a <strong>NSManagedObjectContext</strong> can’t be used inter threads.</p>
-:ET

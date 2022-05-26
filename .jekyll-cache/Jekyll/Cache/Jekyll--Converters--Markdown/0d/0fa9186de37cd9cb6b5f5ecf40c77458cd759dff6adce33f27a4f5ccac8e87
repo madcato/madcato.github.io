@@ -1,2 +1,0 @@
-I"ê<p>Today I suffered from a bizarre failure of Xcode that make us lose time. When attempting to access one of my in-app Purchases, the framework StoreKit returned my ID on invalidProductIdentifiers property as if the ID not exist.</p>
-:ET

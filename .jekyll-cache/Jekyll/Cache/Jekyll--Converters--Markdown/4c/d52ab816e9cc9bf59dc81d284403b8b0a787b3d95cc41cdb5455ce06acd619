@@ -1,7 +1,0 @@
-I"\<p>Apple provides an utility to simulate slow network conditions for macOS. This is useful for iOS testing using the Simulator.</p>
-
-<p>This package is included inside <a href="https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_9/Additional_Tools_for_Xcode_9.dmg">Additional Tools for Xcode 9</a> (inside folder <strong>Hardware</strong>) in <a href="https://developer.apple.com/download/">Developer Downloads</a>.</p>
-
-<p>His name is <strong>Network Link Conditioner.prefPane</strong>, double-click it to install in the <strong>System Preferences</strong> of your Mac.</p>
-
-:ET

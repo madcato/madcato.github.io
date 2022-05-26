@@ -1,4 +1,0 @@
-I"A<hr />
-
-<p>(Mac only) When trying to execute <strong>“$ bundle install”</strong> and the next error occurs: <strong>“can’t find header files for ruby at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/ruby.h”</strong> you must install <strong>“Command Line Tools of Xcode”</strong>.</p>
-:ET

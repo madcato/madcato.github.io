@@ -1,6 +1,0 @@
-I"ª<p>On Mac OS X open Terminal and type:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>wget <span class="nt">--page-requisites</span> <span class="nt">--convert-links</span> http://URL-to-Start</code></pre></figure>
-
-<p>However, this will only download those files that are referenced from the entry URL, so you might need to run it on all sub-URLs individually.</p>
-:ET

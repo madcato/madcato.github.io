@@ -1,3 +1,0 @@
-I"�<p>There is a lot of failures we can expect deploying with Capistrano.
-I’m going to comment one of them. This failure appears executing a ‘cap deploy’ command, and it returns the following error:</p>
-:ET
