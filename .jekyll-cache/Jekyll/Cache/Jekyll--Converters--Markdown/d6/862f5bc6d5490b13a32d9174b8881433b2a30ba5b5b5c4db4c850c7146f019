@@ -1,0 +1,3 @@
+I"�<p>I solved this warning removing the following setting: “$(SDKROOT)/Developer/Library/Frameworks”
+This options is located in Settings -&gt; Build Settings -&gt; Search Paths -&gt; Framework Search Paths</p>
+:ET

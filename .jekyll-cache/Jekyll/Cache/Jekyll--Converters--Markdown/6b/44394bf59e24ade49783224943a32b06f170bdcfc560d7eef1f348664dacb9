@@ -1,0 +1,38 @@
+I"Ü<p>1 First, configure your app to use PostgreSQL: Edit your Gemfile to change the line :</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'sqlite3'</span></code></pre></figure>
+
+<p>To this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'pg'</span></code></pre></figure>
+
+<p>and execute:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">bundle</span> <span class="n">install</span></code></pre></figure>
+
+<p>2 Second, use git to create a local repository:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"new app"</span></code></pre></figure>
+
+<p>3 Third, install Heroku gem, if it isnâ€™t installed yet:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gem <span class="nb">install </span>heroku
+<span class="nv">$ </span>heroku list   </code></pre></figure>
+
+<p>4 Now create the Heroku app:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>heroku create
+<span class="nv">$ </span>git push heroku master
+<span class="nv">$ </span>heroku run rake db:migrate</code></pre></figure>
+
+<p>5 To rename the default Heroku app name:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>heroku rename &lt;newname&gt;</code></pre></figure>
+
+<p>6 To create a custom domain for the app:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>heroku addons:add cutom_domains
+<span class="nv">$ </span>heroku domains:add &lt;new.domain.com&gt;</code></pre></figure>
+:ET

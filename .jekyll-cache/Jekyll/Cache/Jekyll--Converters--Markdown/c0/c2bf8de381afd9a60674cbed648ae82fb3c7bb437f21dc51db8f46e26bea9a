@@ -1,0 +1,51 @@
+I"T<h1 id="simple-rdoc-reference-written-in-rdoc">Simple RDoc Reference (written in RDoc!)</h1>
+<p>#<br />
+ #–<br />
+ # RDoc will not process what’s between the – and ++, so you can<br />
+ # put notes or messages here (like FIXMEs or TODOs, that will not<br />
+ # end up in your documenation.<br />
+ #++<br />
+ #<br />
+ # = Heading 1<br />
+ # == Heading 2<br />
+ # === Heading 3<br />
+ # ==== Heading 4<br />
+ #<br />
+ # == Lists<br />
+ #<br />
+ # * First List<br />
+ # * first list first item<br />
+ # * second list second item<br />
+ # * Second List<br />
+ # * second list first item<br />
+ # * second list second item<br />
+ #<br />
+ # == Numbered Lists<br />
+ #<br />
+ # 1. Item number one<br />
+ # 2. Item number two<br />
+ # 3. Item number three<br />
+ #<br />
+ # == Links<br />
+ #<br />
+ # Visit {My Personal Blog}[http://www.ozmox.com]<br />
+ #<br />
+ # == Text Formatting<br />
+ #<br />
+ # Text can be shown in <em>bold</em> and <em>italic</em>. You can even<br />
+ # denote +code_word+ to appear as typewritter with pluses.<br />
+ #<br />
+ # A lot of people write their options out like this:<br />
+ #<br />
+ # :option – description of what to pass<br />
+ #<br />
+ # class Indented<br />
+ # def text(appears)<br />
+ # as code<br />
+ # end<br />
+ # end<br />
+ #<br />
+ # label:: With double colons<br />
+ #<br />
+ # :title: RDoc Simple Reference</p>
+:ET

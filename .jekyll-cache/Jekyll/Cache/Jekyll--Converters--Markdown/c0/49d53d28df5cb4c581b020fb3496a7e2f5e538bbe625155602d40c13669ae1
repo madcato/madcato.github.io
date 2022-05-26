@@ -1,0 +1,2 @@
+I"<p>In Xcode 4 the default preferences specify a build output directory different from de Xcode 3 one. You can change this configuration and let the Xcode works as before. Open Xcode 4 and go to Preferences -&gt; Locations and change “Build location”.</p>
+:ET

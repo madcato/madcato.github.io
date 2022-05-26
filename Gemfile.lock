@@ -73,6 +73,7 @@ DEPENDENCIES
   jekyll
   jekyll-feed
   jekyll-paginate
+  jekyll-seo-tag
   minima
   tzinfo-data
 
