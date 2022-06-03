@@ -13,3 +13,6 @@ If it doesn't work check this [guide for macOS](https://jekyllrb.com/docs/instal
 ## Launch jekyll locally
 
     $ jekyll s
+
+## Doc
+- [Favicon generated with favicon.io](https://favicon.io)
