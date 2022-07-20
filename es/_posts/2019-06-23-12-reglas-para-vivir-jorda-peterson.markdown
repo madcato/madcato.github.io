@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"12 reglas para vivir: un antídoto al caos\" de Jordan Peterson"
+title:      "\"12 reglas para vivir: un antídoto al caos\" de Jordan Peterson"
 subtitle:   "Resumen"
 date:       2019-06-23 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
 locale:     es
 lang-ref:   12-rule-of-life-jordan-peterson
-tag: 		book
+tags: 		book
 ---
 
 # Regla 1. Mantén los hombros erguidos

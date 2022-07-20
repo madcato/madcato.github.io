@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"El Hombre Más Rico de Babilonia\""
+title:      "\"El Hombre Más Rico de Babilonia\""
 subtitle:   "Resumen"
 date:       2020-09-28 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-07.jpg"
 locale:     es
 lang-ref:   the-richest-man-in-babylon
-tag:		book
+tags:		book
 ---
 
 Este es un libre que explica cómo hacerse rico. Entre otros temas habla del dinero, la riqueza, el ahorro, los negocios y cómo asociarse con otras personas.

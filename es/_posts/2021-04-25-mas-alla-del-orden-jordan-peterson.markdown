@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"Más allá del orden\" de Jordan B. Peterson"
+title:      "\"Más allá del orden\" de Jordan B. Peterson"
 subtitle:   "Notas"
 date:       2021-04-25 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-10.jpg"
 locale:     es
 lang-ref:   beyong-order-jordan-peterson
-tag: 		book
+tags: 		book
 ---
 
 La gente necesita una comunicación constante con otras personas para mantener la mente organizada. […] sobre todo pensamos al hablar. 

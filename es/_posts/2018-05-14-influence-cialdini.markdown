@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"Influencia\" de Cialdini"
+title:      "\"Influencia\" de Cialdini"
 subtitle:   "Resumen"
 date:       2018-05-14 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-02.jpg"
 locale:     es
 lang-ref:   influence-cialdini
-tag:		book
+tags:		book
 ---
 
 Persuadir mediante:

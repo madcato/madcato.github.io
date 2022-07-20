@@ -7,7 +7,7 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
 locale:     es
 lang-ref:   outliers-malcom-gladwell
-tag:		book
+tags:		book
 ---
 
 El libro comienza explicando un caso de longevidad particular en una comunidad italiana en EEUU. Después de tratar de encontrar una explicación en los genes de esas personas, también comprobaron las condiciones ambientales y característicos en su alimentación, pero nada fue concluyente ya que esas mismas condiciones se encontraban en otros lugares, sin que por ello vivieran más.

@@ -1,0 +1,19 @@
+---
+layout: page
+title: "Books"
+description: "Reviews, summaries and notes of books I have read"
+header-img: "img/contact-bg.jpg"
+locale: en
+lang-ref: books
+---
+
+{% for post in site.tags.book %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+    </a>
+    <p class="post-meta">{{ site.data.translations['postedBy'][page.locale] }} {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.locale] }} {{ post.date | date: "%B %-d, %Y" }}</p>
+</div>
+<hr>
+{% endfor %}

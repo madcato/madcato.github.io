@@ -7,7 +7,7 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-19.jpg"
 locale:     es
 lang-ref:   from-0-to-1-peter-thiel
-tag:   book
+tags:   book
 ---
 
 Es un gran libro de emprendimiento: el mejor que conozco.

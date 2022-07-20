@@ -7,7 +7,7 @@ author:     "Daniel Vela"
 header-img: "img/post-bg-09.jpg"
 locale:     es
 lang-ref:   rebis-alchemy-jordan-peterson
-tag:		book
+tags:		book
 ---
 Este símbolo aparece en el segundo capítulo del libro “Más allá del orden”:
 

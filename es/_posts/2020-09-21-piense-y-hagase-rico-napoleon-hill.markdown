@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"Piense y hágase rico\" de Napoleon Hill"
+title:      "\"Piense y hágase rico\" de Napoleon Hill"
 subtitle:   "Resumen"
 date:       2020-09-21 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-08.jpg"
 locale:     es
 lang-ref:   think-and-grow-rich-napoleon-hill
-tag:		book
+tags:		book
 ---
 
 El libro empieza explicando cómo el deseo y la actitud puede compensar cualquier falta de talento o recursos a la hora de iniciar una empresa. Pone el ejemplo de uno de los socios de Thomas alba Edison. Esta persona cuando empezó a trabajar en la empresa de Edison, se le asignó un trabajo insignificante. Sin embargo,, el deseo de esta persona de crecer, le permitió ver oportunidades de negocio que aprovechó y acabó ganando millones. 

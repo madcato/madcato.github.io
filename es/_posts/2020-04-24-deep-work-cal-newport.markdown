@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Libro \"Deep Work\" de Cal Newport"
+title:      "\"Deep Work\" de Cal Newport"
 subtitle:   "Reseña"
 date:       2020-04-24 01:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-05.jpg"
 locale:     es
 lang-ref:   deep-work-cal-newport
-tag:		book
+tags:		book
 ---
 
 En este libro el autor Cal Newport defiende la imperiosa necesidad de trabajar muy concentrado. Esta es la clave par cambiar el mundo. Según sus palabras es “una carga a priorizar”.
