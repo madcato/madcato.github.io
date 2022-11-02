@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "Por qué fallan las planificaciones"
-subtitle:   "... y siempre van a fallar"
-date:       2022-11-02 19:00:00
+title:      "Cómo entrenar una red neuronal del que no conocemos sus resultados directos"
+subtitle:   "spolier: neuroevolución generativa usando algoritmos genéticos"
+date:       2024-11-02 19:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+header-img: "img/post-bg-02.jpg"
 locale:     es
 lang-ref:   why-planning-always-fail
 ---
