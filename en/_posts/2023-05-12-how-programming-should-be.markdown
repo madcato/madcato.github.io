@@ -1,11 +1,11 @@
 ---
 layout:     post
-title:      "Cómo me gustaría que fuera la programación"
-subtitle:   "DSL descriptivos"
+title:      "How I would like programming to be"
+subtitle:   "Descriptive DSL"
 date:       2023-05-08 06:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-03.jpg"
-locale:     es
+locale:     en
 lang-ref:   how-programming-should-be
 ---
 
