@@ -15,13 +15,13 @@ Los principios SOLID son comúnmente utilizados para orientar decisiones arquite
 
 Los principios SOLID son los siguientes:
 
-	1.	**Single Responsibility**: Cada clase o función debe tener una única responsabilidad. Si una clase maneja múltiples tareas, es recomendable dividirla en clases más simples con responsabilidades únicas. Lo mismo aplica para las funciones: si una función tiene demasiados parámetros o realiza numerosas operaciones, debería dividirse en funciones más pequeñas y específicas.
+1.	**Single Responsibility**: Cada clase o función debe tener una única responsabilidad. Si una clase maneja múltiples tareas, es recomendable dividirla en clases más simples con responsabilidades únicas. Lo mismo aplica para las funciones: si una función tiene demasiados parámetros o realiza numerosas operaciones, debería dividirse en funciones más pequeñas y específicas.
 Es crucial nombrar correctamente variables, clases y funciones para reflejar su responsabilidad exclusiva.
-	2.	**Open/Closed**: Las clases deben estar abiertas para extensión pero cerradas para modificación. En lugar de cambiar el comportamiento de una clase existente, es preferible crear una nueva que la extienda.
+2.	**Open/Closed**: Las clases deben estar abiertas para extensión pero cerradas para modificación. En lugar de cambiar el comportamiento de una clase existente, es preferible crear una nueva que la extienda.
 Modificar una clase a menudo contraviene el primer principio de SOLID. Diseñar clases que puedan ser extendidas sin ser modificadas es una forma de evitar este problema.
-	3.	**Liskov Substitution**: Las instancias de clases derivadas deben poder reemplazar a las de sus clases base. Esto significa que las especializaciones deben mantener los comportamientos de la clase base, ajustando los detalles para cumplir con el contrato de la clase base.
-	4.	**Interface Segregation**: Es preferible tener múltiples interfaces pequeñas en lugar de una grande. Este principio es similar al de Single Responsibility pero aplicado a las interfaces.
-	5.	**Dependency Inversion**: Se debe depender de abstracciones, no de implementaciones concretas. Esto significa que nuestro código debería interactuar con interfaces, no con implementaciones específicas, a menudo logrado a través de la inyección de dependencias.
+3.	**Liskov Substitution**: Las instancias de clases derivadas deben poder reemplazar a las de sus clases base. Esto significa que las especializaciones deben mantener los comportamientos de la clase base, ajustando los detalles para cumplir con el contrato de la clase base.
+4.	**Interface Segregation**: Es preferible tener múltiples interfaces pequeñas en lugar de una grande. Este principio es similar al de Single Responsibility pero aplicado a las interfaces.
+5.	**Dependency Inversion**: Se debe depender de abstracciones, no de implementaciones concretas. Esto significa que nuestro código debería interactuar con interfaces, no con implementaciones específicas, a menudo logrado a través de la inyección de dependencias.
 
 ## Conclusiones
 
