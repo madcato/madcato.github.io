@@ -6,7 +6,7 @@ date:       2023-11-05 06:00:00
 author:     "Daniel Vela"
 header-img: "img/post-bg-04.jpg"
 locale:     es
-lang-ref:   solid-principle
+lang-ref:   solid-principles
 ---
 
 # SOLID

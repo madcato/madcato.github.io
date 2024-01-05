@@ -9,7 +9,7 @@ lang-ref:   escribir-espanol-con-teclado-americano
 ---
 
 
-Writing code is comfortable to use a keyboard configured in english(**US Extended**). But If you get used to use this mode, is hard to use the spanish keyboard at the same time to write in spanish. Thus, the best is to get use to this english keyboard uniquely and use it always even when writing spanish texts.
+Writing code is comfortable to use a keyboard configured in english(**US Extended**). But If you get used to use this mode, is hard to use the spanish keyboard at the same time to write Spanish language. Thus, the best is to get use to this english keyboard uniquely and use it always even when writing spanish texts.
 
 If you want to user **american keyboard**, you should to learn the key combinations needed to write the specific spanish writing symbols not used by english writers. Symbols like ñ, accent, open exclamation or interrogation.
 
