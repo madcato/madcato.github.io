@@ -210,6 +210,7 @@ hr.small {
 }
 .post-preview > a {
   color: #404040;
+  text-decoration: none;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
@@ -344,6 +345,7 @@ form .row:first-child .floating-label-form-group {
 }
 .pager {
   margin: 20px 0 0;
+  list-style-type: none;
 }
 .pager li > a,
 .pager li > span {
