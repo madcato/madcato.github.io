@@ -6,7 +6,7 @@ layout: default
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="d-flex justify-content-center">
                 <div class="post-heading">
                     <h1>{{ page.title }}</h1>
                     {% if page.subtitle %}
@@ -21,7 +21,7 @@ layout: default
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="d-flex justify-content-center">
     {% if page.layout != 'page' %}
       {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'locale' %}
       {% if posts.size == 0 %}
@@ -44,15 +44,15 @@ layout: default
     
 <!-- Post Content -->
 <article>
-    <div class="container">
+    <div class="container d-flex justify-content-center">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="">
 
 				{{ content }}
 
                 <hr>
 
-                <ul class="pager">
+                <ul class="pager d-flex justify-content-center">
                     {% if page.previous.url %}
                     <li class="previous">
                         <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; {{ site.data.translations['prevPost'][page.locale] }} </a>

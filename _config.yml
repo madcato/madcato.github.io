@@ -15,15 +15,5 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 7
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","bower_components"]
+exclude: ["README.md"]
 plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap]
-sass:
-    sass_dir: bower_components/bootstrap-sass/assets/stylesheets
-# plugins:
-#   - jekyll-polyglot
-# 
-# # language: https://github.com/untra/polyglot
-# languages: ["en", "es"]
-# default_lang: "en"
-# exclude_from_localization: ["javascript", "images", "css"]
-# parallel_localization: true

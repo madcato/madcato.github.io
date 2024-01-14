@@ -19,7 +19,7 @@
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
-<ul class="pager">
+<ul class="pager d-flex justify-content-center">
     {% if paginator.previous_page %}
     <li class="previous">
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; {{ site.data.translations['prevPost'][page.locale] }}</a>

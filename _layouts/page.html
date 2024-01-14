@@ -6,7 +6,7 @@ layout: default
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="d-flex justify-content-center">
                 <div class="site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <hr class="small">
@@ -19,7 +19,7 @@ layout: default
           {% if page.lang-ref != "index" and page.lang-ref != "apps" %}
     <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="d-flex justify-content-center">
     <ul class="center languages">
     {% for lang in site.data.languages %}
     {% assign language = lang[1] %}
@@ -32,9 +32,9 @@ layout: default
         {% endif %}
 
 <!-- Main Content -->
-<div class="container">
+<div class="container d-flex justify-content-center">
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+		<div class="">
 			{{ content }}
 		</div>
 	</div>
