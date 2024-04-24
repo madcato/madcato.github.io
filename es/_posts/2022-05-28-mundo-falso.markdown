@@ -4,7 +4,7 @@ title:      "Mundo falso"
 subtitle:   "la propaganda se confunde con la realidad"
 date:       2022-05-28 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-18.jpg"
+background: "/img/post-bg-18.jpg"
 locale:     es
 lang-ref:   fake-world
 ---

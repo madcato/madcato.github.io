@@ -3,7 +3,7 @@ layout:     post
 title:      "D of SOLID (5/5)"
 date:       2018-04-02 23:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+background: "/img/post-bg-03.jpg"
 locale:       en
 lang-ref:   D-of-SOLID
 ---

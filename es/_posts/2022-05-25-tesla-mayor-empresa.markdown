@@ -4,7 +4,7 @@ title:      "Tesla será en la empresa más grande del mundo"
 subtitle:   "El Tesla bot podría ser revolucionario"
 date:       2022-05-25 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-16.jpg"
+background: "/img/post-bg-16.jpg"
 locale:     es
 lang-ref:   tesla-greatest-business
 ---

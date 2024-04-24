@@ -4,7 +4,7 @@ title:      "\"Deep Work\" de Cal Newport"
 subtitle:   "Reseña"
 date:       2020-04-24 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-05.jpg"
+background: "/img/post-bg-05.jpg"
 locale:     es
 lang-ref:   deep-work-cal-newport
 tags:		book

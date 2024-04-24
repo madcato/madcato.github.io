@@ -3,7 +3,7 @@ layout:     post
 title:      "iOS 7 sound recording"
 date:       2014-02-07 12:09:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+background: "/img/post-bg-01.jpg"
 locale:       en
 lang-ref:   grabacion-audio-ios7
 ---

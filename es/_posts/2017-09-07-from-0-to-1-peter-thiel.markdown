@@ -4,7 +4,7 @@ title:      "\"De 0 a 1\" de Peter Thiel"
 subtitle:   "Resumen del libro"
 date:       2017-09-07 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-19.jpg"
+background: "/img/post-bg-19.jpg"
 locale:     es
 lang-ref:   from-0-to-1-peter-thiel
 tags:   book

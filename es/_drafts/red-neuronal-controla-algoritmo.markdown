@@ -4,7 +4,7 @@ title:      "Cómo entrenar una red neuronal del que no conocemos sus resultados
 subtitle:   "spolier: neuroevolución generativa usando algoritmos genéticos"
 date:       2022-11-02 00:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:     es
 lang-ref:   neural-net-control-algorithm
 ---

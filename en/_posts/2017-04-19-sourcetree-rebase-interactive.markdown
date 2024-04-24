@@ -3,7 +3,7 @@ layout:     post
 title:      "How to make a rebase with Source Tree creating only one new commit with new message"
 date:       2017-04-19 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:       en
 lang-ref:   sourcetree-rebase-interactive
 ---

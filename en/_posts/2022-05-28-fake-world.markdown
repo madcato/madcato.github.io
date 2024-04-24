@@ -4,7 +4,7 @@ title:      "Fake world"
 subtitle:   "propaganda is confused with reality"
 date:       2022-05-28 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-18.jpg"
+background: "/img/post-bg-18.jpg"
 locale:     en
 lang-ref:   fake-world
 ---

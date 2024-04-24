@@ -4,7 +4,7 @@ title:      "ASO: App Store Optimization"
 subtitle:   "Cómo optimizar tus keywords"
 date:       2024-01-30 06:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-05.jpg"
+background: "/img/post-bg-05.jpg"
 locale:     es
 lang-ref:   aso-apple
 ---

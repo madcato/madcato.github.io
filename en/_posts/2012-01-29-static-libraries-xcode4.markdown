@@ -3,7 +3,7 @@ layout:     post
 title:      "Using static libraries in Xcode 4"
 date:       2012-01-29 16:32:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+background: "/img/post-bg-01.jpg"
 locale:       en
 lang-ref:   static-libraries-xcode4
 ---

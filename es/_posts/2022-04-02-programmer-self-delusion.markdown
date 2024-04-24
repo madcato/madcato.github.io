@@ -3,7 +3,7 @@ layout:     post
 title:      "El autoengaño de los programadores"
 date:       2022-04-02 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-13.jpg"
+background: "/img/post-bg-13.jpg"
 locale:       es
 lang-ref:   programmer-self-delusion
 ---

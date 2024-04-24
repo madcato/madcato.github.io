@@ -4,7 +4,7 @@ title:      "Xilografía alquímica en libro de Jordan Peterson"
 subtitle:   "Interpretación del propio autor"
 date:       2021-03-22 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-09.jpg"
+background: "/img/post-bg-09.jpg"
 locale:     es
 lang-ref:   rebis-alchemy-jordan-peterson
 tags:		book

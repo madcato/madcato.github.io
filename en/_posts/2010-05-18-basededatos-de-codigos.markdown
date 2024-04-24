@@ -3,7 +3,7 @@ layout:     post
 title:      "Bases de datos de códigos de barras"
 date:       2010-05-18 20:06:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-05.jpg"
+background: "/img/post-bg-05.jpg"
 locale:       en
 lang-ref:   basededatos-de-codigos
 ---

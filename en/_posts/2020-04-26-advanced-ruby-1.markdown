@@ -3,7 +3,7 @@ layout:     post
 title:      "Advanced Ruby: Mixins"
 date:       2020-04-26 00:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-15.jpg"
+background: "/img/post-bg-15.jpg"
 locale:       en
 lang-ref:   advanced-ruby-1
 ---

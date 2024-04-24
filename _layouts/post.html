@@ -2,72 +2,53 @@
 layout: default
 ---
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% else %}
+<header class="masthead">
+{% endif %}
+    <div class="overlay"></div>
     <div class="container">
-        <div class="row">
-            <div class="d-flex justify-content-center">
-                <div class="post-heading">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">{{ site.data.translations['postedBy'][page.locale] }} {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} {{ site.data.translations['onDate'][page.locale] }} {{ page.date | date: "%B %-d, %Y" }}</span>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>
+            {% endif %}
+            <span class="meta">Posted by
+              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+              content=page.content %}
+            </span>
+          </div>
         </div>
+      </div>
     </div>
 </header>
 
-    <div class="container">
-        <div class="row">
-            <div class="d-flex justify-content-center">
-    {% if page.layout != 'page' %}
-      {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'locale' %}
-      {% if posts.size == 0 %}
-          {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'locale' %}
-      {% endif %}
-      {% if posts.size > 1 %}
-      <div class="lang-options">
-          <em>{{ site.data.translations['differentLanguage'][page.locale] }}</em>
-          <ul class="languages">
-          {% for post in posts %}
-          <li><a href="{{ site.base-url }}{{ post.url }}" class="{{ post.locale }}" title="View in {{post.locale}}">{{ site.data.languages[post.locale].icon }} {{ site.data.languages[post.locale].label }} &nbsp &nbsp</a></li>
-          {% endfor %}
-          </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {{ content }}
+
+        <hr>
+
+        <div class="clearfix">
+
+          {% if page.previous.url %}
+          <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          {% endif %}
+          {% if page.next.url %}
+          <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          {% endif %}
+
+        </div>
+
       </div>
-      {% endif %}
-    {% endif %}
-            </div>
-        </div>
     </div>
-    
-<!-- Post Content -->
-<article>
-    <div class="container d-flex justify-content-center">
-        <div class="row">
-            <div class="">
-
-				{{ content }}
-
-                <hr>
-
-                <ul class="pager d-flex justify-content-center">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; {{ site.data.translations['prevPost'][page.locale] }} </a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">{{ site.data.translations['nextPost'][page.locale] }}  &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-<hr>
+  </div>

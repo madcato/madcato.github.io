@@ -1,14 +1,15 @@
 # Site settings
+title_home: My blog
 title: Veladan Programming Blog
 header-img: img/home-bg.jpg
 email: daniel@veladan.org
-description: "Veladan programming blog for all the programming issues I found."
+description: "...for all the programming issues I found."
 baseurl: ""
 url: "https://blog.veladan.org"
 twitter_username:  danieltvela
 github_username:  madcato
-linkedin_profile: https://www.linkedin.com/in/veladan/
-stackoverflow_profile: https://stackoverflow.com/users/4815438/veladan
+linkedin_username: veladan
+stackoverflow_username: 4815438/veladan
 
 # Build settings
 markdown: kramdown

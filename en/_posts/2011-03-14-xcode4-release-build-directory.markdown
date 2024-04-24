@@ -3,7 +3,7 @@ layout:     post
 title:      "Xcode 4: release build directory"
 date:       2011-03-14 11:19:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-04.jpg"
+background: "/img/post-bg-04.jpg"
 locale:       en
 lang-ref:   xcode4-release-build-directory
 ---

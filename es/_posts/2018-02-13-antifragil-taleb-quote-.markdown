@@ -4,7 +4,7 @@ title:      "Cita de Nassim Nicholas Taleb en su libro \"Antifrágil\""
 subtitle:   "nota"
 date:       2018-02-13 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+background: "/img/post-bg-01.jpg"
 locale:     es
 lang-ref:   antifragil-taleb-quote
 tags: 		book

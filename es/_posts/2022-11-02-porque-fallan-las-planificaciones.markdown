@@ -4,7 +4,7 @@ title:      "Por qué fallan las planificaciones"
 subtitle:   "... y siempre van a fallar"
 date:       2022-11-02 19:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+background: "/img/post-bg-01.jpg"
 locale:     es
 lang-ref:   why-planning-always-fail
 ---

@@ -3,7 +3,7 @@ layout:     post
 title:      "Mentalidad de software"
 date:       2022-02-01 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-08.jpg"
+background: "/img/post-bg-08.jpg"
 locale:       es
 lang-ref:   software-mindset
 ---

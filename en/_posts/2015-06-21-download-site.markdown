@@ -3,7 +3,7 @@ layout:     post
 title:      "Download a site"
 date:       2015-06-21 19:42:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+background: "/img/post-bg-03.jpg"
 locale:       en
 lang-ref:   download-site
 ---

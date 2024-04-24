@@ -4,7 +4,7 @@ title:      "Colored Terminal with zsh"
 subtitle:   "for the last versions of macOS"
 date:       2022-05-26 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-17.jpg"
+background: "/img/post-bg-17.jpg"
 locale:     en
 lang-ref:   colored-terminal-zsh
 ---

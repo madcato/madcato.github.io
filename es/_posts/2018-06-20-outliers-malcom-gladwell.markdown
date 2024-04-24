@@ -4,7 +4,7 @@ title:      "\"Outliers\" de Malcom Gladwell"
 subtitle:   "Resumen"
 date:       2018-06-20 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-04.jpg"
+background: "/img/post-bg-04.jpg"
 locale:     es
 lang-ref:   outliers-malcom-gladwell
 tags:		book

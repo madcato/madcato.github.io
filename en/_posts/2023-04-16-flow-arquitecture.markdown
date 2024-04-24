@@ -4,7 +4,7 @@ title:      "Unidirectional flow architectures for iOS"
 subtitle:   "What are flow architectures and examples."
 date:       2023-04-21 13:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:     en
 lang-ref:   flow-arquitecture
 ---

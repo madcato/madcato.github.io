@@ -3,7 +3,7 @@ layout:     post
 title:      "Create your own graphic control in iOS"
 date:       2013-04-12 13:55:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:       en
 lang-ref:   control-grafico-ios
 ---

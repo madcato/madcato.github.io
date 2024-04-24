@@ -4,7 +4,7 @@ title:      "How we like to complicate things"
 subtitle:   "Ains..."
 date:       2022-04-23 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-15.jpg"
+background: "/img/post-bg-15.jpg"
 locale:     en
 lang-ref:   complicate-things
 ---

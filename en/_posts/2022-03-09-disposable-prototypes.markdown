@@ -3,7 +3,7 @@ layout:     post
 title:      "Disposable prototypes"
 date:       2022-03-09 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-10.jpg"
+background: "/img/post-bg-10.jpg"
 locale:       en
 lang-ref:   disposable-prototypes
 ---

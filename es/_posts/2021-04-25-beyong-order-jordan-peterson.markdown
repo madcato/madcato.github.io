@@ -4,7 +4,7 @@ title:      "\"Más allá del orden\" de Jordan B. Peterson"
 subtitle:   "Notas"
 date:       2021-04-25 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-10.jpg"
+background: "/img/post-bg-10.jpg"
 locale:     es
 lang-ref:   beyong-order-jordan-peterson
 tags: 		book

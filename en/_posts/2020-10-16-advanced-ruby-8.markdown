@@ -3,7 +3,7 @@ layout:     post
 title:      "Advanced Ruby: DSL"
 date:       2020-10-16 05:44:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-05.jpg"
+background: "/img/post-bg-05.jpg"
 locale:       en
 lang-ref:   advanced-ruby-8
 ---
