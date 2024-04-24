@@ -3,7 +3,7 @@ layout:     post
 title:      "Montar empresa LLC en EEUU"
 date:       2022-03-23 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-12.jpg"
+background: "/img/post-bg-12.jpg"
 locale:       es
 lang-ref:   llc
 ---

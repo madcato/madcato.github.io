@@ -3,7 +3,7 @@ layout:     post
 title:      "Subclassing UIView"
 date:       2011-05-01 11:26:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-06.jpg"
+background: "/img/post-bg-06.jpg"
 locale:       en
 lang-ref:   subclassing-uiview
 ---

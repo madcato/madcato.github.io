@@ -3,7 +3,7 @@ layout:     post
 title:      "How to get YouTube video screenshot image"
 date:       2011-01-12 05:06:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+background: "/img/post-bg-03.jpg"
 locale:       en
 lang-ref:   youtube-screenshot
 ---

@@ -4,7 +4,7 @@ title:      "Principios SOLID"
 subtitle:   "¿Qué son los principios solid?"
 date:       2023-11-05 06:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-04.jpg"
+background: "/img/post-bg-04.jpg"
 locale:     es
 lang-ref:   solid-principles
 ---
@@ -27,4 +27,3 @@ Modificar una clase a menudo contraviene el primer principio de SOLID. Diseñar 
 
 Aunque estos principios se asocian con la programación orientada a objetos, no son exclusivos de ella. Ayudan a mejorar la cohesión del código y a evitar dependencias excesivas entre clases, permitiendo que cada parte del código conozca solo lo que necesita para funcionar correctamente.
 
-He corregido errores de concordancia, como “substituir” por “sustituir”, y he ajustado la estructura de algunas oraciones para que el texto sea más coherente y fácil de entender. También he corregido la capitalización y la puntuación para que sean consistentes a lo largo del documento.

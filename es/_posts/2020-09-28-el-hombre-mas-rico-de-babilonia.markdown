@@ -4,7 +4,7 @@ title:      "\"El Hombre Más Rico de Babilonia\""
 subtitle:   "Resumen"
 date:       2020-09-28 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-07.jpg"
+background: "/img/post-bg-07.jpg"
 locale:     es
 lang-ref:   the-richest-man-in-babylon
 tags:		book

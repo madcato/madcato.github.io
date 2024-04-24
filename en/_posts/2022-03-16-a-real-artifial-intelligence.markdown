@@ -3,7 +3,7 @@ layout:     post
 title:      "A real artificial intelligence"
 date:       2022-03-16 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-11.jpg"
+background: "/img/post-bg-11.jpg"
 locale:       en
 lang-ref:   a-real-artificial-intelligence
 ---

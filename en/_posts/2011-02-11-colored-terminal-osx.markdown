@@ -3,7 +3,7 @@ layout:     post
 title:      "Colored Terminal for Mac OS X"
 date:       2011-02-11 14:23:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:       en
 lang-ref:   colored-terminal-osx
 ---

@@ -3,7 +3,7 @@ layout:     post
 title:      "Grand Central Dispatch samples"
 date:       2011-08-04 19:01:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+background: "/img/post-bg-03.jpg"
 locale:       en
 lang-ref:   grand-central-dispatch-samples
 ---

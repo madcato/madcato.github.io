@@ -4,7 +4,7 @@ title:      "Why plans fail"
 subtitle:   "... and always will be"
 date:       2022-11-02 19:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-01.jpg"
+background: "/img/post-bg-01.jpg"
 locale:     en
 lang-ref:   why-planning-always-fail
 ---

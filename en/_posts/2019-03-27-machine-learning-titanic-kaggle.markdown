@@ -3,7 +3,7 @@ layout:     post
 title:      "Machine Learning for Titanic dissaster - Kaggle competition"
 date:       2019-03-27 00:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-11.jpg"
+background: "/img/post-bg-11.jpg"
 locale:       en
 lang-ref:   machine-learning-titanic-kaggle
 ---

@@ -3,7 +3,7 @@ layout:     post
 title:      "The programmer's self-delusion"
 date:       2022-04-02 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-13.jpg"
+background: "/img/post-bg-13.jpg"
 locale:       en
 lang-ref:   programmer-self-delusion
 ---

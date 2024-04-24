@@ -3,7 +3,7 @@ layout:     post
 title:      "Piensa por ti mismo"
 date:       2022-04-05 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-14.jpg"
+background: "/img/post-bg-14.jpg"
 locale:       es
 lang-ref:   think-by-yourself
 ---

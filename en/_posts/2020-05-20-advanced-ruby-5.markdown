@@ -3,7 +3,7 @@ layout:     post
 title:      "Advanced Ruby: metaclasses"
 date:       2020-05-20 13:38:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-19.jpg"
+background: "/img/post-bg-19.jpg"
 locale:       en
 lang-ref:   advanced-ruby-5
 ---

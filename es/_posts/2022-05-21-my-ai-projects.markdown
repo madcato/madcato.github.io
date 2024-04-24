@@ -4,7 +4,7 @@ title:      "Mis proyectos de AI"
 subtitle:   "Repos en github y en gitlab personal privado"
 date:       2022-05-16 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-15.jpg"
+background: "/img/post-bg-15.jpg"
 locale:     es
 lang-ref:   my-ai-projects
 ---

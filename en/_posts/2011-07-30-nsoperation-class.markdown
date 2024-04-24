@@ -3,7 +3,7 @@ layout:     post
 title:      "NSOperation class"
 date:       2011-07-30 21:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-02.jpg"
+background: "/img/post-bg-02.jpg"
 locale:       en
 lang-ref:   nsoperation-class
 ---

@@ -4,7 +4,7 @@ title:      "\"Piense y hágase rico\" de Napoleon Hill"
 subtitle:   "Resumen"
 date:       2020-09-21 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-08.jpg"
+background: "/img/post-bg-08.jpg"
 locale:     es
 lang-ref:   think-and-grow-rich-napoleon-hill
 tags:		book

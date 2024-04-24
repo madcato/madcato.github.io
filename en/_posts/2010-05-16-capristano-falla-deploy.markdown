@@ -3,7 +3,7 @@ layout:     post
 title:      "Capristano falla al realizar deploy"
 date:       2010-05-16 01:32:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-05.jpg"
+background: "/img/post-bg-05.jpg"
 locale:       en
 lang-ref:   capristano-falla-deploy
 ---

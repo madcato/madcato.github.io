@@ -3,7 +3,7 @@ layout:     post
 title:      "Objective-C Singleton"
 date:       2011-02-15 14:56:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-03.jpg"
+background: "/img/post-bg-03.jpg"
 locale:       en
 lang-ref:   objectivec-singleton
 ---

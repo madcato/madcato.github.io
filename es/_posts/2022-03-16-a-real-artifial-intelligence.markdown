@@ -3,7 +3,7 @@ layout:     post
 title:      "Una verdadera inteligencia artificial"
 date:       2022-03-16 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-11.jpg"
+background: "/img/post-bg-11.jpg"
 locale:       es
 lang-ref:   a-real-artifial-intelligence
 ---

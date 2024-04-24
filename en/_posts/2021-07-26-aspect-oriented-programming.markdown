@@ -3,7 +3,7 @@ layout:     post
 title:      "Aspect-oriented programming"
 date:       2021-07-20 08:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-06.jpg"
+background: "/img/post-bg-06.jpg"
 locale:       en
 lang-ref:   aspect-oriented-programming
 ---

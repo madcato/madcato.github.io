@@ -4,7 +4,7 @@ title:      "Sobre la depresión"
 subtitle:   "como salimos del agujero"
 date:       2022-07-24 01:00:00
 author:     "Daniel Vela"
-header-img: "img/post-bg-19.jpg"
+background: "/img/post-bg-19.jpg"
 locale:     es
 lang-ref:   about-depression
 ---
