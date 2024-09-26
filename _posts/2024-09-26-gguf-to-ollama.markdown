@@ -73,12 +73,15 @@ To install torch, follow the instructions on this [page](https://pytorch.org/get
     ```
 
     ```python
-    from transformers import LlamaModel, AutoTokenizer
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    import torch
 
     model_name = "nvidia/Llama-3_1-Nemotron-51B-Instruct"
+    model_kwargs = {"torch_dtype": torch.bfloat16, "trust_remote_code": True, "device_map": "auto"}
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = LlamaModel.from_pretrained(model_name)
+    tokenizer.pad_token_id = tokenizer.eos_token_id
+    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", trust_remote_code=True)
 
     # Guardar el modelo en una carpeta local
     tokenizer.save_pretrained("./model")
