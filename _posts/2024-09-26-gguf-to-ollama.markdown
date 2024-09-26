@@ -126,7 +126,7 @@ Add your ollama public key in [ollama account settings](https://ollama.com/setti
     ```
 ```
 
-## download.py
+### download.py
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -144,7 +144,7 @@ tokenizer.save_pretrained("./model")
 model.save_pretrained("./model")
 ```
 
-## Modelfile
+### Modelfile
 
 ```
 FROM model
