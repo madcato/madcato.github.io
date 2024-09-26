@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "What I Learned Trying to Convert and Quantize a Model to GGUF"
-subtitle:   "Some command line utilities I developed"
+subtitle:   "How is the process?"
 date:       2024-09-26 06:00:00
 author:     "Daniel Vela"
 locale:     en
