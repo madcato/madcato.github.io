@@ -6,6 +6,7 @@ date:       2024-10-08 06:00:00
 author:     "Daniel Vela"
 locale:     en
 lang-ref:   ten-axiums-choice-theory
+tags: 		  book
 ---
 
 1. **We can only control our own behavior**. No one can force us to act against our will without us choosing to allow it, even if it means facing severe consequences. Understanding this grants us more personal freedom than we realize.
