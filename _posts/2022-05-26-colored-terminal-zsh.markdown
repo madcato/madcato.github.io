@@ -19,6 +19,8 @@ export LS_COLORS
 export CLICOLOR=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 PROMPT='%F{green}%n@%m%k %B%F{cyan}%(4~|...|)%3~%F{white} %# %b%f%k'
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+export LSCOLORS
 ```
 
 ## Additional Doc
