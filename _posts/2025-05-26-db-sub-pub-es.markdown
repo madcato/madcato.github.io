@@ -51,7 +51,7 @@ En esta arquitectura, la base de datos almacena los mensajes y el estado de la c
 
 Aquí tienes un esquema detallado para implementar un ejemplo de comunicación entre un gestor de chats y UI de usuario con DB+Sub/Pub:
 
-1. Base de datos
+* **Base de datos**
     * Tecnología sugerida: PostgreSQL (escalable, robusto, compatible con entornos distribuidos) o CoreData (si la UI y el gestor están en el mismo dispositivo).
     * Esquema sugerido:
         - Tabla `chats`: Almacena la lista de chats (`chat_id`, `name`, `created_at`).
@@ -92,7 +92,7 @@ CREATE TABLE updates (
 );
 ```
 
-1. Sistema de colas
+* **Sistema de colas**
     * Tecnología sugerida: RabbitMQ (fácil de usar, robusto) o Redis (más ligero, con Pub/Sub o colas).
     * Colas:
         - `ui_commands`: Para notificar al gestor de chats sobre comandos de la UI.
@@ -100,7 +100,7 @@ CREATE TABLE updates (
     * Formato de mensajes en la cola:
         - Para comandos: `{ "command_id": 123, "type": "select_chat" }`
         - Para actualizaciones: `{ "update_id": 456, "type": "new_message", "chat_id": "123" }`
-2. Gestor de chats (en Rust, Python, o similar)
+* **Gestor de chats** (en Rust, Python, o similar)
     * Funcionalidad:
         - Escucha la cola `ui_commands`.
         - Cuando recibe una notificación, consulta la tabla `commands` en la base de datos, procesa el comando (por ejemplo, selecciona un chat), y actualiza el estado en la base de datos.
@@ -144,7 +144,7 @@ channel.basic_consume(queue="ui_commands", on_message_callback=callback, auto_ac
 channel.start_consuming()
 ```
 
-4. UI (en Swift)
+* **UI** (en Swift)
    * Funcionalidad:
         - Escucha la cola `ui_updates`.
         - Cuando recibe una notificación, consulta la tabla `updates` en la base de datos y actualiza la interfaz (por ejemplo, añade un nuevo mensaje).
@@ -187,11 +187,11 @@ class ChatViewModel: ObservableObject {
 }
 ```
 
-1. Resiliencia
+* **Resiliencia**
     * Persistencia: Los datos en la base de datos (tablas `commands` y `updates`) aseguran que no se pierdan comandos ni actualizaciones si un componente falla.
     * Recuperación: Si la UI o el gestor de chats se reinicia, pueden consultar la base de datos para recuperar el estado (por ejemplo, los últimos mensajes o comandos pendientes).
     * Reintentos: Configura las colas con reintentos automáticos (por ejemplo, en RabbitMQ) para manejar fallos temporales.
-2. Optimizaciones
+* **Optimizaciones**
     * Índices en la base de datos: Crea índices en `commands.command_id`, `updates.update_id`, y `messages.chat_id` para acelerar consultas.
     * Colas separadas por usuario: Usa colas específicas por `session_id` o `user_id` para escalar en sistemas multiusuario.
     * Limpieza de datos: Implementa un mecanismo para eliminar comandos y actualizaciones procesados después de un tiempo (por ejemplo, con una tarea programada).
