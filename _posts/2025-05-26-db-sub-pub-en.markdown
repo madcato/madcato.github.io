@@ -11,6 +11,7 @@ lang-ref:   db-sub-pub
 > I saw this architecture in action in a logistics system that provided services to both operator terminals and electronic hardware for machine control. I was surprised by how resilient it was to the many issues and failures we encountered.
 
 The basic idea is as follows: The entire control system runs on different processes across different machines within the same network. In this network, a server stored all data in a single centralized database. When a process identified a new task that another service needed to complete, it created a new entry in a specific table, storing all the task data. Subsequently, it sent a network notification to the service, indicating that a new task needed to be completed.
+
 It may seem illogical to not use the same network communication to both notify the task and transmit the data to be processed. Instead, the data was stored in a table in a "pending" state. This might appear to be a waste of resources until you consider the need to build systems that are resilient to failures.
 
 # Why is DB+Pub/Sub a good choice?
@@ -35,7 +36,7 @@ In this architecture, the database stores messages and communication state, whil
     - Acts as a notification mechanism to “wake up” components when new data is available in the database.
     - Example technologies: RabbitMQ, Kafka, or Redis (using its queue or Pub/Sub capabilities).
     - Each component (chat manager, UI) has its own queue to receive notifications.
-* Communication Flow:
+* **Communication Flow**:
     - From UI to data manager:
       - The UI writes a command (e.g., `{ "type": "select_chat", "chat_id": "123" }`) to the database (in a table like `commands`).
       - The UI publishes a message to the chat manager’s queue (e.g., “new command to process”).
