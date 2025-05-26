@@ -58,6 +58,7 @@ Here’s a detailed outline for implementing a communication example between a c
         - Table `commands`: Stores UI commands (`command_id`, `type`, `data`, `status`, `timestamp`).
         - Table `updates`: Stores chat manager updates (`update_id`, `type`, `data`, `chat_id`, `timestamp`).
     - PostgreSQL example:
+
 ```sql
 CREATE TABLE chats (
     chat_id VARCHAR(50) PRIMARY KEY,
@@ -89,6 +90,7 @@ CREATE TABLE updates (
     timestamp TIMESTAMP
 );
 ```
+
 * **Queue System**
     - Suggested technology: RabbitMQ (easy to use, robust) or Redis (lighter, with Pub/Sub or queues).
     - Queues:
@@ -103,6 +105,7 @@ CREATE TABLE updates (
         - Upon receiving a notification, queries the `commands` table, processes the command (e.g., selects a chat), and updates the database state.
         - When generating an update (e.g., a new message), writes it to the `updates` table and publishes a notification to the `ui_updates` queue.
     - Python example with RabbitMQ:
+
 ```python
 import pika
 import psycopg2
@@ -139,12 +142,14 @@ def callback(ch, method, properties, body):
 channel.basic_consume(queue="ui_commands", on_message_callback=callback, auto_ack=True)
 channel.start_consuming()
 ```
+
 * **UI** (in Swift)
     - Functionality:
         - Listens to the `ui_updates` queue.
         - Upon receiving a notification, queries the `updates` table and updates the interface (e.g., adds a new message).
         - When the user performs an action (e.g., selects a chat), writes the command to the `commands` table and publishes a notification to the `ui_commands` queue.
     - Swift example with Redis (using SwiftRedis):
+
 ```swift
 import SwiftRedis
 import Foundation
@@ -180,6 +185,7 @@ class ChatViewModel: ObservableObject {
     }
 }
 ```
+
 * **Resilience**
     - Persistence: Data in the `commands` and `updates` tables ensures no commands or updates are lost if a component fails.
     - Recovery: If the UI or chat manager restarts, they can query the database to recover state (e.g., recent messages or pending commands).
