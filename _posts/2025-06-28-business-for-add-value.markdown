@@ -2,7 +2,7 @@
 layout:     post
 title:      "Building Value First"
 subtitle:   "How Isaac Carasso’s Vision for Danone Shaped a Legacy"
-date:       2025-06-28 07:00:00
+date:       2025-06-28 03:00:00
 author:     "Daniel Vela"
 locale:     en
 lang-ref:   business-for-add-value
