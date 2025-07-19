@@ -1,7 +1,4 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
 
 @import
-  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
-  "minima/initialize";
+  "/Users/danielvela/projects/madcato.github.io/_sass/minima/skins/classic.scss",
+  "/Users/danielvela/projects/madcato.github.io/_sass/minima/initialize";
