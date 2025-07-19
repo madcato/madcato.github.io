@@ -29,6 +29,7 @@ layout: base
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
+            <sub>{{ post.subtitle | escape }}</sub>
           </a>
         </h3>
         {%- if site.minima.show_excerpts -%}
