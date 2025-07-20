@@ -27,7 +27,7 @@ layout: base
       <li>
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <a class="post-link" href="{{ post.url | relative_url }}">
-          <h1>{{ post.title | escape }}</h1>
+          <h2>{{ post.title | escape }}</h2>
           <h3>{{ post.subtitle | escape }}</h3>
         </a>
         {%- if site.minima.show_excerpts -%}
